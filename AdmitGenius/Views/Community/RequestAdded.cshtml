@@ -1,0 +1,108 @@
+﻿@model AdmitGenius.Models.Community
+
+
+<style>
+    .community-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .community-card {
+        padding: 30px;
+        margin: 30px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0px 0px 75px -25px rgba(107, 107, 107, 1);
+        -moz-box-shadow: 0px 0px 75px -25px rgba(107, 107, 107, 1);
+        box-shadow: 0px 0px 35px -25px rgb(0 203 255 / 47%);
+        border: 0.5px solid #0f2e8f42;
+        background-image: radial-gradient(circle 935px at 3.1% 5.8%, rgb(14 201 241 / 5%) 0%, rgb(0 13 255 / 1%) 100.2%);
+    }
+
+
+    .community-header {
+        display: flex;
+        gap: 20px;
+    }
+
+    .community-image {
+        width: 155px;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+        .community-image img {
+            width: 100%;
+            object-fit: contain;
+        }
+
+    .community-details {
+        flex-grow: 1;
+    }
+
+    .community-title {
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .community-description {
+        width: 100%;
+        margin: 20px 0px;
+    }
+
+    .community-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .community-members {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .join-button {
+        color: blue;
+    }
+
+</style>
+
+
+<div class="community-card">
+
+    <div class="community-header">
+        @if (@Model.CommunityImage != null)
+        {
+            <div class="community-image">
+                <img src="@Model.CommunityImage" alt="Community Image">
+            </div>
+        }
+
+        <div class="community-details">
+            <h1 class="community-title">@Model.CommunityName</h1>
+            <p>Created on @Model.CommunityCreationDate by @Model.GroupAdminName</p>
+        </div>
+    </div>
+
+    <div class="community-description">
+        <p>@Model.CommunityDescription</p>
+    </div>
+
+    <div class="community-footer">
+        <div class="community-members">
+            <i class="fa-solid fa-user"></i>
+
+            <p>500+ Members</p>
+
+        </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;align-items:center">
+        <h1 style="font-size: 22px;font-weight: bold;color: #018703;text-align: center;margin-top: 5rem;">
+            <i style="color:#00ff03" class="fas fa-check-circle"></i>    Request For joining @Model.CommunityName community has been sent to the @Model.GroupAdminName
+
+        </h1>
+    </div>
+
+</div>

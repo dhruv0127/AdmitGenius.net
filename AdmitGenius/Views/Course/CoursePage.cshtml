@@ -1,0 +1,719 @@
+﻿@model AdmitGenius.Models.ViewModels.CourseViewModel
+
+
+
+    <style>
+
+    .customForm1 {
+        display: flex;
+        margin-left: 114px;
+        margin-right: 114px;
+        margin-top: 50px;
+    }
+
+
+
+        *{
+            font-family: 'roboto',sans-serif !important;
+        }
+
+        /*video*/
+        iframe{
+            border-radius: 10px;
+        }
+
+        @@media screen and (width<=786px) {
+            iframe{
+                width: 15rem;
+                height: 10rem;
+                border-radius: 5px;
+            }
+        }
+        
+        /*carousel*/
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            background: url("http://digital.bnint.com/filelib/s9/photos/white_wood_4500x3000_lo_res.jpg");
+        }
+
+        .carousel {
+            position: relative;
+        }
+
+        .carousel-inner {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-open:checked + .carousel-item {
+            position: static;
+            opacity: 100;
+        }
+
+        .carousel-item {
+            position: absolute;
+            opacity: 0;
+            -webkit-transition: opacity 0.6s ease-out;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .carousel-item img {
+            display: block;
+            height: auto;
+            max-width: 100%;
+        }
+
+        .carousel-control {
+            background-color: #F1F5F9;
+            border-radius: 50%;
+            color: #000;
+            cursor: pointer;
+            display: none;
+            font-size: 40px;
+            height: 40px;
+            line-height: 35px;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translate(0, -50%);
+            cursor: pointer;
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            text-align: center;
+            width: 40px;
+            z-index: 10;
+        }
+
+        .carousel-control.prev {
+            left: 2%;
+        }
+
+        .carousel-control.next {
+            right: 2%;
+        }
+
+        .carousel-control:hover {
+            background-color: #F1F5F9;
+            color: #aaaaaa;
+        }
+
+        #carousel-1:checked ~ .control-1,
+        #carousel-2:checked ~ .control-2,
+        #carousel-3:checked ~ .control-3 {
+            display: block;
+        }
+
+        .carousel-indicators {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            bottom: 2%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .carousel-indicators li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .carousel-bullet {
+            color: #fff;
+            cursor: pointer;
+            display: block;
+            font-size: 35px;
+        }
+
+        .carousel-bullet:hover {
+            color: #aaaaaa;
+        }
+
+        #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+        #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+        #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+            color: #428bca;
+        }
+
+        #title {
+            width: 100%;
+            position: absolute;
+            padding: 0px;
+            margin: 0px auto;
+            text-align: center;
+            font-size: 27px;
+            color: rgba(255, 255, 255, 1);
+            font-family: 'Open Sans', sans-serif;
+            z-index: 9999;
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
+        }
+
+        /*FAQs*/
+        .faq-container {
+            margin: auto;
+            width: 60%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .faq-item {
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            }
+
+            .faq-item:last-child {
+            border-bottom: none;
+            }
+
+            .faq-question {
+            color: #2563EB;;
+            font-size: 18px;
+            padding-bottom: 3px;
+            padding-top: 3px;
+            }
+
+            .fa,
+            .fas {
+                font-family: 'FontAwesome';
+                font-weight: 400;
+                font-size: 1.2rem;
+                font-style: normal;
+            }
+
+            .faq-answer {
+            font-size: 16px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            text-align: left;
+            }
+
+            .faq-answer.active {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            }
+
+            .icon-container i {
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            }
+
+            .icon-container i.active {
+            transform: rotate(45deg);
+            }
+
+            .hero h3 span {
+                padding-right: 10px;
+                padding-left: 10px;
+                background: linear-gradient(to right,#F56C19 0%,#DA1B60 50%);
+                color: #6e0606;
+                border-radius: 15px;
+            }
+
+            .hero .para{
+                font-family: 'Montserrat', sans-serif;
+                font-family: 'roboto',sans-serif;
+            }
+
+            @@media screen and (width<=786px) {
+                .hero button{
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    padding: 2px 4px;
+                }
+
+        .customForm1 {
+            display: flex;
+            margin-left: 114px;
+            margin-right: 114px;
+            margin-top: 50px;
+        }
+    }
+    </style>
+
+    <!--hero section-->
+    <section class="hero relative">
+        <div class="img-container relative" style="height: 100vh;">
+            <div class="bg-gradient-to-b from-transparent to-black absolute inset-0"></div>
+            <div style="height: 100vh;object-fit: cover;display: flex;">
+                <img style="object-fit: cover;" width="100%" src="@Model.CourseDetails.CourseImage">
+            </div>
+
+            <!--university intro container-->
+            <div class="absolute bottom-0 left-0 right-0 px-4 py-2 text-white" style="    margin-left: 5rem;
+                        margin-bottom: 4rem;">
+                @if (Model != null)
+                {
+                    <h2 class="text-center max-w-xs mb-2" style="color: #07009a;"> @Model.CourseDetails.University.UniversityCountry</h2>
+                }
+                else
+                {
+                    <p>Details not found</p>
+                }
+
+                <h3 class="text-sm font-bold tracking-tight text-white max-w-xl sm:text-6xl" style="    display: inline;">
+                    Learn <span class="font bold">@Model.CourseDetails.CourseName</span><br> From
+                    
+                    @if (Model != null)
+                    {
+                        @Model.CourseDetails.University.UniversityName
+                    }
+                    else
+                    {
+                        <p>Details not found.</p>
+                    }
+
+                </h3>
+                <p class="text-sm para text-white-900 body-font sm:text-xl max-w-xl">
+                    Contrary to popular belief, Lorem Ipsum is not simply
+                    random text. It has roots in a piece of classical Latin literature from 45 BC.
+                </p>
+            
+                <form method="post" asp-action="Enroll" asp-controller="Course">
+                    <button type="submit" class="inline-flex items-center text-white bg-blue-900 border-0 py-2 px-6 focus:outline-none hover:bg-blue-800 rounded text-lg">Enroll in Course</button>
+                </form>
+            </div>
+        </div>
+    </section>
+<!--course highlights-->
+<section class="text-gray-900 body-font bg-cover m-0 p-2" style="background-image: url('https://yourbucketname.s3.amazonaws.com/bloodBG.png');">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col-reverse items-center">
+        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+            <h3 class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-left p-2 m-4">About Course</h3>
+            <div align="justify" class="max-w-4xl text-left p-2 m-4">
+                @Model.CourseDetails.CourseDescription
+            </div>
+            <div class="flex justify-center">
+                <a class="text-center text-indigo-500 inline-flex items-center mt-4 font-medium sm:w-full leading-relaxed text-base sm:pl-6 pl-0" style="color:#2563EB;">
+                    Explore teachers and students
+                    <svg fill="none" stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="m-8">
+            <iframe height="400px" width='700px' class="sm:max-w-full" src="https://www.youtube.com/embed/z0n1aQ3IxWI" title="What is Web Development ? Complete RoadMap from Basics to Advanced | 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+
+<section style="display:flex;flex-direction:row;justify-content: space-around; padding:20px">
+
+    <!--LEFT-->
+    <div style="width:50%;margin: 20px;display: flex;align-items: center;flex-direction: column;">
+        <h3 class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-left p-2 m-4" style="font-size: 35px;color: darkblue;">
+            What You Will Learn
+        </h3>
+
+        <div style="width: 100%;">
+            <div style="background-color: #ffffff;padding: 20px;border-radius: 5px;border: 1px solid #80808045;box-shadow: 0px 0px 2px 2px #bdbbbb42;cursor: pointer;">
+                <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Learn</span>
+
+                <p class="font-normal text-gray-700 dark:text-gray-400"> @Model.CourseDetails.WhatWillYouLearn </p>
+            </div>
+        </div>
+        <div style="display: flex;flex-direction: column;width:100%;align-items: center;">
+            <h3 style="font-size: 35px;color: darkblue;margin-bottom: 0;margin-top: 20px;" class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-left p-2 m-4">Intake</h3>
+            <div style="display: flex;width:100%;align-items: center;">
+
+
+                <div style="width: 100%;margin: 10px;">
+                    <div style="background-color: #ffffff;padding: 20px;border-radius: 5px;border: 1px solid #80808045;box-shadow: 0px 0px 2px 2px #bdbbbb42;cursor: pointer;">
+                        <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Intake 1</span>
+
+                        <p class="font-normal text-gray-700 dark:text-gray-400"> Open Date : </p>
+                        <p>@Model.CourseDetails.CourseStartingDateIntake1</p>
+                        <hr />
+                        <p class="font-normal text-gray-700 dark:text-gray-400">Deadline : </p> 
+                        <p>@Model.CourseDetails.CourseEnrollDeadlineIntake1</p>
+                    </div>
+                </div>
+                <div style="width: 100%;margin: 10px;">
+                    <div style="background-color: #ffffff;padding: 20px;border-radius: 5px;border: 1px solid #80808045;box-shadow: 0px 0px 2px 2px #bdbbbb42;cursor: pointer;">
+                        <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Intake 2</span>
+
+                        <p class="font-normal text-gray-700 dark:text-gray-400"> Open Date : </p>
+                        <p>@Model.CourseDetails.CourseStartingDateIntake2</p>
+                        <hr/>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">Deadline : </p>
+                        <p>@Model.CourseDetails.CourseEnrollDeadlineIntake2</p>
+                    </div>
+                </div>
+                <div style="width: 100%;margin: 10px;">
+                    <div style="background-color: #ffffff;padding: 20px;border-radius: 5px;border: 1px solid #80808045;box-shadow: 0px 0px 2px 2px #bdbbbb42;cursor: pointer;">
+                        <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Intake 3</span>
+
+                        <p class="font-normal text-gray-700 dark:text-gray-400"> Open Date : </p>
+                        <p>@Model.CourseDetails.CourseStartingDateIntake3</p>
+                        <hr/>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">Deadline : </p>
+                        <p>@Model.CourseDetails.CourseEnrollDeadlineIntake3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--RIGHT-->
+    <div style="width: 50%;margin: 20px;">
+
+        <div style="display: flex;flex-direction: column;width:100%;align-items: center;">
+            <h3 style="font-size: 35px;color: darkblue;" class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-left p-2 m-4">What You Will Require</h3>
+            <div style="width: 100%;">
+                <div style="background-color: #ffffff;padding: 20px;border-radius: 5px;border: 1px solid #80808045;box-shadow: 0px 0px 2px 2px #bdbbbb42;cursor: pointer;">
+                    <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Require</span>
+
+                    <p class="font-normal text-gray-700 dark:text-gray-400">Minimum Graduation @Model.CourseDetails.CourseMinimumRequirements : Minimum Percentage @Model.CourseDetails.MinimumRequirementsJapan % or @Model.CourseDetails.MinimumRequirementsUS Grade(US)
+                        <br/>
+                        ACT : @Model.CourseDetails.ACT
+                        SAT : @Model.CourseDetails.SAT
+                        GRE : @Model.CourseDetails.GRE
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;width: 100%;">
+
+                <div class="flex items-center mb-5">
+                    <p class="bg-blue-100 text-blue-800 text-sm font-semibold inline-flex items-center p-1.5 rounded dark:bg-blue-200 dark:text-blue-800" style="
+                    margin-right: 10px;">8.7</p>
+                    <p class="ms-2 font-medium text-gray-900 dark:text-white">Language Exam Score</p>
+                    <span class="w-1 h-1 mx-2 bg-gray-900 rounded-full dark:bg-gray-500"></span>
+                    <a href="#" class="ms-auto text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">English</a>
+                </div>
+                <div style="width: 100%;">
+                    
+
+
+                    @{
+                        double? tofel, pte, ielts, tofelper, ieltsper, pteper;
+
+                        @if(Model.CourseDetails.TOFEL != null)
+                        {
+                            tofel = Model.CourseDetails.TOFEL ;
+                            tofelper = tofel * 10;
+                        }
+                        else
+                        {
+                            tofelper = tofel = 0;
+                        }
+
+                        @if (Model.CourseDetails.IELTS != null)
+                        {
+                            ielts = Model.CourseDetails.IELTS ;
+                            ieltsper = ielts * 10;
+                        }
+                        else
+                        {
+                            ieltsper = ielts = 0;
+                        }
+
+
+                        @if (Model.CourseDetails.PTE != null)
+                        {
+                            pte = Model.CourseDetails.PTE;
+                            pteper = pte * 10;
+                        }
+                        else
+                        {
+                            pteper = pte = 0;
+                        }
+
+                     }
+                       
+                        
+                    
+    
+
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">IELTS</p>
+                    <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                        <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: @ieltsper%"></div>
+                    </div>
+                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">@ielts</span>
+
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">PTE</p>
+                    <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                        <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: @pteper%"></div>
+                    </div>
+                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">@pte</span>
+
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">TOEFL</p>
+                    <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
+                        <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500" style="width: @tofelper%"></div>
+                    </div>
+                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">@tofel</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<section style="display:flex;flex-direction:row;justify-content: space-around; padding:20px">
+    <form style="margin-right: 20px;width:100%" method="post" action="/Course/Enroll">
+        <!--LEFT-->
+        <div style="width: 100%;margin: 20px;display: flex;align-items: center;flex-direction: column;">
+            <h3 class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-left p-2 m-4" style="font-size: 35px;color: darkblue;">Enroll</h3>
+
+
+            <div style="width: 100%;">
+                <div style="background-color: #ffffff;padding: 20px;border-radius: 5px;border: 1px solid #80808045;box-shadow: 0px 0px 2px 2px #bdbbbb42;cursor: pointer;">
+                    <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Counsilor</span>
+                    <div style="display: flex;flex-direction: row;align-content: center;align-items: center; justify-content: space-between;">
+                        <h3 class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-left p-2 m-4" id="selectedCounselorFirstName" style="font-size: 35px;color: darkblue;margin: 0;">
+                            Select The Counselor
+                        </h3>
+                        <div class="flex justify-center">
+                            <!-- Add a hidden field for CourseId -->
+                            <input type="hidden" name="courseId" value="@Model.CourseDetails.CourseId" />
+
+                            <!-- Dropdown for selecting a counselor -->
+                            <div class="section" style="justify-content: center; display: flex; margin-bottom: 40px;">
+                                <button id="dropdownCounselorButton" data-dropdown-toggle="dropdownCounselor" data-dropdown-placement="bottom" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Select Counselor <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" /></svg></button>
+
+                                <!-- Dropdown menu for counselor selection -->
+                                <div id="dropdownCounselor" class="z-10 hidden bg-white rounded-lg shadow w-60 dark:bg-gray-700">
+                                    <ul class="h-48 py-2 overflow-y-auto text-gray-700 dark:text-gray-200" aria-labelledby="dropdownCounselorButton">
+                                        <!-- You can dynamically populate this list based on your counselor data -->
+                                        @foreach (var counselor in Model.Counselors)
+                                        {
+                                            <li>
+                                                <a class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" data-counselor-email="@counselor.CounselorEmail" onclick="selectCounselor(this)">
+                                                    <img style="object-fit: cover;margin-right: 10px;" class="w-6 h-6 me-2 rounded-full" src="@counselor.CounselorProfilePicture" alt="@counselor.CounselorFirstName image">
+                                                    @counselor.CounselorFirstName
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Add a hidden field for selected counselor -->
+                            <input type="hidden" name="counselorEmailId" id="selectedCounselorEmailId" value="" />
+
+                        </div>
+                    </div>
+                    <a asp-action="CounsilorPage" asp-controller="Counsilor" style="color: #7e7eff;">Browse Counsilor</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="section" style="justify-content: center; display: flex; margin-bottom: 40px;">
+            <button type="submit" class="inline-flex items-center text-white bg-blue-900 border-0 py-2 px-6 focus:outline-none hover:bg-blue-800 rounded text-lg">Enroll in Course</button>
+        </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Fi-JQqxDelEsfvS6KVxHHj1CTIZJHAiuny0IwAUp2orKElmRvnfT6E8bZhK6EdHxX2p4yr-99d5m_GpuG8gjJ9VhdmGTSwkxDLPg5t0ggagtA5PANZ43vEJvsHbl16caEnpHxm2GRNPWwA_w33wmB0">
+    </form>
+
+    <div style="width:50%;margin: 20px;display: flex;align-items: center;flex-direction: column;">
+        <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Counsilor</span>
+        <h3 class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-left p-2 m-4" style="font-size: 35px;color: darkblue;margin:0">Fees</h3>
+
+        <div style="width: 100%;">
+            <div style="background-color: #ffffff;padding: 20px;border-radius: 5px;border: 1px solid #80808045;box-shadow: 0px 0px 2px 2px #bdbbbb42;cursor: pointer;">
+                <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Fees</span>
+
+                <div style="display: flex;justify-content: flex-start;align-items: center;margin: 10px;margin-bottom: 35px;">
+                    <img src="https://yourbucketname.s3.amazonaws.com/uniicon.png" style="max-width: 30px;max-height: 30px;">
+                    <p style="font-size: 20px;font-weight: 600;margin-left: 20px;">Tution Fees: $@Model.CourseDetails.CourseFees</p>
+                </div>
+
+                <div style="display: flex;justify-content: flex-start;align-items: center;margin: 10px;margin-bottom: 35px;">
+                    <img src="https://yourbucketname.s3.amazonaws.com/money.png" style="max-width: 30px;max-height: 30px;">
+                    <p style="font-size: 20px;font-weight: 600;margin-left: 20px;">Application Fees: $@Model.CourseDetails.ApplicationFee</p>
+                </div>
+
+                <div style="display: flex;justify-content: flex-start;align-items: center;margin: 10px;">
+                    <img src="https://yourbucketname.s3.amazonaws.com/credit.png" style="max-width: 30px;max-height: 30px;">
+                    <p style="font-size: 20px;font-weight: 600;margin-left: 20px;">Cost Per Year: $@Model.CourseDetails.CostOFLiving</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<script src="https://kit.fontawesome.com/cd2a33f722.js" crossorigin="anonymous"></script>
+<script>
+   
+
+    function selectCounselor(element) {
+        var counselorEmailId = element.getAttribute('data-counselor-email');
+        document.getElementById('selectedCounselorEmailId').value = counselorEmailId;
+
+        // Update the feedback area
+        var CounselorFirstName = element.innerText.trim();
+        document.getElementById('selectedCounselorFirstName').innerText = CounselorFirstName;
+
+        // Show the feedback area
+        document.getElementById('selectedCounselorFeedback').style.display = 'flex';
+    }
+</script>
+
+
+
+<div class="antialiased bg-gray-200 text-gray-900 font-sans p-6">
+    <!--Search-->
+    <form class="customForm1">
+        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+
+        <div class="CustomSeacrchdiv relative" style="display: flex;justify-content: flex-start;    flex-grow: 1;
+    flex-direction: row-reverse;">
+            <input style="flex-grow:1; border-radius: 1px" type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" Search Courses, Degress... " required>
+            <button style="margin-right:8px;border-radius: 1px;background-color:darkblue " type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">FIND NOW</button>
+        </div>
+
+        <button style="margin-left: 20px;margin-top: 5px;margin-bottom: 5px;/* background: linear-gradient(to left, #040d4f 0%, #e2e6ef 100%); */border-radius: 20px;color: black;background-color: #00008b24;border: solid 2px #00009a;" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+            Filter <svg style="    margin-left: 10px;" class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+            </svg>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                </li>
+            </ul>
+        </div>
+
+    </form>
+
+    <style>
+        .courses-heading {
+            font-family: 'Roboto',sans-serif;
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+</style>
+
+    <!--Courses-heading-->
+    <div class="courses-heading">
+        <h1 style="margin-left:20px" class="text-2xl font-bold tracking-tight text-black sm:text-4xl">All Related Courses </h1>
+        <button type="button" class="bg-gray-100 text-black rounded-full py-2 px-4">@Model.RelatedCourses.Count().ToString()</button>
+    </div>
+    <div class="container mx-auto">
+        <div class="flex flex-wrap -mx-4">
+
+
+            @foreach (var course in Model.RelatedCourses)
+            {
+
+                <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+                    <div class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+                        <div class="relative pb-48 overflow-hidden">
+                            <img class="absolute inset-0 h-full w-full object-cover" src="@course.CourseImage" alt="@course.CourseImage">
+                        </div>
+                        <div class="p-4">
+                            <span style="background: #ffffd1;border: 1px solid #e8e800;" class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">@course.University.UniversityName</span>
+                            <h1 class="mt-2 "> @course.CourseEducationLevel in</h1>
+                            <h2 style="color: darkblue;" class=" mb-2  font-bold">@course.CourseName</h2>
+                            <hr />
+                            <p style=" margin: 10px 0px;max-height:200px; overflow-y:scroll; overflow-x:hidden" class="text-sm">@course.CourseDescription</p>
+                            <hr />
+                            <div class="mt-3 flex" style="display: flex; justify-content: space-between; padding-right: 10px;">
+
+                                <span style="
+                                background: #baffd5;
+                                border-radius: 20px;
+                                padding: 0 12px;
+                                border: 1px solid #00b865;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: #005f00;
+                            ">@course.CourseFees $</span>
+
+                                <span style="
+                                background: #d3e9ff;
+                                border-radius: 20px;
+                                padding: 0 12px;
+                                border: 1px solid #798fff;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: #000089;
+                            ">@course.CourseSemesters Semesters</span>
+
+                                <span style="
+                                background: #ffffd3;
+                                border-radius: 20px;
+                                padding: 0 12px;
+                                border: 1px solid #e6e600;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            ">@course.CourseDuration Months</span>
+
+                            </div>
+
+                        </div>
+                        <div class="p-4 border-t border-b text-xs text-gray-700">
+                            <span class="flex items-center">
+                                <i class="far fa-address-card fa-fw text-gray-900 mr-2"></i>Enroll DeadLine @course.CourseEnrollDeadlineIntake1.ToString("yyyy-MM-dd")
+                            </span>
+                            <span class="flex items-center">
+                                <i class="far fa-address-card fa-fw text-gray-900 mr-2"></i>Course Staring Date @course.CourseEnrollDeadlineIntake1.ToString("yyyy-MM-dd")
+                            </span>
+                        </div>
+                        <div class="p-4 border-t border-b text-xs text-gray-700">
+                            <a asp-action="CoursePage" asp-controller="Course" asp-route-courseID="@course.CourseId" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                                Learn More
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+    <div class="section" style="justify-content: center;display: flex;margin-bottom: 40px;">
+
+        <button class="inline-flex items-center text-white bg-blue-900 border-0 py-2 px-6 focus:outline-none hover:bg-blue-800 rounded text-lg">
+            View All Courses
+            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+            </svg>
+        </button>
+
+    </div>
+</div>
+
+
+

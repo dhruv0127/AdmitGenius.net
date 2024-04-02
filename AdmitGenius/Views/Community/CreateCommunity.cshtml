@@ -1,0 +1,287 @@
+﻿@model AdmitGenius.Models.ViewModels.AddCommunity
+
+@{
+    ViewData["Title"] = "CreateCommunity";
+}
+
+
+
+<script>
+    // Function to preview the selected image
+    function previewImage(input) {
+        var file = input.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('preview').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+<style>
+
+    * {
+        font-family: 'roboto', sans-serif !important;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        flex: 1;
+    }
+
+    .header-container {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+    }
+
+    .lower-section {
+        margin: 0rem;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+        justify-content: center;
+        /* border: 2px solid black; */
+    }
+
+    form {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0rem auto;
+    }
+
+    .text-input {
+        width: 30vw;
+        padding: 0.5rem;
+        margin-bottom: 2rem;
+        border-radius: 4px;
+        border: 1px solid #D2D2D2;
+        /* box-sizing: border-box; */
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: black;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 1rem;
+    }
+
+    .submitbtn {
+        margin: 0.5rem;
+        padding: 0.5rem 1rem;
+        background-color: black;
+        border-radius: 5rem;
+        width: 100%;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        align-self: center;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+        .submitbtn:hover {
+            background-color: #2E2E2E;
+            cursor: pointer;
+        }
+
+    .remember {
+        width: 30vw;
+    }
+
+    .right-container {
+        display: flex;
+        justify-content: center;
+        max-width: fit-content;
+        height: 90vh;
+        padding-right: 10%;
+    }
+
+    .left-container {
+        /* border: 2px solid black; */
+        height: 100%;
+    }
+
+    .continue {
+        border: 1px solid rgb(173, 173, 173);
+        padding: 0.5rem;
+        width: 30vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+
+    #google-icon {
+        height: 20px;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    #google-link {
+        font-size: 0.9rem;
+    }
+
+    .welcome {
+        font-weight: bolder;
+        font-size: 1.8rem;
+    }
+
+    .welcome-text {
+        font-size: 0.8rem;
+        margin-bottom: 25px;
+    }
+
+    .header-item {
+        flex: 1;
+        box-sizing: border-box;
+    }
+
+    .upper-section h2 {
+        font-size: xx-large;
+        font-weight: bolder;
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(to right, #06348E 0%, #9B099E 20%, #6F0028 70%);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    @@media screen and (min-width: 600px) {
+        .flex-container {
+            flex-direction: column;
+        }
+
+        .header-item {
+            width: 100%;
+        }
+    }
+
+
+    @@media screen and (min-width: 900px) {
+        .flex-container {
+            flex-direction: column;
+        }
+    }
+
+
+    @@media screen and (width<=786px) {
+        .upper-section {
+            text-align: center;
+            font-size: medium;
+        }
+
+        .left-container {
+            width: 100%;
+        }
+
+        .lower-section {
+            margin: 0rem;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        .text-input, .continue, .remember {
+            width: 80vw;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lower-section {
+            align-items: center;
+        }
+    }
+
+
+    /*or divider*/
+    .or-divider {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .or-line {
+        flex: 1;
+        height: 1px;
+        background-color: rgb(21, 15, 15);
+        margin: 0 10px;
+    }
+
+    .or-text {
+        font-weight: bold;
+        color: #333;
+    }
+
+    @@media screen and (width<=786px) {
+        .footer {
+            position: sticky;
+        }
+
+        .logo {
+            font-size: 18px;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .footer p {
+                margin-bottom: 8px;
+            }
+    }
+</style>
+<div class="upper-section">
+    <h2 style="text-align:center" class="mt-6">Create Community</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateCommunity" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @* <label asp-for="CommunityName" class="control-label"></label> *@
+                <input class="text-input" placeholder="Community Name" asp-for="CommunityName" class="form-control" />
+                @* <span asp-validation-for="CommunityName" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                @* <label asp-for="CommunityDescription" class="control-label"></label> *@
+                <input class="text-input" placeholder="Community Description" asp-for="CommunityDescription" class="form-control" />
+                @* <span asp-validation-for="CommunityDescription" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                @* <label asp-for="CommunityImage" class="control-label"></label> *@
+                <input type="file" class="text-input" placeholder="Community Image" asp-for="CommunityImage" name="CommunityImage" id="CommunityImage" class="form-control" />
+                @* <span asp-validation-for="CommunityImage" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary submitbtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

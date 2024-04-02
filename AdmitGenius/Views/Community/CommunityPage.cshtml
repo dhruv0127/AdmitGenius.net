@@ -1,0 +1,113 @@
+﻿
+
+<style>
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .customForm1 {
+        display: flex;
+    }
+  
+    .custom-btn {
+        background-color: darkblue;
+        border-color: darkblue;
+    }
+
+    .community-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .community-item {
+        display: flex;
+        flex-direction: row;
+        margin: 1rem;
+        padding: 2rem;
+        width: 89%;
+        color: white;
+        background: linear-gradient(to right, darkblue, purple);
+    }
+
+    .rightside {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+   
+</style>
+
+
+
+<div style ="background-color: #e5e7eb;padding-left: 114px;padding-right: 114px;padding-top: 30px;padding-bottom: 30px;">
+
+    <form class="customForm1">
+        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+
+        <div class="CustomSeacrchdiv relative" style="display: flex;justify-content: flex-start;    flex-grow: 1;
+    flex-direction: row-reverse;">
+            <input style="flex-grow:1; border-radius: 1px" type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" Search Courses, Degress... " required>
+            <button style="margin-right:8px;border-radius: 1px;background-color:darkblue " type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">FIND NOW</button>
+        </div>
+
+        <button style="margin-left: 20px;margin-top: 5px;margin-bottom: 5px;/* background: linear-gradient(to left, #040d4f 0%, #e2e6ef 100%); */border-radius: 20px;color: black;background-color: #00008b24;border: solid 2px #00009a;" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+            Filter <svg style="    margin-left: 10px;" class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+            </svg>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </form>
+
+</div>
+
+
+
+<section class="community-container">
+
+    <div class="community-items">
+        
+        <div class="community-item rounded-pill">
+            <div style="width: 50px; margin-right: 10px;">
+                <img style="border-radius: 20px;" src="~/images/dummyprofile.jpg" />
+            </div>
+
+            <div>
+                <h3><strong>ABC</strong></h3>
+                <p style="color: #ececec">Dhruv Parekh: Which is the best place to learn DSA?</p>
+            </div>
+
+            <div class="rightside">
+                <p style="text-align: center;width: 35px;height: 35px;border-radius: 20px;background-color: #110089;padding: 5px;">3</p>
+                <p>12:30 AM</p>
+            </div>
+        </div>
+
+        <div class="community-item rounded-pill">
+            <h3><strong>ABC</strong></h3>
+            <P>Dhruv Parekh : Which is best place to learn DSA?   </P>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,261 @@
+﻿@model List<StudentEnrollRequest>
+
+@{
+    Layout = "_LayoutWithoutHeaderAndFooter";
+}
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+<style>
+    /* Add your existing styles here */
+
+    .container {
+        margin-left: 30rem;
+        width: 70%;
+    }
+
+    .dashboard {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .dashboard-links {
+        padding-top: 30px;
+        width: 30rem;
+        height: 100vh;
+        background-color: #EFF3F7;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+        .dashboard-links ul {
+            padding-inline-start: 0;
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-self: center;
+        }
+
+            .dashboard-links ul li svg {
+                margin-right: 1rem;
+            }
+
+        .dashboard-links li {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            text-decoration: none;
+            font-weight: bolder;
+            padding: 1.5rem;
+            margin: 1rem;
+            max-width: inherit;
+        }
+
+            .dashboard-links li:nth-child(3) {
+                border-bottom: none;
+            }
+
+            .dashboard-links li :hover {
+                color: rgb(5, 5, 204);
+                cursor: pointer;
+            }
+
+            .dashboard-links li a {
+                text-decoration: none;
+                color: darkblue;
+            }
+
+                .dashboard-links li a :active {
+                    color: purple;
+                }
+
+    #dashboard-content {
+        margin-left: 30rem;
+        width: 70%;
+    }
+
+    /* Add your friend's styles here */
+    .heading h2 {
+        color: darkblue;
+        font-family: sans-serif;
+    }
+
+    .components {
+        height: max-content;
+        width: 60vw;
+        margin-top: 1rem;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    .component {
+        font-family: 'Roboto', sans-serif;
+        height: max-content;
+        width: 60vw;
+        background-color: darkblue;
+        border-radius: 15px;
+    }
+
+    .component-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        color: white;
+        padding: 1rem;
+        margin: 1rem;
+        text-align: left;
+        font-weight: bolder;
+        border-bottom: 1px solid #F0F508;
+    }
+
+        .component-heading .heading-images svg {
+            padding: 0.5rem;
+        }
+
+    .component-body {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .left-side p {
+        color: white;
+        font-weight: 100;
+        margin-left: 1rem;
+        padding-left: 1rem;
+    }
+
+    .right-side {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+        .right-side p {
+            color: white;
+            width: 100%;
+            font-weight: 100;
+            margin-right: 1rem;
+            padding-right: 1rem;
+        }
+
+</style>
+
+
+<section class="dashboard">
+    <div class="dashboard-links">
+        <ul>
+            <li>
+                <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.9818 5.99479L19.9766 2L26.9674 8.99088L22.9726 12.9856M15.9818 5.99479L2.41367 19.5629C2.14881 19.8277 2 20.187 2 20.5616V26.9674H8.40584C8.78043 26.9674 9.13967 26.8186 9.40454 26.5537L22.9726 12.9856M15.9818 5.99479L22.9726 12.9856" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <a asp-action="EditUniversityDetails" asp-controller="University">EDIT UNIVERSITY DETAILS</a>
+            </li>
+            <div style="height:1px ; background-color:darkblue;width: 80%"></div>
+            <li>
+                <svg width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.2342 9.16996L13.4811 2.6297C13.8979 1.7901 15.1021 1.7901 15.5189 2.6297L18.7657 9.16996L26.0269 10.2252C26.9585 10.3606 27.3297 11.4992 26.6554 12.1524L21.4021 17.2397L22.6419 24.4267C22.8011 25.3497 21.8267 26.0535 20.9931 25.6176L14.5 22.2225L8.00684 25.6176C7.17325 26.0535 6.19886 25.3497 6.35806 24.4267L7.59781 17.2397L2.34469 12.1524C1.67021 11.4992 2.04153 10.3606 2.97315 10.2252L10.2342 9.16996Z" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <a asp-action="AddNewCourses" asp-controller="University">ADD NEW COURSES</a>
+            </li>
+            <div style="height:1px ; background-color:darkblue;width: 80%"></div>
+            <li>
+                <svg width="29" height="32" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 30.5714V28.7857C2 21.8821 7.59645 16.2857 14.5 16.2857C21.4036 16.2857 27 21.8821 27 28.7857V30.5714" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14.5003 16.2857C18.4451 16.2857 21.6431 13.0877 21.6431 9.14286C21.6431 5.19796 18.4451 2 14.5003 2C10.5554 2 7.35742 5.19796 7.35742 9.14286C7.35742 13.0877 10.5554 16.2857 14.5003 16.2857Z" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <a asp-action="ReviewStudents" asp-controller="University">REVIEW STUDENTS</a>
+            </li>
+            <div style="height:1px ; background-color:darkblue;width: 80%"></div>
+            <li>
+                <svg width="29" height="32" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 30.5714V28.7857C2 21.8821 7.59645 16.2857 14.5 16.2857C21.4036 16.2857 27 21.8821 27 28.7857V30.5714" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14.5003 16.2857C18.4451 16.2857 21.6431 13.0877 21.6431 9.14286C21.6431 5.19796 18.4451 2 14.5003 2C10.5554 2 7.35742 5.19796 7.35742 9.14286C7.35742 13.0877 10.5554 16.2857 14.5003 16.2857Z" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <a asp-action="ApprovedStudents" asp-controller="University">APPROVED STUDENTS</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="dashboard-content">
+        <h2>Pending Enrollments</h2>
+
+        @if (Model.Any())
+        {
+            <div class="components">
+                @foreach (var enrollment in Model)
+                {
+                    <div class="component">
+                        <div class="component-heading">
+                            <h2 style="    font-size: 25px;">
+                                
+                                @if (@enrollment.Student.resumePrefrence == "pdf")
+                                {
+
+                                    <a href="@enrollment.Student.resumeFileString"><i class="fas fa-file-alt"></i>@enrollment.Student.UserName</a>
+                                }
+                                else
+                                {
+
+                                    <a asp-action="Resume" asp-controller="StudentProfile" asp-route-userId="@enrollment.Student.UserId"><i class="fas fa-file-alt"></i>@enrollment.Student.UserName</a>
+                                }
+                            </h2>
+                            <div class="heading-images" style="flex-direction: row; display: flex;">
+                                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M28.6667 2H5.33333C3.49238 2 2 3.49238 2 5.33333V28.6667C2 30.5077 3.49238 32 5.33333 32H28.6667C30.5077 32 32 30.5077 32 28.6667V5.33333C32 3.49238 30.5077 2 28.6667 2Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M8.66602 8.66667H25.3327" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M8.66602 17H25.3327" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M8.66602 25.3333H18.666" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <svg width="32" height="34" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30.2936 16.0639L16.917 29.4405C15.2784 31.0794 13.0557 32 10.7382 32C8.4207 32 6.1981 31.0794 4.55937 29.4405C2.92063 27.8019 2 25.5792 2 23.2617C2 20.9441 2.92063 18.7216 4.55937 17.0828L17.9359 3.70624C19.0285 2.61375 20.5102 2 22.0552 2C23.6002 2 25.082 2.61375 26.1744 3.70624C27.2669 4.79874 27.8808 6.28047 27.8808 7.82548C27.8808 9.3705 27.2669 10.8522 26.1744 11.9447L12.7833 25.3213C12.2371 25.8676 11.4962 26.1744 10.7237 26.1744C9.95117 26.1744 9.2103 25.8676 8.66406 25.3213C8.11781 24.775 7.81092 24.0343 7.81092 23.2617C7.81092 22.4892 8.11781 21.7483 8.66406 21.2021L21.0217 8.85893" stroke="#FAFAFA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="component-body">
+                            <div class="left-side">
+                                <p>Dept: @enrollment.Course.CourseDepartment</p>
+                                <p>Course: @enrollment.Course.CourseName</p>
+                                <p>Counsilor: @enrollment.CounselorEmailID</p>
+                                <!-- Add more dynamic content as needed -->
+                            </div>
+                            <div class="right-side">
+                                <p>@enrollment.DateOfRequest</p>
+                                <form asp-controller="University" asp-action="AcceptEnrollment" method="post">
+                                    <input type="hidden" name="enrollmentId" value="@enrollment.SerID" />
+                                    <button type="submit" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Approve</button>
+                                </form>
+
+                                <form asp-controller="University" asp-action="RejectEnrollment" method="post">
+                                    <input type="hidden" name="enrollmentId" value="@enrollment.SerID" />
+                                    <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Reject</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div>
+                <a asp-action="ApprovedStudents" asp-controller="University" class="btn btn-primary">View Approved Students</a>
+            </div>
+        }
+    </div>
+</section>
+
+
+@if (Model.Any())
+{
+    <div>
+        <a asp-action="ApprovedStudents" asp-controller="University" class="btn btn-primary">View Approved Students</a>
+    </div>
+}

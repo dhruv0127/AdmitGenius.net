@@ -1,0 +1,61 @@
+﻿@model Tuple<string, List<ChatMessage>>
+
+@{
+    ViewData["Title"] = "Chat";
+}
+
+<h2>Chat for @Model.Item1</h2>
+
+
+<div id="chat-box">
+    <!-- Messages will be displayed here -->
+</div>
+
+<form id="message-form">
+    <input type="text" id="message-input" placeholder="Type your message" required />
+    <button type="submit">Send</button>
+</form>
+
+@section scripts {
+    <script>
+        // Update JavaScript to join the selected group when the page loads
+        $(function () {
+            var communityId = "@Model.Item1";
+            var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub?communityId=" + communityId).build();
+
+
+            connection.start().catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            var communityId = "@Model.Item1"; // Assuming Model.Item1 is a Guid string
+            connection.invoke("JoinGroup", communityId).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            connection.on("ReceiveMessage", function (sender, message) {
+                var formattedMessage = '<p><strong>' + sender + ':</strong> ' + message + '</p>';
+                $('#chat-box').append(formattedMessage);
+            });
+
+            connection.on("ChatHistory", function (history) {
+                for (var i = 0; i < history.length; i++) {
+                    var formattedMessage = '<p><strong>' + history[i].sender + ':</strong> ' + history[i].message + '</p>';
+                    $('#chat-box').append(formattedMessage);
+                }
+            });
+
+            $('#message-form').submit(function (event) {
+                event.preventDefault();
+                var message = $('#message-input').val();
+                if (message.trim() !== '') {
+                    connection.invoke("SendMessage", communityId, "YourUsername", message).catch(function (err) {
+                        return console.error(err.toString());
+                    });
+                }
+                $('#message-input').val('');
+            });
+        });
+
+    </script>
+}

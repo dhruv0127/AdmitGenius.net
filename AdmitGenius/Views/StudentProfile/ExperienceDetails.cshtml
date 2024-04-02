@@ -1,0 +1,230 @@
+﻿@model AdmitGenius.Models.ViewModels.addExperienceViewModel
+
+
+<style>
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    label {
+        padding-left: 10px;
+    }
+
+    .formbg {
+        background-image: linear-gradient( 174.2deg, rgb(228 228 255 / 51%) 7.1%, rgba(240,246,238,1) 67.4% ); width: 100%;
+        padding: 3% 12%;
+        margin-right: 1%;
+        border-radius: 20px
+    }
+
+    form {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-control {
+        width: 30vw;
+        margin-bottom: 2rem;
+        border: 1px solid #4d20f7;
+        border-radius: 30px;
+        padding: 10px 10px 10px 15px;
+        width: 100%;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: black;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 1rem;
+    }
+
+    .submitbtn {
+        margin: 0.5rem;
+        padding: 1rem;
+        background-color: #003254;
+        border-radius: 5rem;
+        width: 100%;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        align-self: center;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+        .submitbtn:hover {
+            background-color: #2E2E2E;
+            cursor: pointer;
+        }
+</style>
+
+<div style="display:flex">
+    <!-- component -->
+    <div style="height: 100vh;" class="flex flex-col top-30 left-0 w-64 bg-white h-full">
+
+        <div class="overflow-y-auto overflow-x-hidden flex-grow">
+            <ul class="flex flex-col py-4 space-y-1">
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Menu</div>
+                    </div>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="Index" asp-controller="StudentProfile" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Dashboard</span>
+                    </a>
+                </li>
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Exams</div>
+                    </div>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="AptitudeTest" asp-controller="Eligibility" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-award"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Aptitude Test</span>
+                    </a>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="EligibilityTest" asp-controller="Eligibility" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Eligibility Test</span>
+                    </a>
+                </li>
+
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Resume Builder</div>
+                    </div>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="EducationDetails" asp-controller="StudentProfile" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-pencil"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Add Education Details</span>
+                    </a>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="ExperienceDetails" asp-controller="StudentProfile" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-pencil"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Add Experiance Details</span>
+                    </a>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="AddProject" asp-controller="StudentProfile" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-pencil"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Add Project Details</span>
+                    </a>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="resume" asp-controller="StudentProfile" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-eye"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">View Resume</span>
+                    </a>
+                </li>
+
+
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Settings</div>
+                    </div>
+                </li>
+
+                <li>
+                    <a asp-action="UpdateProfile" asp-controller="StudentProfile" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Edit User Details</span>
+                    </a>
+                </li>
+                <li>
+                    <form style="padding:inherit;margin:0;" method="post" action="@Url.Action("Logout", "Users")">
+                        <button style="width:100%" type="submit" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                            <span style="margin-left: 18px;" class="inline-flex justify-center items-center ml-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                            </span>
+                            <span class="ml-2 text-sm tracking-wide truncate">Logout</span>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <style>
+        .upper-section h2 {
+            font-size: xx-large;
+            font-weight: bolder;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, #06348E 0%, #9B099E 20%, #6F0028 70%);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+
+
+
+    <form class="formbg" asp-action="ExperienceDetails" method="post" enctype="multipart/form-data">
+
+        <div style="margin-bottom: 30px;" class="upper-section">
+            <h2 class="mt-6">Add Experiance Details</h2>
+        </div>
+
+        <p>@ViewBag.sucess</p>
+
+        <div class="form-group">
+            <input asp-for="ExpName" class="form-control" placeholder="Expeiance Name">
+        </div>
+        <div class="form-group">
+            <input asp-for="ExpPostName" class="form-control" placeholder="Post or designation">
+        </div>
+
+        Joining Date
+        <div class="form-group">
+            <input type="date" asp-for="ExpStartDate" class="form-control" placeholder="joining Date">
+        </div>
+        Leaving Date (skip if not leaved)
+        <div class="form-group">
+            <input type="date" asp-for="ExpEndDate" class="form-control" placeholder="Leaving date" data-val="false">
+        </div>
+
+
+        <div class="form-group">
+            <input asp-for="ExpComapnyName" class="form-control" placeholder="Company Name">
+        </div>
+        <div class="form-group">
+            <input asp-for="Responsibilities" class="form-control" placeholder="Responsibilities">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary submitbtn">Add Experiance</button>
+    </form>
+
+</div>
+
+
+

@@ -1,0 +1,377 @@
+﻿@model List<AdmitGenius.Models.CounselorSubscribers>
+
+
+<style>
+    .heading h2 {
+        color: darkblue;
+        font-family: 'roboto',sans-serif;
+        font-size: 30px;
+        margin-bottom: 30px
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    label {
+        padding-left: 10px;
+    }
+
+    .formbg {
+        background-image: linear-gradient( 174.2deg, rgb(228 228 255 / 51%) 7.1%, rgba(240,246,238,1) 67.4% );
+        width: 100%;
+        padding: 3% 12%;
+        margin-right: 1%;
+        border-radius: 20px
+    }
+
+    form {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-control {
+        width: 30vw;
+        margin-bottom: 2rem;
+        border: 1px solid #4d20f7;
+        border-radius: 30px;
+        padding: 10px 10px 10px 15px;
+        width: 100%;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: black;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 1rem;
+    }
+
+    .submitbtn {
+        margin: 0.5rem;
+        padding: 1rem;
+        background-color: #003254;
+        border-radius: 5rem;
+        width: 100%;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        align-self: center;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+        .submitbtn:hover {
+            background-color: #2E2E2E;
+            cursor: pointer;
+        }
+</style>
+
+<div style="display:flex">
+    <!-- component -->
+    <div style="height: 100vh;" class="flex flex-col top-30 left-0 w-64 bg-white h-full">
+
+        <div class="overflow-y-auto overflow-x-hidden flex-grow">
+            <ul class="flex flex-col py-4 space-y-1">
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Menu</div>
+                    </div>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="CounsilorDashboard" asp-controller="Counsilor" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Dashboard</span>
+                    </a>
+                </li>
+
+
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Profile Builder</div>
+                    </div>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="EducationDetails" asp-controller="Education" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-pencil"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Add Education Details</span>
+                    </a>
+                </li>
+                <li>
+                    <a style="padding-left: 10px;" asp-action="ExperienceDetails" asp-controller="Experience" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-pencil"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Add Experiance Details</span>
+                    </a>
+                </li>
+                @{
+                    var userId = Context.Session.GetString("UserId");
+                }
+                <li>
+                    <a style="padding-left: 10px;" asp-route-CounselorId="@userId" asp-action="CounsilorPage" asp-controller="Counsilor" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <i class="fa-solid fa-eye"></i>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">View Profile</span>
+                    </a>
+                </li>
+
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Student Chat</div>
+                    </div>
+                </li>
+
+                <li>
+                    <a asp-action="StudentChat" asp-controller="Counsilor" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Go to Chat</span>
+                    </a>
+                </li>
+
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Settings</div>
+                    </div>
+                </li>
+
+                <li>
+                    <a asp-action="UpdateProfile" asp-controller="Counsilor" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Edit User Details</span>
+                    </a>
+                </li>
+                <li>
+                    <form style="padding:inherit;margin:0;" method="post" action="@Url.Action("Logout", "Users")">
+                        <button style="width:100%" type="submit" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                            <span style="margin-left: 18px;" class="inline-flex justify-center items-center ml-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                            </span>
+                            <span class="ml-2 text-sm tracking-wide truncate">Logout</span>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <style>
+        .upper-section h2 {
+            font-size: xx-large;
+            font-weight: bolder;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, #06348E 0%, #9B099E 20%, #6F0028 70%);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+
+    <div style="width: 100%;">
+        <div class="customcontainer">
+            <div class="heading">
+                <h2 style="display: flex;justify-content: center;">
+                    <strong>Counselor Dashboard</strong>
+                </h2>
+            </div>
+            <h1 style="width: 100%;color: black;font-weight: 700;font-size: 30px;">
+                Overview
+            </h1>
+
+            <div style="width: 100%;display: flex;">
+                <div style="border: 1px solid black;margin: 20px;border-radius: 7px;border-bottom: 5px solid #018521;width: fit-content;border-right: 5px solid #018521;">
+                    <div style="margin: 5px ;width: 10px;background-color: #15ea15;height: 10px;border-radius: 20px;position: absolute;">
+                    </div>
+                    <div>
+                        <p style="padding: 20px;margin-left: 20px;">Pending to Place : @ViewBag.unplaced</p>
+                    </div>
+                </div>
+                <div style="display: flex;">
+                    <div style="border: 1px solid black;margin: 20px;border-radius: 7px;border-bottom: 5px solid #018521;width: fit-content;border-right: 5px solid #018521;">
+                        <div style="margin: 5px ;width: 10px;background-color: #15ea15;height: 10px;border-radius: 20px;position: absolute;">
+                        </div>
+                        <div>
+                            <p style="padding: 20px;margin-left: 20px;">Total Placed : @ViewBag.placed</p>
+                        </div>
+                    </div>
+                    @*  <div style="border: 1px solid black;margin: 20px;border-radius: 7px;border-bottom: 5px solid #018521;width: fit-content;border-right: 5px solid #018521;">
+                    <div style="margin: 5px ;width: 10px;background-color: #15ea15;height: 10px;border-radius: 20px;position: absolute;">
+                    </div>
+                    <div>
+                    <p style="padding: 20px;margin-left: 20px;">Revenue of Current Year : @ViewBag.TotalEmployee</p>
+                    </div>
+                    </div> *@
+                </div>
+
+            </div>
+
+
+            <div style="height: 10px;border-top: 1px solid black;margin: 20px;">
+            </div>
+
+            <h1 style="width: 100%;color: black;font-weight: 700;font-size: 30px;">
+                Pending to Place
+            </h1>
+            @if (Model.Any())
+            {
+
+                <div class="flex flex-col">
+                    <div class="overflow-x-auto">
+                        <div class="p-1.5 min-w-full inline-block align-middle">
+                            <div class="border rounded-lg overflow-hidden dark:border-gray-700">
+                                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                    <thead class="bg-gray-50 dark:bg-gray-700">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Student Name</th>
+                                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Last Education</th>
+                                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Resume Details</th>
+                                            <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Email</th>
+                                            <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Phone No.</th>
+                                            <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+
+                                        @foreach (var en in Model)
+                                        {
+
+                                            @if (en.status == "paid")
+                                            {
+
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.User.UserName</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.User.UserGraduation</td>
+                                                    @if (@en.User.resumePrefrence == "pdf")
+                                                    {
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"><a href="@en.User.resumeFileString" style="display:flex;justify-content: center;" target="_blank">Resume PDF</a></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                                            <a target="_blank" style="display:flex;justify-content: center;" asp-controller="StudentProfile" asp-action="Resume" asp-route-UserId="@en.User.UserId">
+
+                                                                Digital Resume
+
+                                                            </a>
+                                                        </td>
+                                                    }
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.User.UserEmail</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.User.UserPhone</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">unplaced</td>
+
+                                                </tr>
+
+                                            }
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <h1 style="text-align:center">  </h1>
+            }
+
+
+
+
+            <div style="height: 10px;border-top: 1px solid black;margin: 20px;">
+            </div>
+
+            <h1 style="width: 100%;color: black;font-weight: 700;font-size: 30px;">
+                Placed Students
+            </h1>
+            @if (Model.Any())
+            {
+
+                <div class="flex flex-col">
+                    <div class="overflow-x-auto">
+                        <div class="p-1.5 min-w-full inline-block align-middle">
+                            <div class="border rounded-lg overflow-hidden dark:border-gray-700">
+                                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                    <thead class="bg-gray-50 dark:bg-gray-700">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Student Name</th>
+                                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Last Education</th>
+                                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Resume Details</th>
+                                            <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Email</th>
+                                            <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Phone No.</th>
+                                            <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+
+                                        @foreach (var en in Model)
+                                        {
+
+                                            @if (en.status == "placed")
+                                            {
+
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.User.UserName</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.User.UserGraduation</td>
+                                                    @if (@en.User.resumePrefrence == "pdf")
+                                                    {
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"><a href="@en.User.resumeFileString" style="display:flex;justify-content: center;" target="_blank">Resume PDF</a></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                                            <a target="_blank" style="display:flex;justify-content: center;" asp-controller="StudentProfile" asp-action="Resume" asp-route-UserId="@en.User.UserId">
+
+                                                                Digital Resume
+
+                                                            </a>
+                                                        </td>
+                                                    }
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.User.UserEmail</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.User.UserPhone</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.status</td>
+
+                                                </tr>
+
+                                            }
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+
+
+
+</div>

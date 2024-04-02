@@ -1,0 +1,107 @@
+﻿@model List<AdmitGenius.Models.Scholarship>
+
+<style>
+    @@keyframes iconTransform {
+        0% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(5px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+</style>
+
+
+
+<section class="bg-white dark:bg-gray-900">
+    <div style="padding: 20px 50px 0px">
+        <form asp-action="AllScholarship" asp-controller="Scholarship">
+            <div style="display:flex;gap: 30px">
+                <div style="flex-grow: 1;">
+                    <label for="name" class="text-sm font-medium text-stone-600">Search by name</label>
+                    <div style="margin-top: 4px;" class="mt-2 relative w-full flex  items-center justify-between rounded-md">
+                        <svg class="absolute left-2 block h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" class=""></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" class=""></line>
+                        </svg>
+                        <input type="name" name="search" class="h-12 w-full cursor-text rounded-md border border-gray-100 bg-gray-100 py-4 pr-40 pl-12 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" placeholder="Search by name, type, manufacturer, etc" />
+                    </div>
+                </div>
+
+                <div>
+
+                    <div class="flex flex-col">
+                        <label for="date" class="text-sm font-medium text-stone-600">Date of Entry</label>
+                        <input name="dt" type="date" id="date" class="mt-2 block w-full cursor-pointer rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt-6 grid w-full grid-cols-2 justify-end space-x-4 md:flex">
+                <button class="rounded-lg bg-gray-200 px-8 py-2 font-medium text-gray-700 outline-none hover:opacity-80 focus:ring">Clear Filter</button>
+                <button type="submit" class="rounded-lg bg-blue-600 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div style="padding-bottom: 0px;" class="container px-6 py-10 mx-auto">
+        <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">Browse <span class="text-blue-500">Scholarship </span></h1>
+
+        <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error alias, adipisci rem similique, at omnis eligendi optio eos harum.
+        </p>
+    </div>
+</section>
+<section style="display: flex; flex-direction: column; padding: 30px 50px; gap: 20px; align-items: center;">
+
+
+
+    @foreach (var schl in Model)
+    {
+        <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:bg-gray-800  " style="width: 100%;">
+
+
+            @if (@schl.ScholrshipImage != null)
+            {
+                <div style="width: 300px;height: 210px;">
+                    <img src="@schl.ScholrshipImage" style="width: 100%;height: 100%;object-fit: cover;border-radius: 7px 0px 0px 7px">
+                </div>
+            }
+
+            <div class="flex flex-col justify-between p-4 leading-normal" style="width: 100%;">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">@schl.ScholarshipName</h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">  @schl.ScholarshipDescription </p>
+                <div style="display: flex; gap: 30px;">
+                    <p style="color: green;"><i class="fa-regular fa-dollar-sign"></i> @schl.ScholarshipPrice </p>
+                    <p style="color: #0f0681;"><i class="fa-regular fa-clock"></i> Posted on @schl.ScholarshipPostedDate </p>
+                </div>
+                <div class="button-container" style="display: flex; justify-content: flex-end; padding: 0px;" onmouseover="hoverIcon(this)" onmouseout="unhoverIcon(this)">
+                    <a target="__blank" style="color: blue; transition: color 0.3s;" href="@schl.ScholarshipLink"> Learn More <i class="fa-solid fa-arrow-right" id="arrowIcon" style="animation: iconTransform 0.5s;"></i></a>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</section>
+
+<script>
+    function hoverIcon(element) {
+        var icon = element.querySelector("#arrowIcon");
+        icon.style.animation = "iconTransform 0.5s";
+    }
+
+    function unhoverIcon(element) {
+        var icon = element.querySelector("#arrowIcon");
+        icon.style.animation = "none"; // Reset the animation on mouseout
+    }
+
+
+</script>

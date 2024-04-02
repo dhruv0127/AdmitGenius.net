@@ -1,0 +1,12 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "All Groups";
+}
+
+<h2>All Groups</h2>
+
+@foreach (var groupId in Model)
+{
+    <p><a href="@Url.Action("Chat", "Community", new { groupName = groupId })">@groupId</a></p>
+}

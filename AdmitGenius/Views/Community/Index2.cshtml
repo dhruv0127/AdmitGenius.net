@@ -1,0 +1,517 @@
+﻿@model List<AdmitGenius.Models.Community>
+
+<div class="container mx-auto shadow-lg rounded-lg">
+
+    <!-- Chatting -->
+    <div class="flex flex-row justify-between bg-white" style="border-top: 0.5px solid #d2d2d2;    height: 90vh;">
+        <!-- chat list -->
+        <div style="    height: 90vh;    overflow-y: scroll;    width: 50%;" class="flex flex-col w-2/5 border-r-2 overflow-y-auto">
+
+            <a style="text-align: center;margin-top: 10px;font-size: 15px;color: blue;background-color: #f6f6f6;border-top: 1px solid blue;border-bottom: 1px solid blue;" asp-action="AllCommunities" asp-controller="Community" style="text-align: center;margin-top: 10px;" class="font-semibold text-2xl">
+                <i class="fa-solid fa-arrow-left"></i> Browse Other Communities
+            </a>
+
+            <div style="text-align: center;margin-top: 10px;" class="font-semibold text-2xl">
+                Chat
+            </div>
+
+            <!-- search compt -->
+            <div class="border-b-2 py-4 px-2">
+                <input type="text"
+                       placeholder="Search Community"
+                       class="py-2 px-2 border-2 border-gray-200 rounded-2xl w-full" />
+            </div>
+            <!-- end search compt -->
+
+            <style>
+                .chatlist {
+                    background-color: #859f0126;
+                    border-radius: 20px;
+                    margin: 10px;
+                }
+            </style>
+
+            @foreach (var community in Model)
+            {
+                @if (@community.CommunityImage == null)
+                {
+                    <a href="#" onclick="joinGroup('@community.CommunityId','@community.CommunityName','https://yourbucketname.s3.amazonaws.com/community+Default.jpg')">
+                        <div style="border-color:#e9c800;" class="chatlist flex flex-row py-4 px-2 items-center border-b-2 border-l-4 border-blue-400">
+                            <div style="    width: 18%;" class="w-1/4">
+
+
+                                <img src="https://yourbucketname.s3.amazonaws.com/community+Default.jpg"
+                                     class="object-cover h-12 w-12 rounded-full"
+                                     alt="" />
+
+
+
+                            </div>
+                            <div class="w-full">
+                                <div class="text-lg font-semibold">@community.CommunityName</div>
+                                <span class="text-gray-500 last-message" id="@community.CommunityId">@community.LastMessage</span>
+                            </div>
+
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a href="#" onclick="joinGroup('@community.CommunityId','@community.CommunityName','@community.CommunityImage')">
+                        <div style="border-color:#e9c800;" class="chatlist flex flex-row py-4 px-2 items-center border-b-2 border-l-4 border-blue-400">
+                            <div style="    width: 18%;" class="w-1/4">
+
+
+
+                                <img src="@community.CommunityImage"
+                                     class="object-cover h-12 w-12 rounded-full"
+                                     alt="" />
+
+
+                            </div>
+                            <div class="w-full">
+                                <div class="text-lg font-semibold">@community.CommunityName</div>
+                                <span class="text-gray-500 last-message" id="@community.CommunityId">@community.LastMessage</span>
+                            </div>
+
+                        </div>
+                    </a>
+                }
+            }
+
+            <div class="text-gray-500 last-message" id="dhruv"></div>
+
+        </div>
+        <!-- end chat list -->
+        <div class="w-full flex flex-col" style="background-color:#f9f9f9">
+
+            <div id="chat-box" style="height: 79vh;gap: 10px;justify-content: flex-start;overflow-y: scroll;" class="w-full px-5 flex flex-col justify-between">
+                <!-- Add this button at the bottom of the chat box -->
+                <div class="flex items-center justify-center py-4">
+                    <button style="display: none;" id="loadMoreButton" onclick="loadMoreMessages()" class="text-blue-500 hover:underline">Load More</button>
+                </div>
+                <!--Message displayherhe-->
+                <div style="margin-left: 15px;" id="messages"></div>
+            </div>
+
+            <div id="message-form" style="padding: 20px;display: none;">
+
+                <div style="box-shadow: 0px 0px 2px 2px #032c5a30; " class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
+                    <div>
+                        <button onclick="triggerFileInput()" class="flex items-center justify-center text-gray-400 hover:text-gray-600">
+                            <svg class="w-5 h-5"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 viewBox="0 0 24 24"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="flex-grow ml-4">
+                        <div class="relative w-full">
+                            <input type="text" id="message" onkeypress="handleKeyPress(event)"
+                                   class="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10" />
+                            @*  <button class="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600">
+                            <svg class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            </button> *@
+                        </div>
+                    </div>
+
+                    <div class="ml-4">
+                        <button onclick="sendMessage()" style="background-color: #110070; padding-top: 7px; padding-bottom: 7px;" class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
+                            <span>Send</span>
+                            <span class="ml-2">
+                                <svg class="w-4 h-4 transform rotate-45 -mt-px"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     viewBox="0 0 24 24"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          stroke-width="2"
+                                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                </svg>
+                            </span>
+                        </button>
+
+                        <script>
+                            document.getElementById("message").addEventListener("keydown", function (event) {
+                                // Check if the key pressed is Enter (key code 13)
+                                if (event.keyCode === 13) {
+                                    // Run your method here
+                                    console.log("Enter key pressed!");
+                                    // Call your method or function here
+                                    sendMessage();
+                                    document.getElementById("message").value = "";
+                                }
+                            });
+
+
+                        </script>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <!-- end message -->
+        <div class="w-2/5 border-l-2 px-5">
+            <div class="flex flex-col">
+                <div id="GNameInUI" class="font-semibold text-xl py-4"></div>
+                <img id="imgClickAndChange" src="https://www.rlogical.com/wp-content/uploads/2020/12/MERN.webp"
+                     class="object-cover rounded-xl h-64"
+                     alt="" />
+                <div class="font-semibold py-4">Created 22 Sep 2021</div>
+                <div class="font-light">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+                    perspiciatis!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <!-- HTML for the file input and button to trigger file selection -->
+    <input onchange="SendImage(this)" type="file" id="imageUpload" accept="image/*" hidden>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.2/signalr.min.js"></script>
+<script>
+    var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+    var currentGroup = ""; // Variable to store the current group name
+    var lastMessage = "";
+    var totalMessagesLoaded = 20;
+
+    connection.on("ClearMessages", function () {
+        $("#messages").empty(); // Clear the messages when signaled
+    });
+
+
+    function triggerFileInput() {
+        document.getElementById('imageUpload').click();
+    }
+
+
+    connection.on("ReceiveMessage", function (userName, userProfilePicture, message, timestamp) {
+
+        var randomColor = getRandomColor();
+
+        // Format the new message and append it to the chat box
+        var formattedMessage = `
+
+                                            <div class="flex items-start gap-2.5" style="border-left: 3px solid ${randomColor};padding-bottom: 10px ;border-image: linear-gradient( to bottom,  ${randomColor}, rgba(0, 0, 0, 0.05) ) 1 100%;">
+                                               <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700" style="background: transparent;padding:0">
+                                                   <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                                 <img style="object-fit: cover;margin-left: -17px;border: 2px solid ${randomColor};" class="w-8 h-8 rounded-full" src="${userProfilePicture}" alt="${userName} image">
+                                                       <div>
+                                                            <span style="color:black;font-weight:bold" class="text-sm font-semibold text-gray-900 dark:text-white">${userName}</span>
+
+                                                       </div>
+                                                   </div>
+                                                                   <p style="padding-top: 0;padding-left:25px;padding-bottom: 0;" class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">${message} </p>
+                                                           <span style="padding-left:25px;font-size:10px" class="text-sm font-normal text-gray-500 dark:text-gray-400">${formatTime(timestamp)} </span>
+                                                   </div>
+
+                                               `;
+
+        $('#messages').append(formattedMessage);
+
+        time = formatTimeDifference(timestamp);
+
+        var gpn = `#${currentGroup}`;
+
+        $(gpn).html(message);
+
+        var chatBox = document.getElementById('messages');
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+    });
+
+    connection.on("ReceiveImage", function (userName, userProfilePicture, message, timestamp) {
+
+        var randomColor = getRandomColor();
+
+
+        var formattedImage = `
+
+                          <div class="flex items-start gap-2.5" style="border-left: 3px solid ${randomColor};padding-bottom: 10px ;border-image: linear-gradient( to bottom,  ${randomColor}, rgba(0, 0, 0, 0.05) ) 1 100%;">
+                             <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700" style="background: transparent;padding:0">
+                                 <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                               <img style="object-fit: cover;margin-left: -17px;border: 2px solid ${randomColor};" class="w-8 h-8 rounded-full" src="${userProfilePicture}" alt="${userName} image">
+                                     <div>
+                                          <span style="color:black;font-weight:bold" class="text-sm font-semibold text-gray-900 dark:text-white">${userName}</span>
+
+                                     </div>
+                                 </div>
+                                         <a href='${message}' target=”_blank”> <img src ='${message}' style="margin-left: 21px;height: auto;width: 60vh;border-radius: 19px;" /> </a>
+                                         <span style="padding-left:25px;font-size:10px" class="text-sm font-normal text-gray-500 dark:text-gray-400">${formatTime(timestamp)} </span>
+                                 </div>
+
+                             `;
+
+        // // Format the new message and append it to the chat box
+        // var formattedImage = `<img src ='${message}' style="
+        //     padding-left: 10px;
+        //     height: auto;
+        //     width: 60vh;
+        //     border-radius: 19px;
+        // " />`;
+
+        $('#messages').append(formattedImage);
+
+        time = formatTimeDifference(timestamp);
+
+        var gpn = `#${currentGroup}`;
+
+        $(gpn).html("Image File");
+
+        var chatBox = document.getElementById('messages');
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+    });
+
+
+    connection.start().catch(function (err) {
+        return console.error(err.toString());
+    });
+
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+
+    function SendM(event) {
+        var file = event.files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            var formattedImageTag = `<img src ='${reader.result}' width = "100px" height = "100px"/>`;
+
+            connection.invoke("SendImageToGroup", currentGroup, `${reader.result}`).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            $('#hhs').append(formattedImageTag);
+
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+
+    }
+
+
+    function joinGroup(groupName, actualName, image) {
+
+        leaveGroup();
+        currentGroup = groupName;
+
+
+        console.log(currentGroup);
+
+
+        connection.invoke("JoinGroup", currentGroup).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        $("#GNameInUI").html(actualName);
+
+
+        if (image != null) {
+
+            document.getElementById("imgClickAndChange").src = image;
+        } else {
+
+            document.getElementById("imgClickAndChange").src = "https://yourbucketname.s3.amazonaws.com/community+Default.jpg";
+        }
+
+        // $("#imgClickAndChange").src = image;
+
+        $("#message-form").show();
+        $("#loadMoreButton").show();
+
+    }
+
+
+    function leaveGroup() {
+
+        totalMessagesLoaded = 20;
+
+        $("#loadMoreButton").prop("disabled", false);
+        console.log("Button Enabled");
+
+        if (currentGroup !== "") {
+            connection.invoke("LeaveGroup", currentGroup).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+
+    }
+
+    function sendMessage() {
+
+
+        console.log("Message send");
+        console.log($("#message").val());
+
+        connection.invoke("SendMessageToGroup", currentGroup, $("#message").val()).catch(function (err) {
+            return console.error(err.toString());
+        });
+    }
+
+    function SendImage(event) {
+        var file = event.files[0];
+        var formData = new FormData();
+        formData.append("file", file);
+
+        console.log(currentGroup);
+
+        $.ajax({
+            url: '/Community/UploadImageToS3',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (s3Url) {
+                connection.invoke("SendImageToGroup", currentGroup, s3Url).catch(function (err) {
+                    console.error(err.toString());
+                });
+            },
+            error: function (xhr, status, error) {
+                // Handle error
+            }
+        });
+    }
+
+
+    // function sendImage() {
+
+
+    //     connection.invoke("SendImageToGroup", currentGroup,    ).catch(function (err) {
+    //         return console.error(err.toString());
+    //     });
+    // }
+
+    function formatTimeDifference(timeInDatabase) {
+        const currentTime = new Date();
+        const databaseTime = new Date(timeInDatabase);
+
+        const timeDifferenceInSeconds = Math.floor((currentTime - databaseTime) / 1000);
+
+        const timeDifferenceInMinutes = Math.floor(timeDifferenceInSeconds / 60);
+
+        if (timeDifferenceInMinutes < 60) {
+            return `${timeDifferenceInMinutes} mins`;
+        }
+
+        const timeDifferenceInHours = Math.floor(timeDifferenceInMinutes / 60);
+
+        if (timeDifferenceInHours < 24) {
+            return `${timeDifferenceInHours} hrs`;
+        }
+
+        const timeDifferenceInDays = Math.floor(timeDifferenceInHours / 24);
+        return `${timeDifferenceInDays} days`;
+    }
+
+
+    function formatTime(timestamp) {
+        var date = new Date(timestamp);
+
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'PM' : 'AM';
+
+        if (hours > 12) {
+            hours = hours - 12;
+        }
+
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+
+        return `${hours}:${minutes} ${ampm}`;
+    }
+
+
+
+    async function loadMoreMessages() {
+
+        // Fetch the total number of messages from the server
+        var totalMessages = await connection.invoke("GetTotalMessagesCount", currentGroup);
+
+        console.log("Total " + totalMessages);
+
+        console.log(totalMessages - totalMessagesLoaded)
+
+        if (totalMessages - totalMessagesLoaded <= 10) {
+
+            // Call LoadMoreMessages with the total number of messages
+            connection.invoke("LoadMoreMessages", currentGroup, totalMessages).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            $("#loadMoreButton").prop("disabled", true);
+            console.log("Button Dissabled");
+        }
+        else if (totalMessagesLoaded <= totalMessages) {
+            connection.invoke("LoadMoreMessages", currentGroup, totalMessagesLoaded).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
+        else {
+            $("#loadMoreButton").html('ERROR loading messages');
+        }
+
+        console.log(totalMessagesLoaded);
+
+        // Increment the count by 20 for the next load
+        totalMessagesLoaded += 20;
+
+        // Clear the previous messages
+        $("#messages").empty();
+
+    }
+</script>
+
+
+<style>
+    #loadMoreButton:disabled {
+        color: #CCCCCC; /* Set grey background color when disabled */
+        cursor: not-allowed; /* Change cursor to not-allowed when disabled */
+        opacity: 0.7; /* Reduce opacity when disabled */
+        text-decoration: none;
+        /* Add any other styling for a disabled look, e.g., changing the arrow color */
+    }
+
+        #loadMoreButton:disabled svg {
+            fill: #999; /* Change arrow color when disabled */
+        }
+
+</style>

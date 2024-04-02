@@ -1,0 +1,71 @@
+﻿@model List<AdmitGenius.Models.Universities>
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+    h1{
+        font-weight : bolder;
+    }
+</style>
+
+<div style="display:flex;justify-content:center;margin:30px">
+
+    <h1 style="font-weight:bold; font-size:35px">All University Requests</h1>
+
+</div>
+
+@if (Model.Any())
+{
+    <div class="flex flex-wrap -m-4">
+        @foreach (var university in Model)
+        {
+            <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="@university.UniversityImage" alt="@university.UniversityName Image">
+                    <div class="p-6">
+                        <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">@university.UniversityCountry</h2>
+                        <h1 class="title-font text-lg font-medium text-gray-900 mb-3">@university.UniversityName</h1>
+                        <hr/>
+
+                        <h1>Description : </h1>
+                        <p class="leading-relaxed mb-3">@university.UniversityDescription</p>
+                        <p class="leading-relaxed mb-3">@university.UniversityOfficalEmailAddress</p>
+                        <hr/>
+
+                        <h1>Location Details :</h1>
+                        <p class="leading-relaxed mb-3">@university.UniversityCountry</p>
+                        <p class="leading-relaxed mb-3">@university.UniversityLocation</p>
+                        <p class="leading-relaxed mb-3">University Type : @university.UniversityType</p>
+                        <hr/>
+
+                        <h1> Registred Date :</h1>  
+                        <p class="leading-relaxed mb-3">@university.UniversityRegisterDate</p>
+                        <hr />
+
+                        <h1>Features :</h1>
+
+                        <p class="leading-relaxed mb-3">@university.Feature1</p>
+                        <p class="leading-relaxed mb-3">@university.Feature2</p>
+                        <p class="leading-relaxed mb-3">@university.Feature3</p>
+                        <p class="leading-relaxed mb-3">@university.Feature4</p>
+                        <p class="leading-relaxed mb-3">@university.Feature5</p>
+
+                        <div class="flex items-center flex-wrap">
+                            <form method="post" asp-action="UpdateUniversityRequestStatus" asp-route-universityId="@university.UniversityId" asp-route-newStatus="Approved">
+                                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">Approve</button>
+                            </form>
+
+                            <form method="post" asp-action="UpdateUniversityRequestStatus" asp-route-universityId="@university.UniversityId" asp-route-newStatus="Rejected">
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">Reject</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No pending university registration requests.</p>
+}

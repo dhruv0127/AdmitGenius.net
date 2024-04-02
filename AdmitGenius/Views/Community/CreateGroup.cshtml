@@ -1,0 +1,15 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "Create New Group";
+}
+
+<h2>Create New Group</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="groupName">Group Name:</label>
+        <input type="text" id="groupName" name="groupName" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Group</button>
+</form>

@@ -1,0 +1,217 @@
+﻿@model AdmitGenius.Models.Users
+
+<div class="bg-gray-100 p-4">
+
+    <div class="border-1 shadow-lg shadow-gray-700 rounded-lg">
+
+        <!-- top content -->
+        <div style="background-color: #002a79;color: white;" class="flex rounded-t-lg bg-top-color sm:px-2 w-full">
+            <div class="h-40 w-40 overflow-hidden sm:rounded-full sm:relative sm:p-0 top-10 left-5 p-3">
+                <img style="object-fit: cover;height: 100%;" src="@Model.UserProfile" />
+            </div>
+
+            <div class="w-2/3 sm:text-center pl-5 mt-10 text-start">
+                <p class="font-poppins font-bold text-heading sm:text-4xl text-2xl">
+                    @Model.UserName
+                </p>
+                <p class="text-heading">Software Engineer</p>
+            </div>
+
+        </div>
+
+        <!-- main content -->
+        <div class="p-5">
+
+            <div class="flex flex-col sm:flex-row sm:mt-10">
+
+                <div class="flex flex-col sm:w-1/3">
+                    <!-- My contact -->
+                    <div class="py-3 sm:order-none order-3">
+                        <h2 style="color: #002a79;" class="text-lg font-poppins font-bold text-top-color">
+                            My Contact
+                        </h2>
+                        <div style="border-color: #002a79;" class="border-2 w-20 border-top-color my-3"></div>
+
+                        <div>
+                            <div class="flex items-center my-1">
+
+                                <div class="truncate">@Model.UserEmail</div>
+                            </div>
+                            <div class="flex items-center my-1">
+                                <div>@Model.UserPhone</div>
+                            </div>
+
+                            <div style="display:flex">
+                                <a href="@Model.LinkedIn" class="w-6 text-gray-700 hover:text-orange-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-4">
+                                        <path fill="currentColor"
+                                              d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+                                        </path>
+                                    </svg>
+                                </a>
+
+
+                                <a href="@Model.Github" style="margin-right: 1%;" class="w-6 text-gray-700 hover:text-orange-600"
+                                   aria-label="Visit TrendyMinds Facebook" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                                </a>
+
+                                <a href="@Model.FaceBook" class="w-6 text-gray-700 hover:text-orange-600"
+                                   aria-label="Visit TrendyMinds Facebook" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="h-4">
+                                        <path fill="currentColor"
+                                              d="m279.14 288 14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a href="@Model.Twitter" class="w-6 text-gray-700 hover:text-orange-600"
+                                   aria-label="Visit TrendyMinds Twitter" target="_blank">
+                                    <svg class="h-4"
+                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path fill="currentColor"
+                                              d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Skills -->
+                    <div class="py-3 sm:order-none order-2">
+                        <h2 style="color: #002a79;" class="text-lg font-poppins font-bold text-top-color">Skills</h2>
+                        <div style="border-color: #002a79;" class="border-2 w-20 border-top-color my-3"></div>
+
+                        <div>
+                            @if (!string.IsNullOrEmpty(Model.Skills))
+                            {
+                                <div>
+                                    <ul style="list-style-type: disc;padding-left: 3%;">
+                                        @foreach (var skill in Model.Skills.Split(','))
+                                        {
+                                            <li>@skill.Trim()</li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    <!-- Education Background -->
+                    <div class="py-3 sm:order-none order-1">
+                        <h2 style="color: #002a79;" class="text-lg font-poppins font-bold text-top-color">Education Background</h2>
+                        <div style="border-color: #002a79;" class="border-2 w-20 border-top-color my-3"></div>
+
+                        <div class="flex flex-col space-y-1">
+
+
+                            @if (Model.Education != null)
+                            {
+                                @foreach (var Education in Model.Education)
+                                {
+
+                                    <div class="flex flex-col">
+                                        <p class="font-semibold text-xs text-gray-700">
+                                            @Education.EducationStartDate - @if (Education.EducationEndDate == null)
+                                            {
+                                                <span>Present</span>
+                                            }
+                                            else
+                                            {
+                                                @Education.EducationEndDate
+                                            }
+                                        </p>
+                                        <p class="text-sm font-medium">
+                                            <span class="text-green-700">@Education.EducationName</span>, @Education.SchoolName , @Education.SchoolCity
+                                        </p>
+                                        <p class="font-bold text-xs text-gray-700 mb-2">Percentage: @Education.Percentage</p>
+                                    </div>
+
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="flex flex-col sm:w-2/3 order-first sm:order-none sm:-mt-10">
+
+                    <!-- About me -->
+                    <div class="py-3">
+                        <h2 style="color: #002a79;" class="text-lg font-poppins font-bold text-top-color">About Me</h2>
+                        <div style="border-color: #002a79;" class="border-2 w-20 border-top-color my-3"></div>
+                        <p>
+                           @Model.UserBio
+                        </p>
+                    </div>
+
+                    <!-- Professional Experience -->
+                    <div class="py-3">
+                        <h2 style="color: #002a79;" class="text-lg font-poppins font-bold text-top-color">Professional Experience</h2>
+                        <div style="border-color: #002a79;" class="border-2 w-20 border-top-color my-3"></div>
+
+                        <div class="flex flex-col">
+
+                            @if (Model.Experiences != null)
+                            {
+                                @foreach (var Experiences in Model.Experiences)
+                                {
+                                    <div class="flex flex-col">
+                                        <p class="text-lg font-bold text-gray-700">@Experiences.ExpComapnyName | @Experiences.ExpPostName</p>
+                                        <p class="font-semibold text-sm text-gray-700">
+                                            @Experiences.ExpStartDate - @if (Experiences.ExpEndDate == null)
+                                            {
+                                                <span>Present</span>
+                                            }
+                                            else
+                                            {
+                                                @Experiences.ExpEndDate
+                                            }
+                                        </p>
+                                        <p class="font-semibold text-sm text-gray-700 mt-2 mb-1">Key Responsibilities</p>
+                                        <ul class="text-sm list-disc pl-4 space-y-1">
+                                            <li>@Experiences.Responsibilities</li>
+                                        </ul>
+                                    </div>
+                                }
+
+                            }
+
+                        </div>
+
+                    </div>
+
+                    <!-- Projects -->
+                    <div class="py-3">
+                        <h2 style="color: #002a79;" class="text-lg font-poppins font-bold text-top-color">Projects</h2>
+                        <div style="border-color: #002a79;" class="border-2 w-20 border-top-color my-3"></div>
+
+                        <div class="flex flex-col">
+
+                            @if (Model.Projects != null)
+                            {
+                                @foreach (var Projects in Model.Projects)
+                                {
+                                    <div class="flex flex-col">
+                                        <p style="display: flex;" class="text-lg font-semibold text-gray-700">@Projects.ProjectName <a target="_blank" style="color:blue" href="@Projects.GithubRepoUrl"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 14a1 1 0 0 0-1 1v3.077c0 .459-.022.57-.082.684a.363.363 0 0 1-.157.157c-.113.06-.225.082-.684.082H5.923c-.459 0-.571-.022-.684-.082a.363.363 0 0 1-.157-.157c-.06-.113-.082-.225-.082-.684L4.999 5.5a.5.5 0 0 1 .5-.5l3.5.005a1 1 0 1 0 .002-2L5.501 3a2.5 2.5 0 0 0-2.502 2.5v12.577c0 .76.083 1.185.32 1.627.223.419.558.753.977.977.442.237.866.319 1.627.319h12.154c.76 0 1.185-.082 1.627-.319.419-.224.753-.558.977-.977.237-.442.319-.866.319-1.627V15a1 1 0 0 0-1-1zm-2-9.055v-.291l-.39.09A10 10 0 0 1 15.36 5H14a1 1 0 1 1 0-2l5.5.003a1.5 1.5 0 0 1 1.5 1.5V10a1 1 0 1 1-2 0V8.639c0-.757.086-1.511.256-2.249l.09-.39h-.295a10 10 0 0 1-1.411 1.775l-5.933 5.932a1 1 0 0 1-1.414-1.414l5.944-5.944A10 10 0 0 1 18 4.945z" fill="currentColor" /></svg></a></p>
+                                        <p class="font-normal text-sm text-gray-700 mb-1 pl-2">
+                                            @Projects.ProjectDescription
+                                        </p>
+                                    </div>
+                                }
+
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

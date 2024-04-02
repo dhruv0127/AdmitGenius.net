@@ -1,0 +1,74 @@
+﻿@model List<AdmitGenius.Models.Community>
+
+<style>
+    @@keyframes iconTransform {
+        0% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(5px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+</style>
+
+<section>
+    <div style="padding-bottom: 0px;" class="container px-6 py-10 mx-auto">
+        <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">Select Community for Modification in it</h1>
+
+        <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
+           By pressing manage button at each community you can review the memebers and manage the state of request like "approve" or "reject". Also you can you remove any of the existing members from manage page of that community
+        </p>
+    </div>
+</section>
+<section style="display: flex; flex-direction: column; padding: 30px 50px; gap: 20px; align-items: center;">
+
+
+
+    @foreach (var comm in Model)
+    {
+        <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:bg-gray-800  " style="width: 100%;">
+
+
+            @if (@comm.CommunityImage != null)
+            {
+                <div style="width: 300px;height: 210px;">
+                    <img src="@comm.CommunityImage" style="width: 100%;height: 100%;object-fit: cover;border-radius: 7px 0px 0px 7px">
+                </div>
+            }
+
+            <div class="flex flex-col justify-between p-4 leading-normal" style="width: 100%;">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">@comm.CommunityName</h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">  @comm.CommunityDescription </p>
+                <div style="display: flex; gap: 30px;">
+                    <p style="color: green;"><i class="fa-solid fa-user" style="margin-right:5px"></i>Members 500k  </p>
+                    <p style="color: #0f0681;"><i class="fa-regular fa-clock"></i> Created on @comm.CommunityCreationDate </p>
+                </div>
+                <div class="button-container" style="display: flex; justify-content: flex-end; padding: 0px;" onmouseover="hoverIcon(this)" onmouseout="unhoverIcon(this)">
+                    <a asp-action="ManageCommunity" asp-controller="Community" asp-route-cid="@comm.CommunityId" target="__blank" style="color: blue; transition: color 0.3s;"> Manager @comm.CommunityName Community <i class="fa-solid fa-arrow-right" id="arrowIcon" style="animation: iconTransform 0.5s;"></i></a>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</section>
+
+<script>
+    function hoverIcon(element) {
+        var icon = element.querySelector("#arrowIcon");
+        icon.style.animation = "iconTransform 0.5s";
+    }
+
+    function unhoverIcon(element) {
+        var icon = element.querySelector("#arrowIcon");
+        icon.style.animation = "none"; 
+    }
+
+
+</script>

@@ -1,0 +1,131 @@
+﻿@model AdmitGenius.Models.Users
+
+
+
+<style>
+    td {
+        text-align: center;
+        margin: 5px;
+        padding: 5px
+    }
+
+    .heading {
+        text-align: center;
+        font-size: 30px;
+        color: blue;
+        font-weight: 500;
+        padding: 20px;
+    }
+
+    th {
+        margin: 5px;
+        padding: 5px
+    }
+</style>
+
+<h1 class="heading"> Your Enrollments in Universities</h1>
+
+@if (Model.Enrollments.Any())
+{
+
+    <div class="flex flex-col">
+        <div class="overflow-x-auto">
+            <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="border rounded-lg overflow-hidden dark:border-gray-700">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-700">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">University</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Country</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Course</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Department</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Education</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Duration</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Fees</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Date Of Request</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Stauts</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+
+                            @foreach (var en in Model.Enrollments)
+                            {
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"><a asp-action="UniversityPage" asp-controller="University" asp-route-id="@en.Course.University.UniversityId">@en.Course.University.UniversityName</a></td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.Course.University.UniversityCountry</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><a asp-action="CoursePage" asp-controller="Course" asp-route-courseId="@en.Course.CourseId">@en.Course.CourseName </a></td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.Course.CourseDepartment</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.Course.CourseEducationLevel</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.Course.CourseDuration</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.Course.CourseFees</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.DateOfRequest</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@en.Status</td>
+
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h1 style="text-align:center"> You have no enrollments Yet </h1>
+}
+<br/>
+
+<hr />
+
+<h1 class="heading"> Your Enrollments in Companies</h1>
+
+@if (Model.InternRequest.Any())
+{
+
+    <div class="flex flex-col">
+        <div class="overflow-x-auto">
+            <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="border rounded-lg overflow-hidden dark:border-gray-700">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-700">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Company</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Country</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Job</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Employee Type</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Salary</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Date Of Request</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Stauts</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+
+                            @foreach (var enrollment in Model.InternRequest)
+                            {
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"><a asp-action="CompanyPage" asp-controller="Company" asp-route-companyId="@enrollment.Job.Company.CompanyId">@enrollment.Job.Company.CompanyName </a> </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@enrollment.Job.JobLocation</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><a asp-action="JobDescription" asp-controller="Company" asp-route-JobId="@enrollment.Job.JobId">@enrollment.Job.JobName </a></td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@enrollment.Job.JobEmployeeType</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@enrollment.Job.JobMinSalary - @enrollment.Job.JobMaxSalary</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@enrollment.DateOfRequest</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">@enrollment.Status</td>
+
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h1 style="text-align:center"> You have no enrollments Yet </h1>
+}

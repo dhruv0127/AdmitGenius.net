@@ -1,0 +1,335 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AdmitGenius
+build_property.RootNamespace = AdmitGenius
+build_property.ProjectDir = D:\WebApps\ASPNET\AdmitGenius\AdmitGenius\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\WebApps\ASPNET\AdmitGenius\AdmitGenius
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/AgAdmin/AddNewCounselor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdBZG1pblxBZGROZXdDb3Vuc2Vsb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/AgAdmin/AddNewUniversity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdBZG1pblxBZGROZXdVbml2ZXJzaXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/AgAdmin/AgDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdBZG1pblxBZ0Rhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/AgAdmin/CompanyRegisterRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdBZG1pblxDb21wYW55UmVnaXN0ZXJSZXF1ZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/AgAdmin/CounselorRegisterRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdBZG1pblxDb3Vuc2Vsb3JSZWdpc3RlclJlcXVlc3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/AgAdmin/UniversityRegisterRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdBZG1pblxVbml2ZXJzaXR5UmVnaXN0ZXJSZXF1ZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/AwsImage/AllImages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXdzSW1hZ2VcQWxsSW1hZ2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/AllCommunities.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XEFsbENvbW11bml0aWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/AllGroups.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XEFsbEdyb3Vwcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/Chat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XENoYXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/CommunityAdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XENvbW11bml0eUFkbWluRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/CommunityPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XENvbW11bml0eVBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/CreateCommunity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XENyZWF0ZUNvbW11bml0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/CreateGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XENyZWF0ZUdyb3VwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/Index2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XEluZGV4Mi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/ManageCommunity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XE1hbmFnZUNvbW11bml0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/RequestAdded.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XFJlcXVlc3RBZGRlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Community/RequestExists.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbXVuaXR5XFJlcXVlc3RFeGlzdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/AddJobPosting.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxBZGRKb2JQb3N0aW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/AddNewTeam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxBZGROZXdUZWFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/AllCompanies.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxBbGxDb21wYW5pZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/CompanyPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxDb21wYW55UGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/EditCompanyDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxFZGl0Q29tcGFueURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/EnrollmentSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxFbnJvbGxtZW50U3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/JobDescription.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxKb2JEZXNjcmlwdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/ManageEnrollments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxNYW5hZ2VFbnJvbGxtZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Company/oldAddJobPosting.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxvbGRBZGRKb2JQb3N0aW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Counsilor/AllCounsilor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnNpbG9yXEFsbENvdW5zaWxvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Counsilor/CounselorChat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnNpbG9yXENvdW5zZWxvckNoYXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Counsilor/CounsilorDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnNpbG9yXENvdW5zaWxvckRhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Counsilor/CounsilorPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnNpbG9yXENvdW5zaWxvclBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Counsilor/StudentChat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnNpbG9yXFN0dWRlbnRDaGF0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Counsilor/SubscriptionAdded.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnNpbG9yXFN1YnNjcmlwdGlvbkFkZGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Counsilor/SubscriptionModified.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnNpbG9yXFN1YnNjcmlwdGlvbk1vZGlmaWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Counsilor/UpdateProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnNpbG9yXFVwZGF0ZVByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Course/CoursePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXENvdXJzZVBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Course/EnrollmentSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEVucm9sbG1lbnRTdWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Course/IneligibleForEnrollment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEluZWxpZ2libGVGb3JFbnJvbGxtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Education/EducationDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uXEVkdWNhdGlvbkRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Eligibility/AptitudeTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxpZ2liaWxpdHlcQXB0aXR1ZGVUZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Eligibility/AptitudeTestResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxpZ2liaWxpdHlcQXB0aXR1ZGVUZXN0UmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Eligibility/EligibilityTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxpZ2liaWxpdHlcRWxpZ2liaWxpdHlUZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Experience/ExperienceDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZXJpZW5jZVxFeHBlcmllbmNlRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Home/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Project/AddProject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxBZGRQcm9qZWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Scholarship/AddSchoarship.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob2xhcnNoaXBcQWRkU2Nob2Fyc2hpcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Scholarship/AllScholarship.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob2xhcnNoaXBcQWxsU2Nob2xhcnNoaXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Shared/_LayoutWithoutHeaderAndFooter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRXaXRob3V0SGVhZGVyQW5kRm9vdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/StudentHome/StudentHomePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudEhvbWVcU3R1ZGVudEhvbWVQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/StudentProfile/AddProject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFByb2ZpbGVcQWRkUHJvamVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/StudentProfile/EducationDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFByb2ZpbGVcRWR1Y2F0aW9uRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/StudentProfile/ExperienceDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFByb2ZpbGVcRXhwZXJpZW5jZURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/StudentProfile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFByb2ZpbGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/StudentProfile/Resume.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFByb2ZpbGVcUmVzdW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/StudentProfile/Status.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFByb2ZpbGVcU3RhdHVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/StudentProfile/UpdateProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFByb2ZpbGVcVXBkYXRlUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/University/AddNewCourses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0eVxBZGROZXdDb3Vyc2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/University/AddNewTeacher.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0eVxBZGROZXdUZWFjaGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/University/ApprovedStudents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0eVxBcHByb3ZlZFN0dWRlbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/University/EditUniversityDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0eVxFZGl0VW5pdmVyc2l0eURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/University/ReviewStudents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0eVxSZXZpZXdTdHVkZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/University/UniversityDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0eVxVbml2ZXJzaXR5RGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/University/UniversityPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pdmVyc2l0eVxVbml2ZXJzaXR5UGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Users/CompanyRegisterRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ29tcGFueVJlZ2lzdGVyUmVxdWVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Users/CounselorRegisterRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ291bnNlbG9yUmVnaXN0ZXJSZXF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Users/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Users/RedirectTo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVkaXJlY3RUby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Users/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Users/RequestSuccessful.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVxdWVzdFN1Y2Nlc3NmdWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Users/UniversityRegisterRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcVW5pdmVyc2l0eVJlZ2lzdGVyUmVxdWVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebApps/ASPNET/AdmitGenius/AdmitGenius/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-u16xsdcw1j

@@ -1,0 +1,817 @@
+﻿@model AdmitGenius.Models.Company
+
+<style>
+    #home {
+        background-image: linear-gradient(to bottom, rgba(139,186,244, 0.52), rgba(15,51,92, 0.73) ), url('https://assets.architecturaldigest.in/photos/6008499aa8f8397741704a19/16:9/w_1920,c_limit/Ronnie-Screwvala-mumbai-RSVP-office_2-2-1366x768.jpg');
+        width: 100%;
+        height: 108vh;
+        background-size: cover;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 14 */
+    .btn-14 {
+        background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+        border: none;
+        padding: 10px;
+        border-radius: 7px;
+        z-index: 1;
+        text-transform: uppercase;
+    }
+
+        .btn-14:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 5px;
+            background-color: #74EBD5;
+            background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+            box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5);
+            7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-14:hover {
+            color: #000;
+        }
+
+            .btn-14:hover:after {
+                top: auto;
+                bottom: 0;
+                height: 100%;
+            }
+
+        .btn-14:active {
+            top: 2px;
+        }
+
+    .button4 {
+        margin: 10px;
+        padding: 7px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .button4:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            animation: spread-border 1s infinite;
+        }
+
+    @@keyframes spread-border {
+        to {
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+        }
+    }
+
+</style>
+
+
+
+<div id="home" class="relative z-10 header-hero">
+    <div class="container">
+        <div class="flex justify-center row">
+            <div class="w-full lg:w-5/6 xl:w-2/3">
+                <div class="pt-48 pb-64 text-center header-content">
+                    <h3 class="mb-5 text-3xl font-semibold leading-tight text-gray-900 md:text-5xl">
+                        Home Page for <span style="color: #00fff1;">@Model.CompanyName </span> View job posting and other details
+                    </h3>
+                    <p class="px-5 mb-10 text-xl text-gray-700"> you can find jobs / internships from this company page. Watch Introduction Video or press Get Intern to view job postings </p>
+                    <ul style="    align-items: center;" class="flex flex-wrap justify-center">
+                        <li><button onclick="smoothScroll('middle')" href="javascript:void(0)" class="btn-14">Get Intern</button></li>
+                        <li>
+                            <a href="https://youtu.be/eM1FwYi-EvI" style="display: flex;align-items: center;" class="custom-button button4">
+                                <svg style="margin-right:10px;fill:#e0f5ff" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path style=" fill:#e0f5ff" d="M10 20C4.477 20 0 15.523 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20ZM10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18ZM14.126 11.746L10.071 14.644C9.166 15.29 7.941 15.033 7.334 14.068C7.11494 13.7171 6.99918 13.3116 7 12.898V7.102C7 5.942 7.883 5 8.972 5C9.363 5 9.746 5.124 10.071 5.356L14.126 8.254C15.031 8.901 15.272 10.206 14.666 11.171C14.5251 11.3959 14.3417 11.5913 14.126 11.746ZM8.972 7.102V12.898L13.027 10L8.972 7.102Z" fill="#2563EB" />
+                                </svg>Watch Video
+                            </a>
+                        </li>
+
+                    </ul>
+                </div> <!-- header content -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+    <div class="absolute bottom-0 z-20 w-full h-auto -mb-1 header-shape">
+        <img src="~/images/header-shape.svg" alt="shape">
+    </div>
+</div>
+
+
+<script>
+    function smoothScroll(targetId) {
+        var targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
+
+
+
+<!-- ====== About us Section Start ====== -->
+<section class="bg-white pb-6">
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="container mx-auto px-6 p-6 bg-white">
+
+
+            <div class="mb-16 text-center">
+                <h4 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Features & Services</h4>
+                <p class="mt-2 text-5xl lg:text-7xl font-bold tracking-tight text-gray-900">
+                    How we change the game
+
+                </p>
+            </div>
+
+
+            <div style="margin-bottom: 0;" class="flex flex-wrap my-12">
+
+
+                @if (@Model.Feature1 != null && @Model.TitleOfFeature1 != null)
+                {
+                    <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-8">
+                        <div class="flex items-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20"
+                                 fill="currentColor" class="h-6 w-6 text-indigo-500">
+                                <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.398-.188-2.793-.688-4.094L26.688 13.5c.2.8.313 1.602.313 2.5 0 6.102-4.898 11-11 11S5 22.102 5 16 9.898 5 16 5c3 0 5.695 1.195 7.594 3.094L25 6.688C22.7 4.386 19.5 3 16 3zm11.281 4.281L16 18.563l-4.281-4.282-1.438 1.438 5 5 .719.687.719-.687 12-12z">
+                                </path>
+                            </svg>
+                            <div class="ml-4 text-xl">@Model.TitleOfFeature1</div>
+                        </div>
+                        <p class="leading-loose text-gray-500">
+                            @Model.Feature1
+                        </p>
+                    </div>
+
+                }
+
+                @if (@Model.Feature2 != null && @Model.TitleOfFeature2 != null)
+                {
+
+                    <div class="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r p-8">
+                        <div class="flex items-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20"
+                                 fill="currentColor" class="h-6 w-6 text-indigo-500">
+                                <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.398-.188-2.793-.688-4.094L26.688 13.5c.2.8.313 1.602.313 2.5 0 6.102-4.898 11-11 11S5 22.102 5 16 9.898 5 16 5c3 0 5.695 1.195 7.594 3.094L25 6.688C22.7 4.386 19.5 3 16 3zm11.281 4.281L16 18.563l-4.281-4.282-1.438 1.438 5 5 .719.687.719-.687 12-12z">
+                                </path>
+                            </svg>
+                            <div class="ml-4 text-xl">@Model.TitleOfFeature2</div>
+                        </div>
+                        <p class="leading-loose text-gray-500">
+                            @Model.Feature2
+                        </p>
+                    </div>
+
+                }
+
+                @if (@Model.Feature3 != null && @Model.TitleOfFeature3 != null)
+                {
+
+                    <div class="w-full border-b md:w-1/2 md:border-r lg:w-1/3 lg:border-r-0 p-8">
+                        <div class="flex items-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20"
+                                 fill="currentColor" class="h-6 w-6 text-indigo-500">
+                                <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.398-.188-2.793-.688-4.094L26.688 13.5c.2.8.313 1.602.313 2.5 0 6.102-4.898 11-11 11S5 22.102 5 16 9.898 5 16 5c3 0 5.695 1.195 7.594 3.094L25 6.688C22.7 4.386 19.5 3 16 3zm11.281 4.281L16 18.563l-4.281-4.282-1.438 1.438 5 5 .719.687.719-.687 12-12z">
+                                </path>
+                            </svg>
+                            <div class="ml-4 text-xl">@Model.TitleOfFeature3</div>
+                        </div>
+                        <p class="leading-loose text-gray-500">
+                            @Model.Feature3
+                        </p>
+                    </div>
+
+                }
+
+                @if (@Model.Feature4 != null && @Model.TitleOfFeature4 != null)
+                {
+
+                    <div class="w-full border-b md:w-1/2 lg:w-1/3 lg:border-r lg:border-b-0 p-8">
+                        <div class="flex items-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20"
+                                 fill="currentColor" class="h-6 w-6 text-indigo-500">
+                                <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.398-.188-2.793-.688-4.094L26.688 13.5c.2.8.313 1.602.313 2.5 0 6.102-4.898 11-11 11S5 22.102 5 16 9.898 5 16 5c3 0 5.695 1.195 7.594 3.094L25 6.688C22.7 4.386 19.5 3 16 3zm11.281 4.281L16 18.563l-4.281-4.282-1.438 1.438 5 5 .719.687.719-.687 12-12z">
+                                </path>
+                            </svg>
+                            <div class="ml-4 text-xl">@Model.TitleOfFeature4</div>
+                        </div>
+                        <p class="leading-loose text-gray-500">
+                            @Model.Feature4
+                        </p>
+                    </div>
+
+                }
+
+                @if (@Model.Feature5 != null && @Model.TitleOfFeature5 != null)
+                {
+
+                    <div class="w-full border-b md:w-1/2 md:border-r md:border-b-0 lg:w-1/3 lg:border-b-0 p-8">
+                        <div class="flex items-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20"
+                                 fill="currentColor" class="h-6 w-6 text-indigo-500">
+                                <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.398-.188-2.793-.688-4.094L26.688 13.5c.2.8.313 1.602.313 2.5 0 6.102-4.898 11-11 11S5 22.102 5 16 9.898 5 16 5c3 0 5.695 1.195 7.594 3.094L25 6.688C22.7 4.386 19.5 3 16 3zm11.281 4.281L16 18.563l-4.281-4.282-1.438 1.438 5 5 .719.687.719-.687 12-12z">
+                                </path>
+                            </svg>
+                            <div class="ml-4 text-xl">@Model.TitleOfFeature5</div>
+                        </div>
+                        <p class="leading-loose text-gray-500">
+                            @Model.Feature5
+                        </p>
+                    </div>
+
+                }
+
+                @if (@Model.Feature6 != null && @Model.TitleOfFeature6 != null)
+                {
+
+                    <div class="w-full md:w-1/2 lg:w-1/3 p-8">
+                        <div class="flex items-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20"
+                                 fill="currentColor" class="h-6 w-6 text-indigo-500">
+                                <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.398-.188-2.793-.688-4.094L26.688 13.5c.2.8.313 1.602.313 2.5 0 6.102-4.898 11-11 11S5 22.102 5 16 9.898 5 16 5c3 0 5.695 1.195 7.594 3.094L25 6.688C22.7 4.386 19.5 3 16 3zm11.281 4.281L16 18.563l-4.281-4.282-1.438 1.438 5 5 .719.687.719-.687 12-12z">
+                                </path>
+                            </svg>
+                            <div class="ml-4 text-xl">@Model.TitleOfFeature6</div>
+                        </div>
+                        <p class="leading-loose text-gray-500">
+                            @Model.Feature6
+                        </p>
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- A simple testimonials page built with tailwind css utilities and heropatterns-->
+
+<style>
+    .hero-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+</style>
+
+
+
+<div style="padding-bottom: 36px;margin-bottom: 70px;background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );">
+
+
+
+    <div style="    padding-top: 70px;" id="middle" class="flex flex-1 w-full flex-col items-center justify-center text-center px-4">
+        <h1 class="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-slate-900 sm:text-7xl">
+            See Available
+            <span class="relative whitespace-nowrap text-orange-400">
+                <svg style="margin-top:4%;fill: blue;" aria-hidden="true" viewBox="0 0 418 42" class="absolute top-2/3 left-0 h-[0.58em] w-full fill-orange-300/70" preserveAspectRatio="none"><path d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z"></path></svg>
+                <span style="color:#012461" class="relative">Jobs</span>
+            </span>
+        </h1>
+        <p class="mx-auto mt-2 max-w-xl text-lg text-slate-700 leading-7">
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing
+            Etiam tempus iaculis urna, nec hendrerit lorem semper sit amet. Pellentesque sed dapibus velit. Duis congue pharetra
+            vestibulum. Nunc sodales es
+
+        </p>
+    </div>
+
+
+
+    <style>
+        .job-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .job-title {
+            font-size: larger;
+            margin-bottom: 10px;
+            font-family: sans-serif;
+            margin-top: 2px;
+        }
+
+        .posted-time {
+            display: flex;
+            align-items: center;
+            color: #a5a5a5;
+            font-size: 15px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .job-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            margin-top: 10px;
+        }
+
+        .job-type {
+            font-size: 12px;
+            background-color: #43b3f11a;
+            color: blue;
+            padding: 2px 7px 1px 7px;
+            border-radius: 10px;
+            padding-top: 3px;
+        }
+
+        .salary {
+            color: #00000078;
+        }
+
+
+        .company-info {
+            display: flex;
+            padding-top: 25px;
+        }
+
+        .logo-container {
+            width: 70px;
+            border: 1px solid #80808038;
+            border-radius: 10px;
+            box-shadow: 0px 0px 30px 0px rgb(133 133 133 / 13%);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .company-logo {
+            width: 60%;
+        }
+
+        .company-details {
+            margin-left: 20px;
+        }
+
+        .company-name {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Plus Jakarta Sans';
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            fill: blue; /* Adjust the color as needed */
+        }
+
+        .company-location {
+            display: flex;
+            align-items: center;
+            color: #00000078;
+        }
+
+            .company-location .icon {
+                fill: #595858
+            }
+
+
+        .job-container {
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            padding: 21px;
+            border-radius: 9px;
+            box-shadow: 0px 0px 13px 0px rgb(0 0 0 / 4%);
+            border: 1px solid #0000001a;
+            transition: box-shadow 0.3s ease; /* Added transition for a smooth effect */
+        }
+
+            .job-container:hover {
+                border-color: blue;
+                border-radius: 10px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Added lift and box shadow on hover */
+            }
+
+    </style>
+
+
+
+
+    <section style="margin-top: 50px;">
+
+        <div class="flex flex-column job-section">
+
+            @foreach (var job in Model.Job)
+            {
+                <a asp-action="JobDescription" asp-controller="Company" asp-route-JobId="@job.JobId">
+                    <div class="job-container">
+                        <div>
+                            <h1 class="job-title">@job.JobName</h1>
+                        </div>
+                        <p class="posted-time"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c-5.53 0-10 4.47-10 10s4.47 10 10 10 10-4.47 10-10-4.47-10-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm1 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" /></svg> @job.JobPostedTime</p>
+                        <div class="job-details">
+                            <span class="job-type">@job.JobEmployeeType</span>
+                            <p class="salary">$ @job.JobMinSalary - @job.JobMaxSalary /mo</p>
+                        </div>
+                        <hr class="divider">
+                        <div class="company-info">
+                            <div class="logo-container">
+                                <img class="company-logo" src="@job.Company.CompanyLogo">
+                            </div>
+                            <div class="company-details">
+                                <h2 class="company-name">@job.Company.CompanyName</h2>
+                                <p class="company-location"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c-4.41 0-8 3.59-8 8 0 7 8 13 8 13s8-6 8-13c0-4.41-3.59-8-8-8zm0 11c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-9c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg> @job.JobLocation </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            }
+
+        </div>
+        <div style="display: flex;justify-content: center;margin-top: 30px">
+            <nav aria-label="Page navigation example">
+                <ul class="flex items-center -space-x-px h-8 text-sm">
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Previous</span>
+                            <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                    </li>
+                    <li>
+                        <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Next</span>
+                            <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </section>
+
+</div>
+
+
+<section style="margin: 100px 0;">
+    <div class="relative">
+        <div>
+            <h2 class="text-center text-gray-800 text-4xl lg:text-5xl font-bold leading-tight">Testimonials</h2>
+            <div class="my-4 mx-auto w-12 h-2 border-4 border-indigo-500"></div>
+            <div class="text-center text-gray-700 font-light">
+                Here are what some of our amazing customers are
+                saying ...
+            </div>
+        </div>
+        <div style="flex-wrap: wrap;" class="flex">
+
+
+            <div class="relative mx-auto mt-8 rounded-lg shadow max-w-sm p-10 bg-gray-100 text-gray-700 leading-snug flex flex-col justify-between">
+                <div class="-ml-4">
+                    <svg class="w-8 opacity-25 text-indigo-500" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0
+                                                                                                             640 640" fill="currentColor">
+                        <path d="M557.133 561.704H442.128c-44.256 0-80.458-36.19-80.458-80.446 0-165.58-42.32-347.485 160.656-399.418 91.95-23.516 115.915 77.753 18.119 84.745-59.647 4.276-71.293 42.804-73.147 101.068h92.269c44.256 0 80.458 36.201 80.458 80.458v130.702c0 45.591-37.3 82.89-82.891 82.89zm-358.032 0H84.096c-44.256 0-80.446-36.19-80.446-80.446 0-165.58-42.331-347.485 160.644-399.418 91.95-23.516 115.915 77.753 18.118 84.745-59.646 4.276-71.292 42.804-73.146 101.068h92.269c44.256 0 80.457 36.201 80.457 80.458v130.702c0 45.591-37.3 82.89-82.89 82.89z"></path>
+                    </svg>
+                </div>
+                <div class="mt-2">
+                    I felt disorganized. Pieces of paper everywhere. I was constantly making new lists, losing old ones,
+                    crossing off items and adding new ones. I was forever worried things were slipping and not getting done. My
+                    brain was tired
+                </div>
+                <div>
+                    <div class="mx-auto w-full border border-gray-300 my-8"></div>
+                    <div class="flex items-center">
+                        <div>
+                            <img class="w-12 h-12 rounded-full border-2 border-indigo-400" src="https://avatars2.githubusercontent.com/u/2741?s=64&amp;v=4">
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold">David H. Hansson</div>
+                            <div class="text-sm text-gray-600 mt-1">CTO, <a href="https://timerse.com/7-steps-to-boost-your-metabolism/">Boosting Metabolism</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mx-auto mt-8 rounded-lg shadow max-w-sm p-10 bg-gray-100 text-gray-700 leading-snug flex flex-col justify-between">
+                <div class="-ml-4">
+                    <svg class="w-8 opacity-25 text-indigo-500" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0
+                                                                                                             640 640" fill="currentColor">
+                        <path d="M557.133 561.704H442.128c-44.256 0-80.458-36.19-80.458-80.446 0-165.58-42.32-347.485 160.656-399.418 91.95-23.516 115.915 77.753 18.119 84.745-59.647 4.276-71.293 42.804-73.147 101.068h92.269c44.256 0 80.458 36.201 80.458 80.458v130.702c0 45.591-37.3 82.89-82.891 82.89zm-358.032 0H84.096c-44.256 0-80.446-36.19-80.446-80.446 0-165.58-42.331-347.485 160.644-399.418 91.95-23.516 115.915 77.753 18.118 84.745-59.646 4.276-71.292 42.804-73.146 101.068h92.269c44.256 0 80.457 36.201 80.457 80.458v130.702c0 45.591-37.3 82.89-82.89 82.89z"></path>
+                    </svg>
+                </div>
+                <div class="mt-2">
+                    I felt disorganized. Pieces of paper everywhere. I was constantly making new lists, losing old ones,
+                    crossing off items and adding new ones. I was forever worried things were slipping and not getting done. My
+                    brain was tired
+                </div>
+                <div>
+                    <div class="mx-auto w-full border border-gray-300 my-8"></div>
+                    <div class="flex items-center">
+                        <div>
+                            <img class="w-12 h-12 rounded-full border-2 border-indigo-400" src="https://avatars0.githubusercontent.com/u/810438?s=100">
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold">Dan Abramov</div>
+                            <div class="text-sm text-gray-600 mt-1">Creator, <a href="https://swift.org/">Java</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative mx-auto mt-8 rounded-lg shadow max-w-sm p-10 bg-gray-100 text-gray-700 leading-snug flex flex-col justify-between">
+                <div class="-ml-4">
+                    <svg class="w-8 opacity-25 text-indigo-500" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0
+                                                                                                             640 640" fill="currentColor">
+                        <path d="M557.133 561.704H442.128c-44.256 0-80.458-36.19-80.458-80.446 0-165.58-42.32-347.485 160.656-399.418 91.95-23.516 115.915 77.753 18.119 84.745-59.647 4.276-71.293 42.804-73.147 101.068h92.269c44.256 0 80.458 36.201 80.458 80.458v130.702c0 45.591-37.3 82.89-82.891 82.89zm-358.032 0H84.096c-44.256 0-80.446-36.19-80.446-80.446 0-165.58-42.331-347.485 160.644-399.418 91.95-23.516 115.915 77.753 18.118 84.745-59.646 4.276-71.292 42.804-73.146 101.068h92.269c44.256 0 80.457 36.201 80.457 80.458v130.702c0 45.591-37.3 82.89-82.89 82.89z"></path>
+                    </svg>
+                </div>
+                <div class="mt-2">
+                    I felt disorganized. Pieces of paper everywhere. I was constantly making new lists, losing old ones,
+                    crossing off items and adding new ones. I was forever worried things were slipping and not getting done. My
+                    brain was tired
+                </div>
+                <div>
+                    <div class="mx-auto w-full border border-gray-300 my-8"></div>
+                    <div class="flex items-center">
+                        <div>
+                            <img class="w-12 h-12 rounded-full border-2 border-indigo-400" src="https://avatars2.githubusercontent.com/u/2741?s=64&amp;v=4">
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold">David H. Hansson</div>
+                            <div class="text-sm text-gray-600 mt-1">CTO, <a href="https://timerse.com/7-steps-to-boost-your-metabolism/">Boosting Metabolism</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
+
+<!-- Core team -->
+
+<section style="border-radius: 80px;background-image: linear-gradient(#cbd6ff3d, #ffffff2b);}">
+
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+            <div>
+                <p style="    color: #0303cc;" class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                    Core Team
+                </p>
+            </div>
+            <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                <span class="relative inline-block">
+                    <svg viewBox="0 0 52 24" fill="currentColor" class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
+                        <defs>
+                            <pattern id="1d4040f3-9f3e-4ac7-b117-7d4009658ced" x="0" y="0" width=".135" height=".30">
+                                <circle cx="1" cy="1" r=".7"></circle>
+                            </pattern>
+                        </defs>
+                        <rect fill="url(#1d4040f3-9f3e-4ac7-b117-7d4009658ced)" width="52" height="24"></rect>
+                    </svg>
+                    <span class="relative">Welcome</span>
+                </span>
+                our talented team of professionals
+            </h2>
+            <p class="text-base text-gray-700 md:text-lg">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.
+            </p>
+        </div>
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+                <div class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                    <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260" alt="Person" />
+                    <div class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                        <p class="mb-1 text-lg font-bold text-gray-100">Oliver Aguilerra</p>
+                        <p class="mb-4 text-xs text-gray-100">Product Manager</p>
+                        <p class="mb-4 text-xs tracking-wide text-gray-400">
+                            Vincent Van Gogh’s most popular painting, The Starry Night.
+                        </p>
+                        <div class="flex items-center justify-center space-x-3">
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                                </svg>
+                            </a>
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                    <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="Person" />
+                    <div class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                        <p class="mb-1 text-lg font-bold text-gray-100">Marta Clermont</p>
+                        <p class="mb-4 text-xs text-gray-100">Design Team Lead</p>
+                        <p class="mb-4 text-xs tracking-wide text-gray-400">
+                            Amet I love liquorice jujubes pudding croissant I love pudding.
+                        </p>
+                        <div class="flex items-center justify-center space-x-3">
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                                </svg>
+                            </a>
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                    <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="Person" />
+                    <div class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                        <p class="mb-1 text-lg font-bold text-gray-100">Anthony Geek</p>
+                        <p class="mb-4 text-xs text-gray-100">CTO, Lorem Inc.</p>
+                        <p class="mb-4 text-xs tracking-wide text-gray-400">
+                            Apple pie macaroon toffee jujubes pie tart cookie caramels.
+                        </p>
+                        <div class="flex items-center justify-center space-x-3">
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                                </svg>
+                            </a>
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                    <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="https://images.pexels.com/photos/3747435/pexels-photo-3747435.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="Person" />
+                    <div class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                        <p class="mb-1 text-lg font-bold text-gray-100">Alice Melbourne</p>
+                        <p class="mb-4 text-xs text-gray-100">Human Resources</p>
+                        <p class="mb-4 text-xs tracking-wide text-gray-400">
+                            Lorizzle ipsum bling bling sit amizzle, consectetuer adipiscing elit.
+                        </p>
+                        <div class="flex items-center justify-center space-x-3">
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                                </svg>
+                            </a>
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                    <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500" alt="Person" />
+                    <div class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                        <p class="mb-1 text-lg font-bold text-gray-100">Martin Garix</p>
+                        <p class="mb-4 text-xs text-gray-100">Good guy</p>
+                        <p class="mb-4 text-xs tracking-wide text-gray-400">
+                            Bacon ipsum dolor sit amet salami jowl corned beef, andouille flank.
+                        </p>
+                        <div class="flex items-center justify-center space-x-3">
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                                </svg>
+                            </a>
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                    <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="Person" />
+                    <div class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                        <p class="mb-1 text-lg font-bold text-gray-100">Andrew Larkin</p>
+                        <p class="mb-4 text-xs text-gray-100">Backend Developer</p>
+                        <p class="mb-4 text-xs tracking-wide text-gray-400">
+                            Moonfish, steelhead, lamprey southern flounder tadpole fish bigeye.
+                        </p>
+                        <div class="flex items-center justify-center space-x-3">
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                                </svg>
+                            </a>
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                    <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260" alt="Person" />
+                    <div class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                        <p class="mb-1 text-lg font-bold text-gray-100">Sophie Denmo</p>
+                        <p class="mb-4 text-xs text-gray-100">Designer</p>
+                        <p class="mb-4 text-xs tracking-wide text-gray-400">
+                            Veggies sunt bona vobis, proinde vos postulo esse magis grape pea.
+                        </p>
+                        <div class="flex items-center justify-center space-x-3">
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                                </svg>
+                            </a>
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                    <img class="object-cover w-full h-56 md:h-64 xl:h-80" src="https://images.pexels.com/photos/3931553/pexels-photo-3931553.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="Person" />
+                    <div class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                        <p class="mb-1 text-lg font-bold text-gray-100">Benedict Caro</p>
+                        <p class="mb-4 text-xs text-gray-100">Frontend Developer</p>
+                        <p class="mb-4 text-xs tracking-wide text-gray-400">
+                            I love cheese, especially airedale queso. Cheese and biscuits halloumi.
+                        </p>
+                        <div class="flex items-center justify-center space-x-3">
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                                </svg>
+                            </a>
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

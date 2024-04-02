@@ -1,0 +1,340 @@
+﻿@model AdmitGenius.Models.Users
+
+
+<hr />
+
+<div style="margin-top:30px;display: flex;justify-content: center;flex-direction: column;align-items: center;">
+
+    <h2 style="font-size: 35px;font-weight: 700;color: darkblue;text-transform:capitalize">
+        @Model.UserName's Student Profile
+    </h2>
+
+    <a target="_blank" style="color:blue; display:flex" asp-controller="StudentProfile" asp-action="Resume" asp-route-UserId="@Model.UserId">
+        Resume
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 14a1 1 0 0 0-1 1v3.077c0 .459-.022.57-.082.684a.363.363 0 0 1-.157.157c-.113.06-.225.082-.684.082H5.923c-.459 0-.571-.022-.684-.082a.363.363 0 0 1-.157-.157c-.06-.113-.082-.225-.082-.684L4.999 5.5a.5.5 0 0 1 .5-.5l3.5.005a1 1 0 1 0 .002-2L5.501 3a2.5 2.5 0 0 0-2.502 2.5v12.577c0 .76.083 1.185.32 1.627.223.419.558.753.977.977.442.237.866.319 1.627.319h12.154c.76 0 1.185-.082 1.627-.319.419-.224.753-.558.977-.977.237-.442.319-.866.319-1.627V15a1 1 0 0 0-1-1zm-2-9.055v-.291l-.39.09A10 10 0 0 1 15.36 5H14a1 1 0 1 1 0-2l5.5.003a1.5 1.5 0 0 1 1.5 1.5V10a1 1 0 1 1-2 0V8.639c0-.757.086-1.511.256-2.249l.09-.39h-.295a10 10 0 0 1-1.411 1.775l-5.933 5.932a1 1 0 0 1-1.414-1.414l5.944-5.944A10 10 0 0 1 18 4.945z" fill="currentColor" />
+        </svg>
+    </a>
+
+</div>
+
+
+
+<div style="display: flex;flex-direction: row;width:100%;align-items: center;">
+    <div style="display: flex;width:100%;align-items: center;">
+
+
+        <div style="width: 100%;margin: 10px;">
+            <div style="background-color: #e2e3ffa8;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}">
+                <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Profile</span>
+
+                <p class="font-normal text-gray-700 dark:text-gray-400"> Complte Your Profile </p>
+                <a style="display: flex;align-items: center ;color:blue" asp-action="UpdateProfile" asp-controller="StudentProfile">
+                    Update
+                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div style="width: 100%;margin: 10px;">
+            <div style="background-color: #e2e3ffa8;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}">
+                <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Test</span>
+
+                <p class="font-normal text-gray-700 dark:text-gray-400"> Take eligibility Test </p>
+                <a style="display: flex;align-items: center;color:blue" asp-action="EligibilityTest" asp-controller="Eligibility">
+                    Take
+                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div style="width: 100%;margin: 10px;">
+            <div style="background-color: #e2e3ffa8;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}">
+                <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Enroll</span>
+
+                <p class="font-normal text-gray-700 dark:text-gray-400"> Find Course and University </p>
+                <a style="display: flex;align-items: center ;color:blue" asp-action="StudentHomePage" asp-controller="studenthome">
+                    Find
+                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div style="padding: 50px 20px 20px;
+
+
+background-image: radial-gradient( circle 369px at -2.9% 12.9%,  rgba(247,234,163,1) 0%, rgba(236,180,238,0.56) 46.4%, rgba(163,203,247,1) 100.7% );
+
+
+ margin:30px;border-radius:20px">
+    <h1 style="
+    color: #0e1353;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 5px;
+">
+        Build Your Resume
+    </h1>
+    <p style="
+    color: #101a8c;
+    font-size: 12px;
+    text-align: center;
+">
+        Build your brand-new resume in as little as 5 minutes.
+        Try it for free.
+    </p>
+    <p style="
+    color: #101a8c;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+">
+        ADMIT GENIUS provide free resume builder add details , choose theme , view resume !
+    </p>
+    <div style="display: flex;flex-direction: row;justify-content: center;width:100%;align-items: center">
+
+        @* <div style="
+        height: 378px;
+        margin-right: 10%;
+        ">
+        <img src="/images/resume.jpg" style="
+        object-fit: contain;
+        height: 100%;
+        ">
+        </div> *@
+
+
+
+        <div style=" display: flex;width: 100%;align-items: center;flex-direction: row;">
+
+            <div style="width: 100%;margin: 10px;">
+                <div style="background: rgba( 255, 255, 255, 0.2 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 20px );-webkit-backdrop-filter: blur( 20px );border-radius: 10px;border: 1px solid rgba( 255, 255, 255, 0.18 );padding: 20px;border-radius: 20px;cursor: pointer;}">
+                    <span style="background: rgba( 69, 58, 232, 0.45 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );" class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Add</span>
+
+                    <p class="font-normal text-gray-700 dark:text-gray-400"> Add Education Details </p>
+                    <a style="display: flex;align-items: center;color:blue" asp-action="EducationDetails" asp-controller="StudentProfile">
+                        Add
+                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div style="width: 100%;margin: 10px;">
+                <div style="background: rgba( 255, 255, 255, 0.2 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 20px );-webkit-backdrop-filter: blur( 20px );border-radius: 10px;border: 1px solid rgba( 255, 255, 255, 0.18 );padding: 20px;border-radius: 20px;cursor: pointer;}">
+                    <span style="background: rgba( 69, 58, 232, 0.45 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );" class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Add</span>
+
+                    <p class="font-normal text-gray-700 dark:text-gray-400"> Add Experiance Details </p>
+                    <a style="display: flex;align-items: center ;color:blue" asp-action="ExperienceDetails" asp-controller="StudentProfile">
+                        Add
+                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div style="width: 100%;margin: 10px;">
+                <div style="background: rgba( 255, 255, 255, 0.2 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 20px );-webkit-backdrop-filter: blur( 20px );border-radius: 10px;border: 1px solid rgba( 255, 255, 255, 0.18 );padding: 20px;border-radius: 20px;cursor: pointer;}">
+                    <span style="background: rgba( 69, 58, 232, 0.45 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );" class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">Add</span>
+
+                    <p class="font-normal text-gray-700 dark:text-gray-400"> Add Project Details </p>
+                    <a style="display: flex;align-items: center;color:blue" asp-action="Addproject" asp-controller="StudentProfile">
+                        Add
+                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+
+    table, th, td {
+        background-color: #f2f2ff;
+        border-radius: 72px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+
+
+<hr />
+
+
+<div style="margin-top:30px;display: flex;justify-content: center;flex-direction: column;align-items: center;">
+
+    <h2 style="font-size: 35px;font-weight: 700;color: darkblue;">
+        @Model.UserName's Enrollments Requests : (@Model.Enrollments.Count)
+    </h2>
+
+
+</div>
+
+@if (Model.Enrollments.Any())
+{
+    <div style="display: flex;justify-content: center;">
+
+        <table style="flex-grow: 1;margin: 20px;" class="table">
+            <thead>
+                <tr>
+                    <th>University Name</th>
+                    <th>University Country</th>
+                    <th>Course Name</th>
+                    <th>Course Department</th>
+                    <th>Education Level</th>
+                    <th>Course Duration</th>
+                    <th>Course Fees</th>
+
+                    <th>Date of Request</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var enrollment in Model.Enrollments)
+                {
+                    <tr>
+                        <td>@enrollment.Course.University.UniversityName</td>
+                        <td>@enrollment.Course.University.UniversityCountry</td>
+
+                        <td>@enrollment.Course.CourseName</td>
+                        <td>@enrollment.Course.CourseDepartment</td>
+                        <td>@enrollment.Course.CourseEducationLevel</td>
+                        <td>@enrollment.Course.CourseDuration</td>
+                        <td>@enrollment.Course.CourseFees</td>
+
+                        <td>@enrollment.DateOfRequest</td>
+                        <td>@enrollment.Status</td>
+
+
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+}
+else
+{
+    <p>You have no enrollments yet.</p>
+}
+
+
+
+
+<div style="margin-top:30px;display: flex;justify-content: center;flex-direction: column;align-items: center;">
+
+    <h2 style="font-size: 35px;font-weight: 700;color: darkblue;">
+        @Model.UserName's Intern Requests : (@Model.InternRequest.Count)
+    </h2>
+
+
+</div>
+
+@if (Model.InternRequest.Any())
+{
+    <div style="display: flex;justify-content: center;">
+
+        <table style="flex-grow: 1;margin: 20px;" class="table">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Company Country</th>
+                    <th>Job Title</th>
+                    <th>Job Employee Type</th>
+                    <th>Salary</th>
+
+                    <th>Date of Request</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var enrollment in Model.InternRequest)
+                {
+                    <tr>
+
+                        <td>
+                            <a asp-action="CompanyPage" asp-controller="Company" asp-route-companyId="@enrollment.Job.Company.CompanyId">
+                                @enrollment.Job.Company.CompanyName
+                            </a>
+                        </td>
+                        <td>@enrollment.Job.JobLocation</td>
+
+                        <td> <a asp-action="JobDescription" asp-controller="Company" asp-route-JobId="@enrollment.Job.JobId">@enrollment.Job.JobName </a></td>
+                        <td>@enrollment.Job.JobEmployeeType</td>
+                        <td>@enrollment.Job.JobMinSalary - @enrollment.Job.JobMaxSalary  </td>
+
+                        <td>@enrollment.DateOfRequest</td>
+                        <td>@enrollment.Status</td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+}
+else
+{
+    <p>You have no enrollments yet.</p>
+}
+
+
+

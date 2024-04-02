@@ -1,0 +1,85 @@
+﻿@model List<AdmitGenius.Models.Company>
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+    h1 {
+        font-weight: bolder;
+    }
+</style>
+
+<div style="display:flex;justify-content:center;margin:30px">
+
+    <h1 style="font-weight:bold; font-size:35px">All Company Requests</h1>
+
+</div>
+
+@if (Model.Any())
+{
+    <div class="flex flex-wrap -m-4">
+        @foreach (var company in Model)
+        {
+            <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="@company.CompanyImage" alt="@company.CompanyName Image">
+                    <div class="p-6">
+                        <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">@company.CompanyCountry</h2>
+                        <h1 class="title-font text-lg font-medium text-gray-900 mb-3">@company.CompanyName</h1>
+                        <hr />
+
+                        <h1>Official Email Address :</h1>
+                        <p class="leading-relaxed mb-3">@company.CompanyOfficalEmailAddress</p>
+
+                        <h1>Description : </h1>
+                        <p class="leading-relaxed mb-3">@company.CompanyDescription</p>
+                        <p class="leading-relaxed mb-3">@company.CompanyTagline</p>
+                        <hr />
+
+                        <h1>Location Details :</h1>
+                        <p class="leading-relaxed mb-3">@company.CompanyCountry</p>
+                        <p class="leading-relaxed mb-3">@company.CompanyLocation</p>
+                        <hr />
+
+                        <h1> Registred Date :</h1>
+                        <p class="leading-relaxed mb-3">@company.CompanyRegisterDate</p>
+                        <hr />
+
+                        <h1>Company Stats :</h1>
+                        <p class="leading-relaxed mb-3">@company.TotalClients</p>
+                        <p class="leading-relaxed mb-3">@company.TotalProjects</p>
+                        <p class="leading-relaxed mb-3">@company.TotalWorkers</p>
+                        <hr />
+
+
+                        <h1>Company Services & Features :</h1>
+                        <p class="leading-relaxed mb-3">@company.Feature1</p>
+                        <p class="leading-relaxed mb-3">@company.Feature2</p>
+                        <p class="leading-relaxed mb-3">@company.Feature3</p>
+                        <p class="leading-relaxed mb-3">@company.Feature4</p>
+                        <p class="leading-relaxed mb-3">@company.Feature5</p>
+                        <p class="leading-relaxed mb-3">@company.Feature6</p>
+
+
+
+
+
+
+                        <div class="flex items-center flex-wrap">
+                            <form method="post" asp-action="UpdateCompanyRequestStatus" asp-route-companyId="@company.CompanyId" asp-route-newStatus="Approved">
+                                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">Approve</button>
+                            </form>
+
+                            <form method="post" asp-action="UpdateCompanyRequestStatus" asp-route-companyId="@company.CompanyId" asp-route-newStatus="Rejected">
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">Reject</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No pending Company registration requests.</p>
+}

@@ -1,0 +1,44 @@
+﻿@model List<AdmitGenius.Models.Counselors>
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<h1 class="text-2xl font-bold mb-4">Counselor Registration Requests</h1>
+
+@if (Model.Any())
+{
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        @foreach (var counselor in Model)
+        {
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <div class="p-6">
+                    <h2 class="text-xs text-gray-400 mb-1">@counselor.CounselorCountry</h2>
+                    <h1 class="text-lg font-medium text-gray-900 mb-3">@counselor.CounselorFirstName</h1>
+                    <p class="mb-2">Counselor Email: @counselor.CounselorEmail</p>
+                    <p class="mb-2">Phone: @counselor.CounselorPhone</p>
+                    <p class="mb-2">Location: @counselor.CounselorFullLocation</p>
+                    <p class="mb-2">Degree: @counselor.CounselorDegree</p>
+                    <p class="mb-2">University: @counselor.CounselorUniversity</p>
+                    <p class="mb-2">Graduation Year: @counselor.CounselorGraduationYear</p>
+                    <p class="mb-2">Working Hours: @counselor.WorkingHours</p>
+                    <p class="mb-2">Days Available: @counselor.DaysAvailable</p>
+                    <p class="mb-2">Main Language: @counselor.MainLanguage</p>
+                    <p class="mb-2">Secondary Language: @counselor.SecondaryLanguage</p>
+                    <p class="mb-2">Fees: @counselor.CounselorFees $</p>
+                    <div class="flex items-center space-x-4 mt-4">
+                        <form method="post" asp-action="UpdateCounselorRequestStatus" asp-route-counselorId="@counselor.CounselorId" asp-route-newStatus="Approved">
+                            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">Approve</button>
+                        </form>
+
+                        <form method="post" asp-action="UpdateCounselorRequestStatus" asp-route-counselorId="@counselor.CounselorId" asp-route-newStatus="Rejected">
+                            <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">Reject</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No pending counselor registration requests.</p>
+}

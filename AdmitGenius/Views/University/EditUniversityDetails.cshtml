@@ -1,0 +1,264 @@
+﻿@model AdmitGenius.Models.ViewModels.EditUniversityDetailsViewModel
+
+@{
+    Layout = "_LayoutWithoutHeaderAndFooter";
+}
+
+
+<style>
+
+
+    .dashboard {
+        height: 70%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    .dashboard-links {
+        padding-top:30px;
+        width: 30rem;
+        height: 100vh;
+        background-color: #EFF3F7;
+        position: fixed; 
+        top: 0; 
+        left: 0;
+    }
+
+        .dashboard-links ul {
+            padding-inline-start: 0;
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-self: center;
+        }
+
+            .dashboard-links ul li svg {
+                margin-right: 1rem;
+            }
+
+        .dashboard-links li {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            text-decoration: none;
+            font-weight: bolder;
+            padding: 1.5rem;
+            margin: 1rem;
+            max-width: inherit;
+        }
+
+            .dashboard-links li:nth-child(3) {
+                border-bottom: none;
+            }
+
+            .dashboard-links li :hover {
+                color: rgb(5, 5, 204);
+                cursor: pointer;
+            }
+
+            .dashboard-links li a {
+                text-decoration: none;
+                color: darkblue;
+            }
+
+                .dashboard-links li a :active {
+                    color: purple;
+                }
+
+    #dashboard-content {
+        margin-left: 30rem; 
+        width: 70%;
+    }
+
+    .customcontainer {
+        margin-left: 2rem ;
+        margin-top: 4rem;
+        display: flex;
+        height: inherit;
+        flex-direction: column;
+        align-items: center;
+        justify-self: flex-start;
+        justify-content: center;
+    }
+
+    .heading h2 {
+        color: darkblue;
+        font-family: 'roboto',sans-serif;
+    }
+
+    .content {
+        height: max-content;
+        width: 60vw;
+    }
+
+    form {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem auto;
+    }
+
+    input, textarea {
+        width: 45vw;
+        padding: 0.5rem;
+        margin-bottom: 2rem;
+        border-radius: 4px;
+        border: 1px solid #979797;
+        box-sizing: border-box;
+    }
+
+        input::placeholder, textarea::placeholder {
+            color: black;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 1rem;
+        }
+
+    .submitbtn {
+        margin: 0.5rem;
+        padding: 1rem;
+        background-color: orange;
+        border-radius: 5rem;
+        width: 15rem;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        align-self: center;
+        font-weight: bolder;
+    }
+
+        .submitbtn:hover {
+            background-color: orangered;
+            cursor: pointer;
+        }
+</style>
+
+<section class="dashboard">
+    <div class="dashboard-links">
+        <ul>
+            <li>
+                <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.9818 5.99479L19.9766 2L26.9674 8.99088L22.9726 12.9856M15.9818 5.99479L2.41367 19.5629C2.14881 19.8277 2 20.187 2 20.5616V26.9674H8.40584C8.78043 26.9674 9.13967 26.8186 9.40454 26.5537L22.9726 12.9856M15.9818 5.99479L22.9726 12.9856" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <a asp-action="EditUniversityDetails" asp-controller="University">EDIT UNIVERSITY DETAILS</a>
+            </li>
+            <div style="height:1px ; background-color:darkblue;width: 80%"></div>
+            <li>
+                <svg width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.2342 9.16996L13.4811 2.6297C13.8979 1.7901 15.1021 1.7901 15.5189 2.6297L18.7657 9.16996L26.0269 10.2252C26.9585 10.3606 27.3297 11.4992 26.6554 12.1524L21.4021 17.2397L22.6419 24.4267C22.8011 25.3497 21.8267 26.0535 20.9931 25.6176L14.5 22.2225L8.00684 25.6176C7.17325 26.0535 6.19886 25.3497 6.35806 24.4267L7.59781 17.2397L2.34469 12.1524C1.67021 11.4992 2.04153 10.3606 2.97315 10.2252L10.2342 9.16996Z" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <a asp-action="AddNewCourses" asp-controller="University">ADD NEW COURSES</a>
+            </li>
+            <div style="height:1px ; background-color:darkblue;width: 80%"></div>
+            <li>
+                <svg width="29" height="32" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 30.5714V28.7857C2 21.8821 7.59645 16.2857 14.5 16.2857C21.4036 16.2857 27 21.8821 27 28.7857V30.5714" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14.5003 16.2857C18.4451 16.2857 21.6431 13.0877 21.6431 9.14286C21.6431 5.19796 18.4451 2 14.5003 2C10.5554 2 7.35742 5.19796 7.35742 9.14286C7.35742 13.0877 10.5554 16.2857 14.5003 16.2857Z" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <a asp-action="ReviewStudents" asp-controller="University">REVIEW STUDENTS</a>
+            </li>
+            <div style="height:1px ; background-color:darkblue;width: 80%"></div>
+            <li>
+                <svg width="29" height="32" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 30.5714V28.7857C2 21.8821 7.59645 16.2857 14.5 16.2857C21.4036 16.2857 27 21.8821 27 28.7857V30.5714" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14.5003 16.2857C18.4451 16.2857 21.6431 13.0877 21.6431 9.14286C21.6431 5.19796 18.4451 2 14.5003 2C10.5554 2 7.35742 5.19796 7.35742 9.14286C7.35742 13.0877 10.5554 16.2857 14.5003 16.2857Z" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <a asp-action="ApprovedStudents" asp-controller="University">APPROVED STUDENTS</a>
+            </li>
+        </ul>
+    </div>
+    <div id="dashboard-content">
+        <div class="customcontainer">
+            <div class="heading">
+                <h2><strong>EDIT UNIVERSITY DETAILS</strong></h2>
+            </div>
+            <div class="content">
+
+                <form asp-action="EditUniversityDetails" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="UniversityId" />
+
+                    <label for="UniversityName">Name</label>
+                    <input asp-for="UniversityName" placeholder="Name" required>
+
+                    <label asp-for="UniversityTagline"></label>
+                    <input asp-for="UniversityTagline" class="form-control" />
+
+                    <label asp-for="UniversityDescription"></label>
+                    <textarea asp-for="UniversityDescription" class="form-control"></textarea>
+
+                    @if (!string.IsNullOrEmpty(Model.UniversityImageLocation))
+                    {
+                        <img src="@Model.UniversityImageLocation" alt="@Model.UniversityImageLocation" style="max-width: 50%;" />
+                    }
+                    else
+                    {
+                        <p>No image available</p>
+                    }
+                    <label asp-for="UniversityImageFile"></label>
+                    <input asp-for="UniversityImageFile" type="file" class="form-control" />
+
+                    <label asp-for="UniversityImage2"></label>
+                    <input asp-for="UniversityImage2" type="file" class="form-control" />
+
+                    <label asp-for="UniversityImage3"></label>
+                    <input asp-for="UniversityImage3" type="file" class="form-control" />
+
+                    <label asp-for="UniversityImage4"></label>
+                    <input asp-for="UniversityImage4" type="file" class="form-control" />
+
+                    <label asp-for="UniversityImage5"></label>
+                    <input asp-for="UniversityImage5" type="file" class="form-control" />
+
+                    <label asp-for="UniversityImage6"></label>
+                    <input asp-for="UniversityImage6" type="file" class="form-control" />
+
+                    <label asp-for="Feature1"></label>
+                    <input asp-for="Feature1" class="form-control" />
+
+                    <label asp-for="Feature2"></label>
+                    <input asp-for="Feature2" class="form-control" />
+
+                    <label asp-for="Feature3"></label>
+                    <input asp-for="Feature3" class="form-control" />
+
+                    <label asp-for="Feature4"></label>
+                    <input asp-for="Feature4" class="form-control" />
+
+                    <label asp-for="Feature5"></label>
+                    <input asp-for="Feature5" class="form-control" />
+
+                    <label asp-for="LetterofAcceptanceJtoA"></label>
+                    <input asp-for="LetterofAcceptanceJtoA" class="form-control" />
+
+                    <label asp-for="LetterofAcceptanceMtoA"></label>
+                    <input asp-for="LetterofAcceptanceMtoA" class="form-control" />
+
+                    <label asp-for="LetterofAcceptanceStoD"></label>
+                    <input asp-for="LetterofAcceptanceStoD" class="form-control" />
+
+                    <label asp-for="logitude"></label>
+                    <input asp-for="logitude" class="form-control" />
+
+                    <label asp-for="latitude"></label>
+                    <input asp-for="latitude" class="form-control" />
+
+                    <label asp-for="UniversityCountry"></label>
+                    <input asp-for="UniversityCountry" class="form-control" />
+
+                    <label asp-for="UniversityLocation"></label>
+                    <input asp-for="UniversityLocation" class="form-control" />
+
+                    <label asp-for="UniversityRegisterDate"></label>
+                    <input asp-for="UniversityRegisterDate" type="datetime-local" class="form-control" />
+
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

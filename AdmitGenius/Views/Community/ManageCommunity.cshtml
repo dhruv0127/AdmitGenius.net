@@ -1,0 +1,180 @@
+﻿@model AdmitGenius.Models.Community
+
+
+
+<h1 style="
+    font-size: 41px;
+    font-weight: bold;
+    color: darkblue;
+    text-align: center;
+    font-family: serif;
+">
+    Community ~ <span style="color: #04046f;">@Model.CommunityName</span>
+</h1>
+
+<section style="margin:40px">
+
+
+    <h1 style="text-align: center;font-size: 30px;font-weight: bolder;font-family: math;margin: 30px;color: #07076c;">Review New Members</h1>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Position
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Status
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var member in Model.CommunityMember)
+                {
+                    @if (@member.status == "pending")
+                    {
+
+
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+
+                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                <img class="w-10 h-10 rounded-full" src="@member.User.UserProfile" alt="">
+                                <div style="margin-left: 10px " class="ps-3">
+                                    <div class="text-base font-semibold">@member.User.UserName</div>
+                                    <div class="font-normal text-gray-500">@member.User.UserEmail</div>
+                                </div>
+                            </th>
+                            <td class="px-6 py-4">
+                                Member
+                            </td>
+                            <td class="px-6 py-4">
+                                <div style="align-items: center" class="flex items-center">
+                                    <div style="margin-top: 4px;margin-right: 5px;" class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+                                    @member.status
+                                </div>
+                            </td>
+
+                            <td class="px-6 py-4">
+                                <div style="display:flex;gap:20px">
+
+                                    <form method="post" asp-action="ApproveMember" asp-controller="Community" asp-route-cid="@Model.CommunityId" asp-route-memberId="@member.UserId">
+                                        <button style="color:#0b890b" type="submit">Approve</button>
+                                    </form>
+                                    <form method="post" asp-action="RejectMember" asp-controller="Community" asp-route-cid="@Model.CommunityId" asp-route-memberId="@member.UserId">
+                                        <button style="color:red" type="submit">Reject</button>
+                                    </form>
+
+                                </div>
+
+                            </td>
+                        </tr>
+
+
+                    }
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <h1 style="text-align: center;font-size: 30px;font-weight: bolder;font-family: math;margin: 30px;color: #07076c;">Active Members</h1>
+
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Position
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Status
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var member in Model.CommunityMember)
+                {
+                    @if (@member.status == "admin")
+                    {
+
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+
+                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                <img class="w-10 h-10 rounded-full" src="@member.User.UserProfile" alt="">
+                                <div style="margin-left: 10px " class="ps-3">
+                                    <div class="text-base font-semibold">@member.User.UserName</div>
+                                    <div class="font-normal text-gray-500">@member.User.UserEmail</div>
+                                </div>
+                            </th>
+                            <td class="px-6 py-4">
+                                @member.status
+                            </td>
+                            <td class="px-6 py-4">
+                                <div style="align-items: center" class="flex items-center">
+                                    <div> - </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                -
+
+                            </td>
+                        </tr>
+                    }
+                    @if (@member.status == "approved" && @member.status != "admin")
+                    {
+
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+
+                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                <img class="w-10 h-10 rounded-full" src="@member.User.UserProfile" alt="">
+                                <div style="margin-left: 10px " class="ps-3">
+                                    <div class="text-base font-semibold">@member.User.UserName</div>
+                                    <div class="font-normal text-gray-500">@member.User.UserEmail</div>
+                                </div>
+                            </th>
+                            <td class="px-6 py-4">
+                                Member
+                            </td>
+                            <td class="px-6 py-4">
+                                <div style="align-items: center" class="flex items-center">
+                                    <div style="margin-top: 4px;margin-right: 5px;" class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+                                    @member.status
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+
+                                <form method="post" asp-action="RemoveMember" asp-controller="Community" asp-route-cid="@Model.CommunityId" asp-route-memberId="@member.UserId">
+                                    <button style="color:red" type="submit">Remove</button>
+                                </form>
+
+                            </td>
+                        </tr>
+                    }
+
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+</section>

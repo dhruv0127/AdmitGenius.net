@@ -1,0 +1,1081 @@
+﻿<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+<style>
+
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        flex: 1;
+    }
+
+    .article-item {
+        display: flex;
+        align-items: center;
+        margin: 4rem;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+        color: #fff;
+        padding: 4rem;
+        background-image: linear-gradient(to right,#312E81,purple);
+        border-radius: 25px;
+    }
+
+        .article-item button {
+            width: 100%;
+        }
+
+        .article-item p {
+            font-weight: lighter;
+            max-width: 80%;
+            text-align: center;
+        }
+
+    /*summary block*/
+
+    .university-summary {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        align-items: center;
+        padding: 1.5rem;
+        z-index: 2;
+        position: absolute;
+        bottom: -200px;
+        background-color: #fff;
+        width: 50%;
+        border: 2px solid blue;
+    }
+
+        .university-summary .summary-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* margin: 1rem; */
+        }
+
+    /*grid photos*/
+
+    .gridphotos {
+        display: grid;
+        grid-template-columns: 27% 27% 25% 30%;
+        gap: 1px 2px;
+    }
+
+    .column1 {
+        padding: 6rem 0 6rem 0;
+    }
+
+    .grid-item1 {
+        row-gap: 1;
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+
+    .grid-item2 {
+        grid-row: 2/4;
+        grid-column: 1/2;
+    }
+
+    .column2 {
+        padding: -1rem 0 1rem 0;
+    }
+
+    @@media screen and (width<=786px) {
+        .grid-section {
+            padding: 2px;
+            margin: 10px;
+        }
+
+        .column1 {
+            padding-left: 0;
+        }
+
+        .gridphotos {
+            grid-template-columns: 25% 30% 25% 25%;
+            padding: 30px 0 0 0;
+            margin-bottom: 0;
+            grid-template-rows: 20% 30% 20% 20%;
+        }
+    }
+
+    .grid-item3 {
+        grid-row: 1/2;
+        grid-column: 2/3;
+    }
+
+    .grid-item4 {
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+
+    .grid-item5 {
+        grid-row: 3/4;
+        grid-column: 2/3;
+    }
+
+    .column3 {
+        padding: 2rem 0 2rem 0;
+    }
+
+    .grid-item6 {
+        grid-row: 1/2;
+        grid-column: 3/4;
+    }
+
+    .grid-item7 {
+        grid-row: 2/3;
+        grid-column: 3/4;
+    }
+
+    .grid-item8 {
+        grid-row: 3/4;
+        grid-column: 3/4;
+    }
+
+    .column4 {
+        padding: 5rem 0 5rem 0;
+    }
+
+    .grid-item9 {
+        grid-row: 2/3;
+        grid-column: 4/5;
+    }
+
+    .grid-item10 {
+        grid-row: 3/4;
+        grid-column: 4/5;
+    }
+
+
+
+
+
+
+
+    /*Main testnomial section*/
+    .splide__pagination .splide__pagination__page.is-active {
+        background-color: #9333EA;
+    }
+
+    .splide__arrow {
+        color: #9333EA;
+        background-color: #fff;
+        margin: -2rem;
+    }
+
+    /*carousel*/
+    html, body {
+        margin: 0px;
+        padding: 0px;
+        background: url("http://digital.bnint.com/filelib/s9/photos/white_wood_4500x3000_lo_res.jpg");
+    }
+
+    .carousel {
+        position: relative;
+    }
+
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+    }
+
+    .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+
+        .carousel-item img {
+            display: block;
+            height: auto;
+            max-width: 100%;
+        }
+
+    .carousel-control {
+        border-radius: 50%;
+        color: #000;
+        cursor: pointer;
+        display: none;
+        font-size: 40px;
+        height: 40px;
+        line-height: 35px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        cursor: pointer;
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        text-align: center;
+        width: 40px;
+        z-index: 10;
+    }
+
+        .carousel-control.prev {
+            left: 2%;
+        }
+
+        .carousel-control.next {
+            right: 2%;
+        }
+
+        .carousel-control:hover {
+            background-color: #F1F5F9;
+            color: #aaaaaa;
+        }
+
+    #carousel-1:checked ~ .control-1,
+    #carousel-2:checked ~ .control-2,
+    #carousel-3:checked ~ .control-3 {
+        display: block;
+    }
+
+    .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
+
+        .carousel-indicators li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+    .carousel-bullet {
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 35px;
+    }
+
+        .carousel-bullet:hover {
+            color: #aaaaaa;
+        }
+
+    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+        color: #428bca;
+    }
+
+    #title {
+        width: 100%;
+        position: absolute;
+        padding: 0px;
+        margin: 0px auto;
+        text-align: center;
+        font-size: 27px;
+        color: rgba(255, 255, 255, 1);
+        font-family: 'Open Sans', sans-serif;
+        z-index: 9999;
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
+    }
+
+    /*FAQs*/
+    .faq-container {
+        margin: auto;
+        width: 60%;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-item {
+        padding: 20px;
+        border-bottom: 1px solid #e0e0e0;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+    .faq-question {
+        color: #2563EB;
+        ;
+        font-size: 18px;
+        padding-bottom: 3px;
+        padding-top: 3px;
+    }
+
+    .fa,
+    .fas {
+        font-family: 'FontAwesome';
+        font-weight: 400;
+        font-size: 1.2rem;
+        font-style: normal;
+    }
+
+    .faq-answer {
+        font-size: 16px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        text-align: left;
+    }
+
+        .faq-answer.active {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+    .icon-container i {
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+    }
+
+        .icon-container i.active {
+            transform: rotate(45deg);
+        }
+
+    .element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .center-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @@media screen and (width<=786px) {
+        .join-the-community {
+            margin: 0;
+            padding: 4px;
+        }
+
+        .m-12 {
+            margin: 0;
+        }
+    }
+
+    @@media screen and (width<=786px) {
+        .university-summary {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 18px;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .footer p {
+                margin-bottom: 8px;
+            }
+    }
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/@@splidejs/splide@3.6.12/dist/css/splide.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#image-slider', {
+            pagination: true,
+            arrows: false,
+            autoplay: true,
+            interval: 5000,
+            rewind: true,
+            pauseOnHover: false,
+        }).mount();
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Splide('#image-slider2', {
+            pagination: true,
+            arrows: true,
+        }).mount();
+    });
+</script>
+<script src="path/to/splide-extension.js"></script>
+
+
+
+@{
+    var userId = Context.Session.GetString("UserId");
+}
+
+<!--header-->
+<!--hero section-->
+
+<section style="display: flex;justify-content: center;height:92vh" class="bg-gray-100 py-12">
+
+    <video autoplay muted loop id="background-video">
+        <source src="~/images/background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="image-slider" class="splide container mx-auto max-w-screen-xl" style="position: absolute; bottom: 0;margin-bottom: 25px ">
+        <div class="splide__track">
+            <ul class="splide__list">
+
+                <!-- slider Item 1 -->
+                <li style="width: calc(100%);display: flex;align-items: flex-end;" class="splide__slide">
+                    <div class="container mx-auto flex md:flex-row flex-col items-center content">
+                        <div style="margin-left: 10vh;" class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-12 flex flex-col md:items-start md:text-left mb-12 md:mb-0 items-center text-center">
+                            <h1 style="font-size: xxx-large;max-width: 900px;color: white;" class="title-font sm:text-6xl text-5xl mb-4 font-bold text-gray-900">
+                                Fuel Your Path
+                            </h1>
+                            <p style="max-width: 900px;color: white;" class="mb-8 leading-relaxed"> Empower your educational journey with our comprehensive platform offering affordable global education and access to premier scholarships. Discover a world of opportunities as you pursue your academic ambitions without financial barriers. Let us guide you towards success as you fuel your path to a brighter future.</p>
+                            <div class="flex justify-center">
+
+                                @if (userId != null)
+                                {
+                                    <a asp-controller="Scholarship" asp-action="AllScholarship" class="inline-flex text-white items-center bg-orange-600 border-0 py-2 px-4 focus:outline-none hover:bg-orange-500 rounded text-base md:mt-0" style="color:white;background-color:#EA580C">
+                                        SCHOLARSHIP
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Users" asp-action="Login" class="inline-flex text-white items-center bg-orange-600 border-0 py-2 px-4 focus:outline-none hover:bg-orange-500 rounded text-base md:mt-0" style="color:white;background-color:#EA580C">
+                                        SCHOLARSHIP
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                }
+
+                                
+                                <button class="ml-4 inline-flex text-blue-600 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-gray-100 rounded text-lg" style="color:#2563EB;background-color: transparent;">
+                                    <svg class="mt-1 mr-1" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 20C4.477 20 0 15.523 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20ZM10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18ZM14.126 11.746L10.071 14.644C9.166 15.29 7.941 15.033 7.334 14.068C7.11494 13.7171 6.99918 13.3116 7 12.898V7.102C7 5.942 7.883 5 8.972 5C9.363 5 9.746 5.124 10.071 5.356L14.126 8.254C15.031 8.901 15.272 10.206 14.666 11.171C14.5251 11.3959 14.3417 11.5913 14.126 11.746ZM8.972 7.102V12.898L13.027 10L8.972 7.102Z" fill="#2563EB" />
+                                    </svg>
+                                    View Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- slider Item 2 -->
+                <li style="display: flex;align-items: flex-end;" class="splide__slide">
+                    <div class="container mx-auto flex md:flex-row flex-col items-center content">
+                        <div style="margin-left: 10vh;" class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-12 flex flex-col md:items-start md:text-left mb-12 md:mb-0 items-center text-center">
+                            <h1 style="font-size: xxx-large;max-width: 900px;color: white;" class="title-font sm:text-6xl text-5xl mb-4 font-bold text-gray-900">
+                                Unlock Your Future
+                            </h1>
+                            <p style="max-width: 900px;color: white;" class="mb-8 leading-relaxed">  Embark on a transformative journey with our Aptitude Test. Explore your strengths, passions, and potential career paths through thought-provoking questions. Let our guidance open doors to endless opportunities, helping you unlock your true potential. Join us on this empowering path forward.</p>
+                            <div class="flex justify-center">
+                                @if (userId != null)
+                                {
+                                    <a asp-controller="Eligibility" asp-action="AptitudeTest" class="inline-flex text-white items-center bg-orange-600 border-0 py-2 px-4 focus:outline-none hover:bg-orange-500 rounded text-base md:mt-0" style="color:white;background-color:#EA580C">
+                                        APTITUDE TEST
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                }else{
+                                    <a asp-controller="Users" asp-action="Login" class="inline-flex text-white items-center bg-orange-600 border-0 py-2 px-4 focus:outline-none hover:bg-orange-500 rounded text-base md:mt-0" style="color:white;background-color:#EA580C">
+                                        APTITUDE TEST
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- slider Item 3 -->
+                <li style="display: flex;align-items: flex-end;" class="splide__slide">
+                    <div class="container mx-auto flex md:flex-row flex-col items-center content">
+                        <div style="margin-left: 10vh;" class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-12 flex flex-col md:items-start md:text-left mb-12 md:mb-0 items-center text-center">
+                            <h1 style="font-size: xxx-large;max-width: 900px;color: white;" class="title-font sm:text-6xl text-5xl mb-4 font-bold text-gray-900">
+                                Empower Your Career
+                            </h1>
+                            <p style="max-width: 900px;color: white;" class="mb-8 leading-relaxed"> Take the next step in advancing your career by connecting with exclusive internships and gaining real-world experience today. Unlock doors to invaluable opportunities that will propel you towards your professional goals. Seize the chance to make meaningful connections and acquire the skills necessary to thrive in your desired field. Empower your career journey with us.</p>
+                            <div class="flex justify-center">
+                                @if (userId != null)
+                                {
+                                    <a asp-controller="Company" asp-action="AllCompanies" class="inline-flex text-white items-center bg-orange-600 border-0 py-2 px-4 focus:outline-none hover:bg-orange-500 rounded text-base md:mt-0" style="color:white;background-color:#EA580C">
+                                        INTERNSHIP
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Users" asp-action="Login" class="inline-flex text-white items-center bg-orange-600 border-0 py-2 px-4 focus:outline-none hover:bg-orange-500 rounded text-base md:mt-0" style="color:white;background-color:#EA580C">
+                                        INTERNSHIP
+                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!--summary-block-->
+    <div class="university-summary">
+
+        <a style="width: 130px;" asp-action="StudentHomePage" asp-controller="StudentHome">
+            <div class="summary-item">
+                <img style="filter: hue-rotate(334deg);" src="~/images/Assets/4max.png" />
+                <h4 style="font-weight: bolder;margin-top: 10px;">Student</h4>
+            </div>
+        </a>
+
+        <a style="width: 130px;" asp-action="UniversityRegisterRequest" asp-controller="users">
+            <div class="summary-item">
+                <img style="filter: hue-rotate(357deg);" src="~/images/Assets/4max.png" />
+                <h4 style="font-weight: bolder;margin-top: 10px;">University</h4>
+            </div>
+        </a>
+
+        <a style="width: 130px;" asp-action="counselorregisterrequest" asp-controller="users">
+            <div class="summary-item">
+                <img style="filter: hue-rotate(41deg);" src="~/images/Assets/4max.png" /> 
+                <h4 style="font-weight: bolder;margin-top: 10px;">Counselor</h4>
+            </div>
+        </a>
+
+        <a style="width: 130px;" asp-action="companyregisterrequest" asp-controller="users">
+            <div class="summary-item">
+                <img style="filter: hue-rotate(48deg);" src="~/images/Assets/4max.png" />
+                <h4 style="font-weight: bolder;margin-top: 10px;">Company</h4>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<style>
+    #video-section {
+        position: relative;
+        width: 100%;
+        height: 90vh;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    #background-video {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #video-section .content {
+        position: relative;
+        z-index: 1;
+        color: #fff;
+    }
+
+</style>
+
+
+
+
+<!--youtube tutorial-->
+<section class="text-gray-900 body-font bg-cover m-0 p-12" style="background-image: url('https://yourbucketname.s3.amazonaws.com/bloodBG.png');">
+    <div style="margin-top: 90px;" class="title-container flex flex-col items-center">
+        <h3 class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-center p-8 mt-12">HOW CAN WE HELP</h3>
+        <p class="max-w-2xl text-center p-2 mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sint expedita molestiae ipsa vel, assumenda voluptatibus officiis. Autem quod dolores saepe quae nesciunt?</p>
+        <div class="m-12">
+            <video muted loop controls style="border-radius: 15px;">
+                <source src="~/images/explain.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+    </div>
+</section>
+<!--grid-photos-international-students-->
+<section class="grid-section body-font" style="color: #0F172A; padding-left: 5%;padding-right: 5%;">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col-reverse items-center">
+        <div class="gridphotos lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 grid grid-cols-4 gap-4 ">
+            <div class="column1">
+                <div class="grid-item1"><img src="https://yourbucketname.s3.amazonaws.com/img-1.png" alt=""></div>
+                <div class="grid-item2"><img src="https://yourbucketname.s3.amazonaws.com/img-2.png" alt=""></div>
+            </div>
+            <div class="column2">
+                <div class="grid-item3"><img src="https://yourbucketname.s3.amazonaws.com/img-3.png" alt=""></div>
+                <div class="grid-item4"><img src="https://yourbucketname.s3.amazonaws.com/img-4.png" alt=""></div>
+                <div class="grid-item5"><img src="https://yourbucketname.s3.amazonaws.com/img-5.png" alt=""></div>
+            </div>
+            <div class="column3">
+                <div class="grid-item6"><img src="https://yourbucketname.s3.amazonaws.com/img-6.png" alt=""></div>
+                <div class="grid-item7"><img src="https://yourbucketname.s3.amazonaws.com/img-7.png" alt=""></div>
+                <div class="grid-item8"><img src="https://yourbucketname.s3.amazonaws.com/img-8.png" alt=""></div>
+            </div>
+            <div class="column4">
+                <div class="grid-item9"><img src="https://yourbucketname.s3.amazonaws.com/img-9.png" alt=""></div>
+                <div class="grid-item10"><img src="https://yourbucketname.s3.amazonaws.com/img-10.png" alt=""></div>
+            </div>
+        </div>
+        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+            <h1 class="title-font sm:text-6xl text-5xl mb-2 font-bold">Meet international students & teachers</h1>
+            <p class="mb-8 mt-4 leading-relaxed">Morbi sit egestas dignissim pharetra, sed amet. Tempus justo senectus risus ac vel, velit, nunc. Eget commodo eget in aliquam facilisi facilisi nec magna hendrerit. Placerat ipsum sit tellus urna, faucibus aenean lorem faucibus integer.</p>
+            <div class="flex justify-center">
+                <a class="text-indigo-500 inline-flex items-center mt-4 font-medium sm:w-full leading-relaxed text-base sm:pl-0 pl-0" style="color:#2563EB;">
+                    Explore teachers and students
+                    <svg fill="none" stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--study-abroad-->
+<section class="text-gray-600 body-font" style="background-color: #F1F5F9;">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col">
+            <div class="flex sm:flex-row flex-col py-2 mb-12">
+                <h1 class="max-w-full text-gray-900 font-bold title-font text-5xl mb-2 sm:mb-0 w-full sm:w-4/5">Choose Your Study Abroad Destination</h1>
+                <a class="text-indigo-500 inline-flex items-center mt-4 font-medium sm:w-1/5 leading-relaxed text-base sm:pl-10 pl-0" style="color:#9333EA;">
+                    Explore Universities
+                    <svg fill="none" stroke="#9333EA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                <div class="rounded-lg h-64 overflow-hidden">
+                    <img alt="content" class="object-cover object-center h-full w-full" src="https://yourbucketname.s3.amazonaws.com/usastudy.webp">
+                </div>
+                <p class="text-base leading-relaxed mt-2 text-black">In God we trust</p>
+                <h2 class="text-3xl font-medium title-font text-black mt-0 font-bold">UNITED STATES OF AMERICA</h2>
+
+                <a href="@Url.Action("ExploreUniversitiesUS", "Home")" class="text-indigo-500 inline-flex items-center mt-4 font-medium" style="color:#9333EA;">
+                    Explore Universities
+                    <svg fill="none" stroke="#9333EA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                <div class="rounded-lg h-64 overflow-hidden">
+                    <img alt="content" class="object-cover object-center h-full w-full" src="https://yourbucketname.s3.amazonaws.com/ukstudy2.webp">
+                </div>
+                <p class="text-base leading-relaxed mt-2 text-black">Dieu et mon droit</p>
+                <h2 class="text-3xl font-medium title-font text-black mt-0 font-bold">UNITED KINGDOM</h2>
+                <a href="@Url.Action("ExploreUniversitiesUK", "Home")" class="text-indigo-500 inline-flex items-center mt-4 font-medium" style="color:#9333EA;">
+                    Explore Universities
+                    <svg fill="none" stroke="#9333EA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                <div class="rounded-lg h-64 overflow-hidden">
+                    <img alt="content" class="object-cover object-center h-full w-full" src="https://yourbucketname.s3.amazonaws.com/canadastudy.webp">
+                </div>
+                <p class="text-base leading-relaxed mt-2 text-black">Mari Usque Ad Mare</p>
+                <h2 class="text-3xl font-medium title-font text-black mt-0 font-bold">CANADA</h2>
+                <a href="@Url.Action("ExploreUniversitiesCanada", "Home")" class="text-indigo-500 inline-flex items-center mt-4 font-medium" style="color:#9333EA;">
+                    Explore Universities
+                    <svg fill="none" stroke="#9333EA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--article-countries-universities-students-->
+<section class="text-gray-600 body-font" style="background-color:#0F172A;">
+    <div class="container px-4 py-20 mx-auto">
+        <div class="flex flex-wrap -m-4 text-center">
+            <div class="p-4 md:w-1/3 sm:w-1/2 w-full flex flex-col items-center">
+                <div class="element px-4 py-6 rounded-lg">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 6C17.6638 6 6 17.6638 6 32C6 46.3363 17.6638 58 32 58C46.3363 58 58 46.3363 58 32C58 17.6638 46.3363 6 32 6ZM41.3363 37.6025C40.2738 38.8975 36.375 42.4125 32 45.5413C27.625 42.4163 23.7263 38.8975 22.6638 37.6025C20.1638 34.5563 18.9662 31.4275 19.0012 28.04C19.04 24.1575 22.1538 20.9988 25.9425 20.9988C28.6925 20.9988 30.605 22.55 31.7163 23.8438L32 24.1875L32.2837 23.8438C33.375 22.5363 35.3025 21 38.0575 21C41.8463 21 44.96 24.1588 44.9987 28.0413C45.0337 31.4275 43.835 34.5563 41.3363 37.6025Z" fill="#FACC15" />
+                        <path d="M42.4965 38.5538L42.4964 38.554C41.3079 40.0024 37.2819 43.6084 32.873 46.7614L32.001 47.385L31.1286 46.7619C26.7187 43.6119 22.6931 40.0024 21.5047 38.5541L42.4965 38.5538ZM42.4965 38.5538C45.18 35.2824 46.5382 31.8209 46.4991 28.0263M42.4965 38.5538L46.4991 28.0263M31.9938 21.9707C30.6563 20.7286 28.6459 19.4988 25.943 19.4988C21.2978 19.4988 17.5487 23.3541 17.5018 28.0245L31.9938 21.9707ZM31.9938 21.9707C33.335 20.7139 35.3577 19.5 38.058 19.5C42.7033 19.5 46.4525 23.3557 46.4991 28.0263M31.9938 21.9707L46.4991 28.0263M17.5018 28.0251C17.4627 31.8205 18.8194 35.2821 21.5046 38.554L17.5018 28.0251Z" fill="#FB923C" stroke="#0F172A" stroke-width="3" />
+                    </svg>
+                    <h2 class="title-font font-bold text-6xl mt-2" style="color: #FACC15;">20 +</h2>
+                    <p class="leading-relaxed text-3xl" style="color: #FACC15;">countries</p>
+                </div>
+            </div>
+            <div class="p-4 md:w-1/3 sm:w-1/2 w-full flex flex-col items-center">
+                <div class="element px-4 py-6 rounded-lg">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.2146 4.00002C15.1316 3.99926 15.0498 4.01914 14.9764 4.05789C14.9031 4.09663 14.8405 4.15302 14.7944 4.22196C14.7483 4.2909 14.72 4.37024 14.7122 4.45282C14.7044 4.53541 14.7172 4.61864 14.7496 4.69502L15.0371 5.37377L20.1246 17.2363C20.1591 17.317 20.2143 17.3871 20.2846 17.4397C20.3549 17.4923 20.4378 17.5254 20.525 17.5358C20.6121 17.5462 20.7005 17.5335 20.7812 17.4989C20.8618 17.4643 20.932 17.4091 20.9846 17.3388L30.3746 4.80002C30.4303 4.72574 30.4642 4.6374 30.4725 4.54492C30.4809 4.45244 30.4633 4.35947 30.4218 4.27641C30.3802 4.19336 30.3164 4.12351 30.2374 4.0747C30.1584 4.02588 30.0674 4.00002 29.9746 4.00002H15.2146Z" fill="#FACC15" />
+                        <path d="M52.4911 7.25747L47.3311 19.3037C47.2987 19.3798 47.2856 19.4627 47.2931 19.545C47.3005 19.6274 47.3283 19.7066 47.3738 19.7756C47.4194 19.8446 47.4814 19.9012 47.5542 19.9403C47.6271 19.9795 47.7085 20 47.7911 20H60.4161C60.5053 20 60.5928 19.9762 60.6697 19.9311C60.7465 19.8859 60.8099 19.821 60.8533 19.7431C60.8966 19.6652 60.9184 19.5771 60.9162 19.488C60.9141 19.3989 60.8882 19.312 60.8411 19.2362L53.3749 7.19122C53.3267 7.11367 53.2581 7.05082 53.1767 7.00948C53.0952 6.96814 53.004 6.94989 52.913 6.95672C52.8219 6.96355 52.7344 6.99519 52.6601 7.04821C52.5857 7.10123 52.5273 7.1736 52.4911 7.25747Z" fill="#FACC15" />
+                        <path d="M10.6249 7.19628L3.16116 19.2363C3.11414 19.312 3.08821 19.3989 3.08608 19.4881C3.08395 19.5772 3.10568 19.6653 3.14903 19.7432C3.19238 19.8211 3.25576 19.8859 3.33262 19.9311C3.40948 19.9763 3.49701 20.0001 3.58616 20H16.2112C16.2939 19.9999 16.3753 19.9793 16.4481 19.94C16.5209 19.9007 16.5828 19.8439 16.6283 19.7748C16.6738 19.7057 16.7014 19.6263 16.7086 19.5439C16.7159 19.4615 16.7026 19.3785 16.6699 19.3025L11.4999 7.26253C11.4629 7.18074 11.4046 7.11042 11.3311 7.05894C11.2576 7.00745 11.1716 6.97671 11.0821 6.96993C10.9926 6.96316 10.9029 6.9806 10.8224 7.02042C10.742 7.06025 10.6738 7.12099 10.6249 7.19628V7.19628Z" fill="#FACC15" />
+                        <path d="M49.1587 4.00001H33.4775C33.4322 3.99971 33.3878 4.01209 33.3492 4.03572C33.3106 4.05936 33.2794 4.09333 33.2591 4.13377C33.2389 4.17422 33.2303 4.21953 33.2344 4.26459C33.2385 4.30965 33.2552 4.35266 33.2825 4.38876L43.2725 17.6963C43.298 17.7304 43.332 17.7573 43.3712 17.7741C43.4104 17.7909 43.4533 17.7971 43.4957 17.792C43.538 17.787 43.5783 17.7708 43.6124 17.7452C43.6465 17.7196 43.6733 17.6855 43.69 17.6463L48.95 5.37501L49.375 4.33251C49.3899 4.29672 49.396 4.25784 49.3927 4.21919C49.3893 4.18055 49.3767 4.14328 49.3558 4.1106C49.3349 4.07791 49.3064 4.05078 49.2727 4.03151C49.2391 4.01225 49.2012 4.00144 49.1625 4.00001H49.1587Z" fill="#FACC15" />
+                        <path d="M29.8749 56L18.6962 24.3138C18.6633 24.2217 18.6028 24.1422 18.5229 24.086C18.443 24.0298 18.3476 23.9998 18.2499 24H3.21242C3.12531 23.9998 3.03988 24.024 2.96587 24.0699C2.89186 24.1159 2.83224 24.1817 2.7938 24.2598C2.75537 24.338 2.73967 24.4254 2.74848 24.5121C2.7573 24.5987 2.79028 24.6812 2.84367 24.75L29.8437 59.7263C29.9351 59.8446 30.0655 59.9268 30.2117 59.9581C30.3579 59.9895 30.5105 59.968 30.6424 59.8975V59.8975C30.7751 59.8277 30.8782 59.7126 30.9331 59.573C30.9879 59.4335 30.9908 59.279 30.9412 59.1375L29.8749 56Z" fill="#FACC15" />
+                        <path d="M60.7873 24H45.7498C45.6526 24 45.5578 24.0302 45.4785 24.0864C45.3993 24.1426 45.3394 24.222 45.3073 24.3138L33.0323 59.0837C32.9807 59.2297 32.9829 59.3893 33.0383 59.5338C33.0937 59.6784 33.1988 59.7984 33.3348 59.8725C33.4708 59.9461 33.6285 59.9691 33.7798 59.9373C33.9311 59.9055 34.0662 59.8209 34.161 59.6987L61.156 24.75C61.2094 24.6812 61.2424 24.5987 61.2512 24.5121C61.2601 24.4254 61.2443 24.338 61.2059 24.2598C61.1675 24.1817 61.1079 24.1159 61.0338 24.0699C60.9598 24.024 60.8744 23.9998 60.7873 24V24Z" fill="#FACC15" />
+                        <path d="M32.4001 9.86626L39.4001 19.2C39.4558 19.2743 39.4898 19.3626 39.4981 19.4551C39.5064 19.5476 39.4889 19.6406 39.4473 19.7236C39.4058 19.8067 39.342 19.8765 39.263 19.9253C39.184 19.9742 39.093 20 39.0001 20H25.0001C24.9073 20 24.8163 19.9742 24.7373 19.9253C24.6583 19.8765 24.5944 19.8067 24.5529 19.7236C24.5114 19.6406 24.4938 19.5476 24.5021 19.4551C24.5105 19.3626 24.5444 19.2743 24.6001 19.2L31.6001 9.86626C31.6467 9.80416 31.7071 9.75376 31.7765 9.71905C31.8459 9.68433 31.9225 9.66626 32.0001 9.66626C32.0778 9.66626 32.1543 9.68433 32.2237 9.71905C32.2932 9.75376 32.3536 9.80416 32.4001 9.86626ZM31.5251 48.655L23.0626 24.6663C23.0361 24.5909 23.0279 24.5102 23.039 24.4311C23.05 24.3519 23.0798 24.2765 23.126 24.2113C23.1721 24.146 23.2333 24.0928 23.3042 24.056C23.3752 24.0193 23.454 24.0001 23.5339 24H40.4664C40.5463 24.0001 40.6251 24.0193 40.696 24.056C40.767 24.0928 40.8281 24.146 40.8743 24.2113C40.9204 24.2765 40.9503 24.3519 40.9613 24.4311C40.9723 24.5102 40.9642 24.5909 40.9376 24.6663L32.4714 48.655C32.4368 48.7524 32.373 48.8367 32.2886 48.8963C32.2042 48.9559 32.1034 48.9879 32.0001 48.9879C31.8968 48.9879 31.796 48.9559 31.7116 48.8963C31.6273 48.8367 31.5634 48.7524 31.5289 48.655H31.5251Z" fill="#FB923C" />
+                    </svg>
+                    <h2 class="title-font font-bold text-6xl mt-2" style="color: #FACC15;">700 +</h2>
+                    <p class="leading-relaxed text-3xl" style="color: #FACC15;">Universities</p>
+                </div>
+            </div>
+            <div class="p-4 md:w-1/3 sm:w-1/2 w-full flex flex-col items-center">
+                <div class="element px-4 py-6 rounded-lg">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 45.9999C31.6519 45.9999 31.3097 45.909 31.0075 45.7362L13.5 35.7299C13.3479 35.6421 13.1753 35.5959 12.9996 35.5959C12.824 35.596 12.6514 35.6424 12.4994 35.7303C12.3473 35.8182 12.2211 35.9447 12.1334 36.0969C12.0458 36.2491 11.9997 36.4218 12 36.5974V45.9999C11.9997 46.3569 12.0949 46.7074 12.2758 47.0151C12.4567 47.3229 12.7167 47.5766 13.0288 47.7499L31.0288 57.7499C31.3259 57.915 31.6601 58.0016 32 58.0016C32.3399 58.0016 32.6741 57.915 32.9713 57.7499L50.9712 47.7499C51.2833 47.5766 51.5433 47.3229 51.7242 47.0151C51.9051 46.7074 52.0003 46.3569 52 45.9999V36.5974C52.0003 36.4218 51.9542 36.2491 51.8666 36.0969C51.7789 35.9447 51.6527 35.8182 51.5006 35.7303C51.3486 35.6424 51.176 35.596 51.0004 35.5959C50.8247 35.5959 50.6521 35.6421 50.5 35.7299L32.9925 45.7362C32.6903 45.909 32.3482 45.9999 32 45.9999Z" fill="#FACC15" />
+                        <path d="M61.9904 23.8124C61.9904 23.8124 61.9904 23.8024 61.9904 23.7986C61.958 23.4816 61.8504 23.1769 61.6764 22.9099C61.5025 22.6429 61.2673 22.4213 60.9904 22.2636L32.9904 6.26364C32.6881 6.09088 32.346 6 31.9979 6C31.6497 6 31.3076 6.09088 31.0054 6.26364L3.00536 22.2636C2.69934 22.4386 2.445 22.6913 2.26811 22.9962C2.09121 23.3011 1.99805 23.6474 1.99805 23.9999C1.99805 24.3524 2.09121 24.6986 2.26811 25.0035C2.445 25.3084 2.69934 25.5612 3.00536 25.7361L31.0054 41.7361C31.3076 41.9089 31.6497 41.9998 31.9979 41.9998C32.346 41.9998 32.6881 41.9089 32.9904 41.7361L57.6254 27.6599C57.6634 27.6379 57.7066 27.6264 57.7506 27.6264C57.7946 27.6264 57.8378 27.6381 57.8758 27.6601C57.9138 27.6822 57.9454 27.7139 57.9672 27.752C57.9891 27.7902 58.0005 27.8334 58.0004 27.8774V45.9436C58.0004 47.0199 58.8279 47.9436 59.9041 47.9974C60.1745 48.0104 60.4448 47.9684 60.6985 47.8739C60.9522 47.7794 61.1841 47.6344 61.3801 47.4476C61.5761 47.2608 61.7321 47.0362 61.8387 46.7874C61.9453 46.5385 62.0003 46.2706 62.0004 45.9999V23.9999C62.0002 23.9373 61.9969 23.8747 61.9904 23.8124V23.8124Z" fill="#FB923C" />
+                    </svg>
+                    <h2 class="title-font font-bold text-6xl mt-2" style="color: #FACC15;">100k +</h2>
+                    <p class="leading-relaxed text-3xl" style="color: #FACC15;">happy students</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonial Section -->
+<section class="bg-gray-100 py-12" style="background-image: url('https://yourbucketname.s3.amazonaws.com/improve%20workflow.png');">
+    <div class="container mx-auto">
+        <h3 class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-center p-4 mt-12">What our partners have to say</h3>
+        <p style="margin: 0px 150px;" class="max-w-full text-center p-2 mx-2 mt-2">Our partnership with AdmitGenius has been invaluable. Their dedication to excellence, innovative solutions, and unwavering commitment to our shared goals have greatly contributed to our success. Working with their team has been a seamless experience, and we look forward to continued collaboration and mutual growth</p>
+
+        <!-- Image Slider -->
+        <div id="image-slider2" class="splide container mx-auto max-w-screen-xl">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <!-- Testimonial Item 1 -->
+                    <li class="splide__slide">
+                        <div class="body-font" style="color: #0F172A">
+                            <!-- Testimonial Content -->
+                            <div class="container mx-auto flex px-5 py-20 md:flex-row flex-col items-center">
+                                <!-- Testimonial Image -->
+                                <div class="lg:max-w-xl lg:w-full md:w-1/2 w-1/2 relative">
+                                    <img class="object-cover object-center rounded-md max-w-full" alt="hero" src="https://yourbucketname.s3.amazonaws.com/proff.jpg">
+                                </div>
+                                <!-- Testimonial Text -->
+                                <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                                    <div class="h-full shadow-lg p-8 mr-0 mb-6 bg-white rounded-md lg:-ml-40 -mb-2 relative z-10">
+                                        <h1 class="font-bold mb-4" style="color: #475569;">V R A J  &nbsp; C H A U B A L</h1>
+                                        <p class="leading-relaxed mb-6">AdmitGenius reflects their commitment to excellence and innovation, providing valuable resources for our university community. We look forward to continued collaboration.</p>
+                                        <a class="text-indigo-500 inline-flex items-center mt-4 font-medium sm:w-1/2 leading-relaxed text-base pl-0" style="color:#9333EA;">
+                                            Read Full Story
+                                            <svg fill="none" stroke="#9333EA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="body-font" style="color: #0F172A">
+                            <!-- Testimonial Content -->
+                            <div class="container mx-auto flex px-5 py-20 md:flex-row flex-col items-center">
+                                <!-- Testimonial Image -->
+                                <div class="lg:max-w-xl lg:w-full md:w-1/2 w-1/2 relative">
+                                    <img class="object-cover object-center rounded-md max-w-full" alt="hero" src="https://yourbucketname.s3.amazonaws.com/counsilor.jpg">
+                                </div>
+                                <!-- Testimonial Text -->
+                                <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                                    <div class="h-full shadow-lg p-8 mr-0 mb-6 bg-white rounded-md lg:-ml-40 -mb-2 relative z-10">
+                                        <h1 class="font-bold mb-4" style="color: #475569;">S H A K S H I &nbsp; C H A U D H A R I</h1>
+                                        <p class="leading-relaxed mb-6">Id urna, nisl, ut quam. Diam suspendisse fringilla quam arcu mattis est velit in. Nibh in purus sit convallis phasellus ut. At vel erat ultricies commodo. Neque suspendisse a habitasse commodo.</p>
+                                        <a class="text-indigo-500 inline-flex items-center mt-4 font-medium sm:w-1/2 leading-relaxed text-base pl-0" style="color:#9333EA;">
+                                            Read Full Story
+                                            <svg fill="none" stroke="#9333EA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="body-font" style="color: #0F172A">
+                            <!-- Testimonial Content -->
+                            <div class="container mx-auto flex px-5 py-20 md:flex-row flex-col items-center">
+                                <!-- Testimonial Image -->
+                                <div class="lg:max-w-xl lg:w-full md:w-1/2 w-1/2 relative">
+                                    <img class="object-cover object-center rounded-md max-w-full" alt="hero" src="https://yourbucketname.s3.amazonaws.com/vrajc.jpg">
+                                </div>
+                                <!-- Testimonial Text -->
+                                <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                                    <div class="h-full shadow-lg p-8 mr-0 mb-6 bg-white rounded-md lg:-ml-40 -mb-2 relative z-10">
+                                        <h1 class="font-bold mb-4" style="color: #475569;">V R A J &nbsp; C H A U B A L</h1>
+                                        <p class="leading-relaxed mb-6">Id urna, nisl, ut quam. Diam suspendisse fringilla quam arcu mattis est velit in. Nibh in purus sit convallis phasellus ut. At vel erat ultricies commodo. Neque suspendisse a habitasse commodo.</p>
+                                        <a class="text-indigo-500 inline-flex items-center mt-4 font-medium sm:w-1/2 leading-relaxed text-base pl-0" style="color:#9333EA;">
+                                            Read Full Story
+                                            <svg fill="none" stroke="#9333EA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--success stories-->
+<section class="success-stories" style="background-color: #F1F5F9;">
+    <div class="carousel">
+        <div class="carousel-inner">
+            <!--carousel-item 1-->
+            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+            <div class="carousel-item">
+                <div class="body-font" style="color: #0F172A">
+                    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+                        <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center" style="padding-left: 5%;padding-right: 5%;">
+                            <div class="h-full p-8 rounded" style="background-color: #F1F5F9;">
+                                <h1 class="font-bold mb-4" style="color: #475569;">S U C C E S S &nbsp; S T O R I E S</h1>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#475569" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+                                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                                </svg>
+                                <p class="leading-relaxed mb-6">Id urna, nisl, ut quam. Diam suspendisse fringilla quam arcu mattis est velit in. Nibh in purus sit convallis phasellus ut. At vel erat ultricies commodo. Neque suspendisse a habitasse commodo.</p>
+                                <a class="inline-flex items-center">
+                                    <img alt="testimonial" src="https://yourbucketname.s3.amazonaws.com/exam.jpg" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+                                    <span class="flex-grow flex flex-col pl-4">
+                                        <span class="title-font font-bold text-gray-900">Vraj Chaubal</span>
+                                        <span class="text-gray-600 text-sm">Backend developer</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6" style="padding-right: 5%;">
+                            <img class="object-cover object-center rounded-2xl" alt="hero" src="https://yourbucketname.s3.amazonaws.com/passout.jpeg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--carousel-item 2-->
+            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+            <div class="carousel-item">
+                <div class="body-font" style="color: #0F172A">
+                    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+                        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6" style="padding-left: 5%;padding-right: 5%;">
+                            <img class="object-cover object-center rounded-2xl" alt="hero" src="https://yourbucketname.s3.amazonaws.com/exam.jpg">
+                        </div>
+                        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                            <div class="h-full p-8 rounded" style="background-color: #F1F5F9;">
+                                <h1 class="font-bold mb-4" style="color: #475569;">S U C C E S S &nbsp; S T O R I E S</h1>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#475569" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+                                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                                </svg>
+                                <p class="leading-relaxed mb-6">Id urna, nisl, ut quam. Diam suspendisse fringilla quam arcu mattis est velit in. Nibh in purus sit convallis phasellus ut. At vel erat ultricies commodo. Neque suspendisse a habitasse commodo.</p>
+                                <a class="inline-flex items-center">
+                                    <img alt="testimonial" src="https://yourbucketname.s3.amazonaws.com/exam.jpg" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+                                    <span class="flex-grow flex flex-col pl-4">
+                                        <span class="title-font font-bold text-gray-900">Harper</span>
+                                        <span class="text-gray-600 text-sm">UI DEVELOPER</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--carousel-item 3-->
+            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+            <div class="carousel-item">
+                <div class="body-font" style="color: #0F172A">
+                    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+                        <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center" style="padding-left: 5%;padding-right: 5%;">
+                            <div class="h-full p-8 rounded" style="background-color: #F1F5F9;">
+                                <h1 class="font-bold mb-4" style="color: #475569;">S U C C E S S &nbsp; S T O R I E S</h1>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#475569" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+                                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                                </svg>
+                                <p class="leading-relaxed mb-6">Id urna, nisl, ut quam. Diam suspendisse fringilla quam arcu mattis est velit in. Nibh in purus sit convallis phasellus ut. At vel erat ultricies commodo. Neque suspendisse a habitasse commodo.</p>
+                                <a class="inline-flex items-center">
+                                    <img alt="testimonial" src="https://yourbucketname.s3.amazonaws.com/exam.jpg" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+                                    <span class="flex-grow flex flex-col pl-4">
+                                        <span class="title-font font-bold text-gray-900">John</span>
+                                        <span class="text-gray-600 text-sm">UI DEVELOPER</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6" style="padding-right: 5%;">
+                            <img class="object-cover object-center rounded-2xl" alt="hero" src="https://yourbucketname.s3.amazonaws.com/vrajc.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <label for="carousel-3" class="carousel-control prev control-1">&#x2329;</label>
+            <label for="carousel-2" class="carousel-control next control-1">&#x232A;</label>
+            <label for="carousel-1" class="carousel-control prev control-2">&#x2329;</label>
+            <label for="carousel-3" class="carousel-control next control-2">&#x232A;</label>
+            <label for="carousel-2" class="carousel-control prev control-3">&#x2329;</label>
+            <label for="carousel-1" class="carousel-control next control-3">&#x232A;</label>
+            <ol class="carousel-indicators">
+                <li>
+                    <label for="carousel-1" class="carousel-bullet">•</label>
+                </li>
+                <li>
+                    <label for="carousel-2" class="carousel-bullet">•</label>
+                </li>
+                <li>
+                    <label for="carousel-3" class="carousel-bullet">•</label>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!---improve workflow-->
+<section class="body-font bg-cover" style="color: #0F172A; background-image: url('https://yourbucketname.s3.amazonaws.com/improve%20workflow.png'); padding-left: 5%;padding-right: 5%;">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+            <img class="object-cover object-center rounded" alt="hero" src="https://yourbucketname.s3.amazonaws.com/Left.png">
+        </div>
+        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+            <h1 class="title-font sm:text-5xl text-3xl mb-4 font-bold text-gray-900">Improve workflow</h1>
+            <p class="mb-8 leading-relaxed">Egestas fringilla aliquam leo, habitasse arcu varius lorem elit. Neque pellentesque donec et tellus ac varius tortor, bibendum. Nulla felis ac turpis at amet. Purus malesuada placerat arcu at enim elit in accumsan.Egestas fringilla aliquam leo, habitasse arcu varius lorem elit. Neque pellentesque donec et tellus ac varius tortor, bibendum. Nulla felis ac turpis at amet. Purus malesuada placerat arcu at enim elit in accumsan.</p>
+            <div class="flex justify-center">
+                <a asp-controller="Community" asp-action="Index" class="text-indigo-500 inline-flex items-center mt-4 font-medium sm:w-full leading-relaxed text-base sm:pl-0 pl-0" style="color:#2563EB;">
+                    Check out Communities
+                    <svg fill="none" stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--article-join-the-community-->
+<article class="join-the-community article-item flex flex-col items-center justify-center">
+    <h1 class="text-2xl font-bold tracking-tight text-white sm:text-5xl text-center p-4 mt-8"><b>JOIN THE COMMUNITY TODAY</b></h1>
+    <p class="max-w-full">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi repudiandae laudantium consectetur sit quasi doloremque, rem pariatur dolorum molestias reiciendis accusantium ducimus odio, unde fugiat suscipit dolor excepturi nemo perferendis. Voluptates at rem enim molestias.</p>
+    <div class="flex justify-center">
+        <a asp-controller="Community" asp-action="Index">
+            <button asp-controller="Community" asp-action="Index" class="inline-flex text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded text-lg m-4 ml-0">
+                Sign Up Free
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.086 11.1569L12.136 7.20692C11.9538 7.01832 11.853 6.76571 11.8553 6.50352C11.8576 6.24132 11.9628 5.99051 12.1482 5.8051C12.3336 5.61969 12.5844 5.51452 12.8466 5.51224C13.1088 5.50997 13.3614 5.61076 13.55 5.79292L19.207 11.4499C19.3002 11.5426 19.3741 11.6527 19.4246 11.7741C19.4751 11.8954 19.501 12.0255 19.501 12.1569C19.501 12.2883 19.4751 12.4184 19.4246 12.5398C19.3741 12.6611 19.3002 12.7713 19.207 12.8639L13.55 18.5209C13.4578 18.6164 13.3474 18.6926 13.2254 18.745C13.1034 18.7974 12.9722 18.825 12.8394 18.8262C12.7066 18.8273 12.5749 18.802 12.452 18.7517C12.3291 18.7015 12.2175 18.6272 12.1236 18.5333C12.0297 18.4394 11.9555 18.3278 11.9052 18.2049C11.8549 18.082 11.8296 17.9503 11.8307 17.8175C11.8319 17.6847 11.8595 17.5535 11.9119 17.4315C11.9643 17.3095 12.0405 17.1992 12.136 17.1069L16.086 13.1569H6.5C6.23478 13.1569 5.98043 13.0516 5.79289 12.864C5.60536 12.6765 5.5 12.4221 5.5 12.1569C5.5 11.8917 5.60536 11.6373 5.79289 11.4498C5.98043 11.2623 6.23478 11.1569 6.5 11.1569H16.086Z" fill="white" />
+                </svg>
+            </button>
+        </a>
+    </div>
+
+</article>
+<!--FAQs-->
+<section class="mt-4 mb-4">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold tracking-tight text-black sm:text-5xl text-center p-2 mb-8"><b>FAQs</b></h1>
+    </div>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">What is Lorem Ipsum?</div>
+            <div class="icon-container"><i class="fa fa-plus"></i></div>
+        </div>
+        <div class="faq-answer">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Why do we use it?</div>
+            <div class="icon-container"><i class="fa fa-plus"></i></div>
+        </div>
+        <div class="faq-answer">
+            <p>To fill the blank elements on the page.</p>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Where can I get some?</div>
+            <div class="icon-container"><i class="fa fa-plus"></i></div>
+        </div>
+        <div class="faq-answer">
+            <p>There are many variations of passages of Lorem Ipsum available, but i use lipsum.com.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.nextElementSibling;
+        const icon = item.querySelector('i');
+
+        item.addEventListener('click', () => {
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    const otherAnswer = otherItem.nextElementSibling;
+                    const otherIcon = otherItem.querySelector('i');
+
+                    otherAnswer.classList.remove('active');
+                    otherIcon.classList.remove('active');
+                    otherAnswer.style.maxHeight = "0";
+                }
+            });
+
+            answer.classList.toggle('active');
+            icon.classList.toggle('active');
+            if (answer.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                answer.style.maxHeight = "0";
+            }
+        });
+    });
+</script>
+<script src="https://kit.fontawesome.com/cd2a33f722.js" crossorigin="anonymous"></script>
+
+
+
+
+

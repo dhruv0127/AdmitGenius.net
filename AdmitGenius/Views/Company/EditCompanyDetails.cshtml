@@ -1,0 +1,288 @@
+﻿@model AdmitGenius.Models.ViewModels.AddComapnyViewModel
+
+
+
+<div style="display:flex">
+    <!-- component -->
+    <div style="height: 100vh;" class="flex flex-col top-30 left-0 w-64 bg-white h-full border-r">
+
+        <div class="overflow-y-auto overflow-x-hidden flex-grow">
+
+            <ul class="flex flex-col py-4 space-y-1">
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Menu</div>
+                    </div>
+                </li>
+                <li>
+                    <a asp-action="Dashboard" asp-controller="Company" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="ManageEnrollments" asp-controller="Company" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Manage Enrollments</span>
+                    </a>
+                </li>
+                @*  <li>
+                <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                <span class="inline-flex justify-center items-center ml-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
+                </span>
+                <span class="ml-2 text-sm tracking-wide truncate">Inbox</span>
+                <span class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                <span class="inline-flex justify-center items-center ml-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                </span>
+                <span class="ml-2 text-sm tracking-wide truncate">Messages</span>
+                </a>
+                </li> *@
+
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Job Posting</div>
+                    </div>
+                </li>
+                <li>
+                    <a asp-action="AddJobPosting" asp-controller="Company" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Add Job / Internship</span>
+                    </a>
+                </li>
+
+                <li class="px-5">
+                    <div class="flex flex-row items-center h-8">
+                        <div class="text-sm font-light tracking-wide text-gray-500">Settings</div>
+                    </div>
+                </li>
+                <li>
+                    <a asp-action="AddNewTeam" asp-controller="Company" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Add Teams</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="EditCompanyDetails" asp-controller="Company" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <span class="inline-flex justify-center items-center ml-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">Edit Company Details</span>
+                    </a>
+                </li>
+                <li>
+                    <form style="padding:inherit;margin:0;" method="post" action="@Url.Action("Logout", "Users")">
+                        <button style="width:100%" type="submit" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                            <span style="margin-left: 18px;" class="inline-flex justify-center items-center ml-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                            </span>
+                            <span class="ml-2 text-sm tracking-wide truncate">Logout</span>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <style>
+        #dashboard-content {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .customcontainer {
+            margin-left: 2rem;
+            margin-top: 4rem;
+            display: flex;
+            height: inherit;
+            flex-direction: column;
+            align-items: center;
+            justify-self: flex-start;
+            justify-content: center;
+        }
+
+        .heading h2 {
+            color: darkblue;
+            font-family: 'roboto',sans-serif;
+        }
+
+        .content {
+            height: max-content;
+            width: 60vw;
+        }
+
+        form {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem auto;
+        }
+
+        input, textarea, select {
+            width: 45vw;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            border: 1px solid #979797;
+            box-sizing: border-box;
+        }
+
+            input::placeholder, textarea::placeholder {
+                color: black;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-size: 1rem;
+            }
+
+        .submitbtn {
+            margin: 0.5rem;
+            padding: 1rem;
+            background-color: orange;
+            border-radius: 5rem;
+            width: 15rem;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            align-self: center;
+            font-weight: bolder;
+        }
+
+            .submitbtn:hover {
+                background-color: orangered;
+                cursor: pointer;
+            }
+    </style>
+
+
+    <div id="dashboard-content">
+        <div class="customcontainer">
+            <div class="heading"><h2><strong>Edit Company Details</strong></h2></div>
+            <div class="content">
+
+                <form method="post" enctype="multipart/form-data">
+
+                    <label asp-for="CompanyName">Company Name</label>
+                    <input asp-for="CompanyName">
+
+                    <label asp-for="CompanyTagline">Company Tagline</label>
+                    <input asp-for="CompanyTagline">
+
+                    <label asp-for="CompanyDescription">Company Description</label>
+                    <textarea asp-for="CompanyDescription"></textarea>
+
+                    <label asp-for="CompanyRegisterDate">Company Registered Date</label>
+                    <input type="date" asp-for="CompanyRegisterDate">
+
+
+
+                    <label asp-for="CompanyCountry">Company Country</label>
+                    <input asp-for="CompanyCountry">
+
+                    <label asp-for="CompanyLocation">Company Location</label>
+                    <input asp-for="CompanyLocation">
+
+
+
+                    <label asp-for="logitude">Logitude</label>
+                    <input type="number" asp-for="logitude">
+
+                    <label asp-for="latitude">Latitude</label>
+                    <input type="number" asp-for="latitude">
+
+@* 
+                    <label asp-for="TotalClients">Total Clients</label>
+                    <input asp-for="TotalClients">
+
+                    <label asp-for="TotalProjects">Total Projects</label>
+                    <input asp-for="TotalProjects">
+
+                    <label asp-for="TotalWorkers">Total Workers</label>
+                    <input asp-for="TotalWorkers">
+ *@
+
+
+
+                    <label asp-for="TitleOfFeature1">Title For Feature 1</label>
+                    <input asp-for="TitleOfFeature1">
+
+                    <label asp-for="Feature1">Description For Feature 1</label>
+                    <input asp-for="Feature1">
+
+                    <label asp-for="TitleOfFeature2">Title For Feature 2</label>
+                    <input asp-for="TitleOfFeature2">
+
+                    <label asp-for="Feature2">Description For Feature 2</label>
+                    <input asp-for="Feature2">
+
+                    <label asp-for="TitleOfFeature3">Title For Feature 3</label>
+                    <input asp-for="TitleOfFeature3">
+
+                    <label asp-for="Feature3">Description For Feature 3</label>
+                    <input asp-for="Feature3">
+
+                    <label asp-for="TitleOfFeature4">Title For Feature 4</label>
+                    <input asp-for="TitleOfFeature4">
+
+                    <label asp-for="Feature4">Description For Feature 4</label>
+                    <input asp-for="Feature4">
+
+                    <label asp-for="TitleOfFeature5">Title For Feature 5</label>
+                    <input asp-for="TitleOfFeature5">
+
+                    <label asp-for="Feature5">Description For Feature 5</label>
+                    <input asp-for="Feature5">
+
+                    <label asp-for="TitleOfFeature6">Title For Feature 6</label>
+                    <input asp-for="TitleOfFeature6">
+
+                    <label asp-for="Feature6">Description For Feature 6</label>
+                    <input asp-for="Feature6">
+
+                    <label asp-for="CompanyWebsite">Company Website</label>
+                    <input asp-for="CompanyWebsite">
+
+
+                    <label asp-for="CompanyImage">Company Image</label>
+                    <input type="file" asp-for="CompanyImage">
+
+                    <label asp-for="CompanyLogo">Company Logo</label>
+                    <input type="file" asp-for="CompanyLogo">
+
+
+
+
+
+
+
+                    @* <div class="form-group">
+                    @Html.TextBoxFor(model => model.Hashtags, new { @class = "form-control", placeholder = "eg. CSE, Computer science" })
+                    @Html.ValidationMessageFor(model => model.Hashtags, "", new { @class = "text-danger" })
+                    </div> *@
+
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

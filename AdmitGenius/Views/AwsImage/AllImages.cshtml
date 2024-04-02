@@ -1,0 +1,41 @@
+﻿@model List<S3FileDetails>
+
+
+<form enctype="multipart/form-data" method="post" asp-controller="AwsImage" asp-action="UploadImage">
+    
+    <dl>
+        <dt>
+            File Upload to s3
+        </dt>
+        <dd>
+            <input type="file" name="file" />
+        </dd>
+    </dl>
+
+    <button type="submit" class="btn btn-primary submitbtn">Upload</button>
+
+</form>
+
+<br/>
+
+<lable> All files </lable>
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Image</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.FileName</td>
+            <td><img src="@item.S3Url" alt="Image" style="max-width: 100px; max-height: 100px;" /></td>
+        </tr>
+    }
+</table>
+
+
+

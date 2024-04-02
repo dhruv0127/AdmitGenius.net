@@ -1,0 +1,493 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AdmitGenius</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AdmitGenius.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="~/lib/leaflet/leaflet.css" rel="stylesheet" />
+    <link href="~/lib/leaflet/leaflet.min.css" rel="stylesheet" />
+
+
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+
+
+    <style>
+
+        ::-webkit-scrollbar {
+            width: 7px;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 20px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+                border-radius: 20px;
+            }
+
+
+        svg {
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+
+        @@media screen and (width<=786px) {
+            .mediaclass {
+                display: flex;
+                flex-direction: column
+            }
+
+            .customrow {
+                display: flex;
+                width: 100%;
+                justify-content: space-between
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <nav style="    max-height: 80px;" class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
+            <div class="customrow">
+
+                <a asp-action="Index" asp-controller="Home" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="~/images/Assets/3max.png" class="h-12" alt="Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ADMITGENIUS</span>
+
+                </a>
+                <button data-collapse-toggle="mega-menu-icons" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-icons" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+
+            </div>
+
+
+            @{
+                var userId = Context.Session.GetString("UserId");
+                var username = Context.Session.GetString("UserName");
+                var useremail = Context.Session.GetString("UserEmail");
+                var userprofile = Context.Session.GetString("UserProfile");
+                var userRole = Context.Session.GetString("UserRole");
+            }
+
+            <div class="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
+
+                @if (@userId != null)
+                {
+                    <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center text-sm pe-1 font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:me-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white" type="button">
+                        <span class="sr-only">Open user menu</span>
+                        <img style="object-fit:cover; margin-right: 5px" class="w-8 h-8 me-2 rounded-full" src="@userprofile" alt="user photo">
+                        <span id="username-placeholder">@username</span>
+                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+
+
+                    <!-- Dropdown menu -->
+                    <div style="width: fit-content;z-index:20" id="dropdownAvatarName" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                            <div class="font-medium ">@username</div>
+                            <div id="email-placeholder" class="truncate">@useremail</div>
+                        </div>
+                        @if (userRole == "Student")
+                        {
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                                <li>
+                                    <a asp-action="Index" asp-controller="StudentProfile" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-action="UpdateProfile" asp-controller="StudentProfile" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Update Profile</a>
+                                </li>
+                                <li>
+                                    <a asp-action="Status" asp-controller="StudentProfile" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Status</a>
+                                </li>
+                            </ul>
+
+                        }
+                        else if (userRole == "Counselor")
+                        {
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                                <li>
+                                    <a asp-action="CounsilorDashboard" asp-controller="Counsilor" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-action="UpdateProfile" asp-controller="Counsilor" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Update Profile</a>
+                                </li>
+                                <li>
+                                    <a asp-action="StudentChat" asp-controller="Counsilor" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Chat Box</a>
+                                </li>
+                            </ul>
+                        }
+                        else if (userRole == "Company")
+                        {
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                                <li>
+                                    <a asp-action="Dashboard" asp-controller="Company" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-action="ManageEnrollments" asp-controller="Company" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Manage Enrollments</a>
+                                </li>
+                                <li>
+                                    <a asp-action="EditCompanyDetails" asp-controller="Company" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Update Profile</a>
+                                </li>
+                            </ul>
+                        }
+                        <div class="py-2">
+                            <form style="padding: 0;" method="post" action="@Url.Action("Logout", "Users")">
+                                <button style="width: 100%;text-align: start;" type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                    Sign out
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <button data-modal-target="select-modal" data-modal-toggle="select-modal" type="button" class="inline-flex text-white items-center bg-orange-600 border-0 py-2 px-4 focus:outline-none hover:bg-orange-500 rounded text-base md:mt-0" style="color:white;background-color:#EA580C">
+                        SIGN UP
+                    </button>
+
+                    <button onclick="redirectToLoginPage()" class="inline-flex text-white items-center bg-orange-600 border-0 py-2 px-4 focus:outline-none hover:bg-orange-500 rounded text-base md:mt-0" style="background-color: transparent;color:#EA580C">
+                        LOG IN
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+
+                }
+
+                <div id="select-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-md max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                    How do you want to Register as?
+                                </h3>
+                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="select-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+
+                            <div class="p-4 md:p-5">
+
+                                <ul class="space-y-4 mb-4">
+                                    <li>
+                                        <a asp-action="Register" asp-controller="users" >
+                                            <label for="job-1" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                                <div class="block">
+                                                    <div class="w-full text-lg font-semibold">Student</div>
+                                                    <div style="max-width: 300px;" class="w-full text-gray-500 dark:text-gray-400">Get Intern or find University for Education</div>
+                                                </div>
+                                                <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
+                                            </label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="UniversityRegisterRequest" asp-controller="users" >
+                                            <label for="job-2" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                                <div class="block">
+                                                    <div class="w-full text-lg font-semibold">University</div>
+                                                    <div style="max-width: 300px;" class="w-full text-gray-500 dark:text-gray-400">Register as unviersity and get students directly</div>
+                                                </div>
+                                                <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
+                                            </label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="counselorregisterrequest" asp-controller="users">
+                                            <label for="job-3" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                                <div class="block">
+                                                    <div class="w-full text-lg font-semibold">Counselor</div>
+                                                    <div style="max-width: 300px;" class="w-full text-gray-500 dark:text-gray-400">Register to our portal with you pricing and get help the student to get placed</div>
+                                                </div>
+                                                <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
+                                            </label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="CompanyRegisterRequest" asp-controller="users" >
+                                            <label for="job-3" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                                <div class="block">
+                                                    <div class="w-full text-lg font-semibold">Company</div>
+                                                    <div style="max-width: 300px;" class="w-full text-gray-500 dark:text-gray-400">Post for Job/Intern application and get employee directly from our portal</div>
+                                                </div>
+                                                <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" /></svg>
+                                            </label>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <button class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Next step
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+                    var userId = '@@Session["UserId"]';
+                    console.log('UserId:', userId);
+                    $.ajax({
+                        url: '/Users/GetUserData', '
+                                            data: { userId: userId },
+                        success: function (userData) {
+                            $('#username-placeholder').text(userData.UserName);
+                            $('#email-placeholder').text(userData.UserEmail);
+                        },
+                        error: function () {
+                            console.log('Error fetching user data');
+                        }
+                                        });
+                </script>
+
+
+                <script>
+                    function redirectToLoginPage() {
+                        window.location.href = '/Users/Login';
+                    }
+                    function redirectToSignUpPage() {
+                        window.location.href = '/Users/Register';
+                    }
+                </script>
+            </div>
+            <style>
+                /* Add this CSS for hover effect */
+                .nav-item {
+                    color: #01111c;
+                    transition: transform 0.2s ease, color 0.2s ease;
+                }
+
+                    .nav-item:hover {
+                        transform: scale(1.05);
+                        font-weight: bold;
+                        color: #181fff; /* Change to whatever color you want on hover */
+                    }
+            </style>
+
+            <div id="mega-menu-icons" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+                <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+                    <li class="nav-item">
+                        <a asp-action="Index" asp-controller="Home" class="block py-2 px-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="StudentHomePage" asp-controller="StudentHome" class="block py-2 px-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
+                            Universities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="AllScholarship" asp-controller="Scholarship" class="block py-2 px-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
+                            Scholarships
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="AllCounsilor" asp-controller="Counsilor" class="block py-2 px-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
+                            Counselors
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="AllCompanies" asp-controller="Company" class="block py-2 px-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
+                            Internships
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-action="AllCommunities" asp-controller="Community" class="block py-2 px-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
+                            Communities
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a asp-action="AboutUs" asp-controller="Home" class="block py-2 px-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">
+                            About Us
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="Max-container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!--Footer-->
+    <footer class="text-gray-600 body-font">
+        <div class="container px-0 py-24 mx-auto w-full flex items-center justify-center border-0" style="padding-bottom:0">
+            <div class="flex flex-wrap md:text-left text-center order-first w-full text-center">
+                <div class="lg:w-1/6 md:w-1/3 w-full px-4 mb-8 text-center">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 ">Categories</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">User Interface</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">User Experience</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Digital Media</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Lifestyle</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Programming</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Animation</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/3 w-full px-4 mb-8 text-center">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Product</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Pricing</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Overview</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Browse</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Accessibility</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Five</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Changelog</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/3 w-full px-4 mb-8 text-center">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Solutions</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Brainstorming</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Ideation</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Wireframing</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Research</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Design</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Concept</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/3 w-full px-4 mb-8 text-center">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Resources</h2>
+                    <nav class="list-none mb-10">
+                        <li><a class="text-gray-600 hover:text-gray-800">Help Center</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Blog</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Tutorials</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">FAQs</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Community</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Events</a></li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/3 w-full px-4 mb-8 text-center">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Support</h2>
+                    <nav class="list-none mb-10">
+                        <li><a class="text-gray-600 hover:text-gray-800">Contact Us</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Developers</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Documentation</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Integrations</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Reports</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Webinar</a></li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/3 w-full px-4 mb-8 text-center">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Company</h2>
+                    <nav class="list-none mb-10">
+                        <li><a class="text-gray-600 hover:text-gray-800">About</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Press</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Events</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Careers</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Customers</a></li>
+                        <li><a class="text-gray-600 hover:text-gray-800">Partners</a></li>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-gray-600 body-font">
+            <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                    <img src="https://yourbucketname.s3.amazonaws.com/logosb.jpeg" class="h-12" alt="Logo" />
+                    <span class="ml-3 text-xl">ADMIT GENIUS</span>
+                </a>
+                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+                    © 2023 —
+                    <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@@Copy right claim</a>
+                </p>
+                <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                    <a class="text-gray-500">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                        </svg>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

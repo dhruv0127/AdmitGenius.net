@@ -1,0 +1,65 @@
+﻿@model AdmitGenius.Models.ViewModels.EditUniversityDetailsViewModel
+
+<h1>Add New University</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+    <p>@ViewBag.sucess</p>
+
+    <div class="form-group">
+        <label asp-for="UniversityName">Name</label>
+        <input asp-for="UniversityName" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="UniversityDescription">Description</label>
+        <input asp-for="UniversityDescription" class="form-control" placeholder="">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UniversityImageFile">Image File</label>
+        <input asp-for="UniversityImageFile" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UniversityCountry">Country</label>
+        <input asp-for="UniversityCountry" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="UniversityLocation">Full Location</label>
+        <input asp-for="UniversityLocation" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="UniversityRegisterDate">Register Date</label>
+        <input asp-for="UniversityRegisterDate" type="date" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="UniversityOfficalEmailAddress">Official Email Address</label>
+        <input asp-for="UniversityOfficalEmailAddress" type="text" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="UniversityPassword">Password</label>
+        <input asp-for="UniversityPassword" type="text" class="form-control" placeholder="">
+    </div>
+
+    <div class="form-group">
+        <!-- Image preview -->
+        <img id="preview" class="img-thumbnail" alt="Image Preview" style="max-width: 200px; max-height: 200px;" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add New University</button>
+</form>
+
+
+<script>
+    // Function to preview the selected image
+    function previewImage(input) {
+        var file = input.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('preview').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

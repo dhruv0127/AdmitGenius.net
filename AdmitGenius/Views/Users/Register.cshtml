@@ -1,0 +1,317 @@
+﻿@model AdmitGenius.Models.ViewModels.AddUserViewModel
+
+<style>
+
+* {
+  font-family: 'roboto', sans-serif !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.lower-section {
+  margin: 0rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  /* border: 2px solid black; */
+}
+
+form {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0rem auto;
+}
+
+.text-input {
+  width: 30vw;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  border: 1px solid #D2D2D2;
+  /* box-sizing: border-box; */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1rem;
+}
+
+.submitbtn {
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: black;
+  border-radius: 5rem;
+  width: 100%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.submitbtn:hover {
+  background-color: #2E2E2E;
+  cursor: pointer;
+}
+
+.remember {
+  width: 30vw;
+}
+
+.right-container {
+  display: flex;
+  justify-content: center;
+  max-width: fit-content;
+  height: 90vh;
+  padding-right: 10%;
+}
+
+.left-container {
+  /* border: 2px solid black; */
+  height: 100%;
+}
+
+.continue {
+  border: 1px solid rgb(173, 173, 173);
+  padding: 0.5rem;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+#google-icon {
+  height: 20px;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#google-link {
+  font-size: 0.9rem;
+}
+
+.welcome {
+  font-weight: bolder;
+  font-size: 1.8rem;
+}
+
+.welcome-text {
+  font-size: 0.8rem;
+  margin-bottom: 25px;
+}
+
+.header-item {
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.upper-section h2 {
+  font-size: xx-large;
+  font-weight: bolder;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to right, #06348E 0%, #9B099E 20%, #6F0028 70%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@@media screen and (min-width: 600px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .header-item{
+    width: 100%;
+  }
+}
+
+
+@@media screen and (min-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+
+@@media screen and (width<=786px) {
+  .upper-section{
+    text-align: center;
+    font-size: medium;
+  }
+
+  .left-container{
+    width: 100%;
+  }
+
+  .lower-section{
+    margin: 0rem;
+    padding: 1rem;
+    width: 100%;
+  }
+
+ .text-input, .continue, .remember{
+    width: 80vw;
+  }
+
+  .header-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .lower-section{
+    align-items: center;
+  }
+}
+
+
+        /*or divider*/
+        .or-divider {
+        display: flex;
+        align-items: center;
+        margin: 20px 0; 
+        }
+
+        .or-line {
+        flex: 1;
+        height: 1px;
+        background-color: rgb(21, 15, 15); 
+        margin: 0 10px; 
+        }
+
+        .or-text {
+        font-weight: bold;
+        color: #333; 
+        }
+         @@media screen and (width<=786px){
+            .footer{
+                position: sticky;
+            }
+            .logo{
+                font-size: 18px;
+            }
+
+            .footer{
+                display:flex;
+                flex-direction: column;   
+                justify-content:center;
+            }
+
+            .footer p{
+                margin-bottom: 8px;
+            }
+        }          
+    </style>
+
+    <div class="header-container max-w-full md:flex-row flex-col">
+        <div class="left-container header-item flex items-center flex-col">
+            <div class="upper-section">
+                <h2 class="mt-6">ADMITGENIUS</h2>
+            </div>
+            <div class="middle-section">
+                <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+            </div>
+            <div class="lower-section">
+                <p class="welcome">WELCOME,</p>
+                <p class="welcome-text">Register Yourself To Our Portal</p>
+                <div class="continue">
+                    <svg id="google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
+                        viewBox="0 0 48 48">
+                        <path fill="#FFC107"
+                            d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                        </path>
+                        <path fill="#FF3D00"
+                            d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                        </path>
+                        <path fill="#4CAF50"
+                            d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                        </path>
+                        <path fill="#1976D2"
+                            d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                        </path>
+                    </svg>
+                    <a id="google-link" href="">
+                        Continue With Google
+                    </a>
+                </div>
+                <div class="or-divider">
+                    <span class="or-line"></span>
+                    <span class="or-text">Or</span>
+                    <span class="or-line"></span>
+                </div>
+                <div class="content">
+
+
+               <form asp-controller="Users" asp-action="Register" method="post" onsubmit="return validateForm();">
+
+                        <div class="form-group">
+                            <input class="text-input" asp-for="UserName" class="form-control" placeholder="Name" required />
+                        </div>
+
+                        <div class="form-group">
+                            <input class="text-input" id="password" type="email" asp-for="UserEmail" class="form-control" placeholder="Email" required />
+                        @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+                        </div>
+                                           
+
+                        <div class="form-group">
+                            <input class="text-input" asp-for="UserPassword" type="password" placeholder="Password" class="form-control" required />
+                            @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
+                        </div>
+
+                    @Html.ValidationSummary(true, "", new {  @class = "text-danger" })
+
+                        <div class="remember">
+                            <input type="checkbox" id="rememberme" name="rememberme">
+                            <label for="rememberme">
+                                &nbsp;Remember me
+                            </label>
+                        </div>
+                    <button type="submit" class="btn btn-primary submitbtn">Register</button>
+
+                </form>
+                <p style="margin-top: 10px;">Already have an account? <a asp-action="Login" style="color: #FEC00F;">LOGIN</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="right-container header-item bg-cover">
+        <img class="right-img" alt="no-img" src="https://yourbucketname.s3.amazonaws.com/loginimage.png">
+        </div>
+    </div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script src="~/js/site.js"></script>

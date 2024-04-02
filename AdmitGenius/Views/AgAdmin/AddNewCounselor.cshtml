@@ -1,0 +1,36 @@
+﻿@model AdmitGenius.Models.ViewModels.AddCounselorViewModel
+
+
+<h1>Add New Counselor</h1>
+
+<form method="post" asp-action="AddNewCounselor">
+    <div class="form-group">
+        <label asp-for="CounselorFirstName">Name</label>
+        <input asp-for="CounselorFirstName" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="CounselorEmail">Email</label>
+        <input type="email" asp-for="CounselorEmail" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="CounselorPassword">Password</label>
+        <input type="password" asp-for="CounselorPassword" type="password" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="CounselorPhone">Phone</label>
+        <input type="number" asp-for="CounselorPhone" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="CounselorCountry">Country</label>
+        <input asp-for="CounselorCountry" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+        <label asp-for="CounselorFullLocation">Full Location</label>
+        <input asp-for="CounselorFullLocation" class="form-control" placeholder="">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add New Counselor</button>
+</form>
+
+
+
